@@ -43,6 +43,7 @@ console.log();
 //                  will contain a different color every time the page loads)
 var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 var randomColor = colors[Math.floor(Math.random() * colors.length)];
+
 /**
  * TODO:
  * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
@@ -75,6 +76,7 @@ function analyzeColor(color) {
             break;
     }
 }
+
 // analyzeColor(randomColor);
 
 /**
@@ -83,8 +85,8 @@ function analyzeColor(color) {
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
-let color = prompt("Type a color:")
-analyzeColor(color);
+// let color = prompt("Type a color:")
+// analyzeColor(color);
 
 /* ########################################################################## */
 
@@ -107,6 +109,28 @@ analyzeColor(color);
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
+function calculateTotal(luckyNum, total) {
+    switch (luckyNum) {
+        case 0:
+            alert("Your lucky number is " + luckyNumber + ", you do not receive a discount and your cost is $" + total);
+            return ("Your final price is $" + total);
+        case 1:
+            alert("Your lucky number is " + luckyNumber + ", your cost before discount was $" + total + " and your cost after discount is $" + (total - (total * .10)));
+            return ("Your final price is $" + (total - (total * .10)));
+        case 2:
+            alert("Your lucky number is " + luckyNumber + ", your cost before discount was $" + total + " and your cost after discount is $" + (total - (total * .25)));
+            return ("Your final price is $" + (total - (total * .25)));
+        case 3:
+            alert("Your lucky number is " + luckyNumber + ", your cost before discount was $" + total + " and your cost after discount is $" + (total - (total * .35)));
+            return ("Your final price is $" + (total - (total * .35)));
+        case 4:
+            alert("Your lucky number is " + luckyNumber + ", your cost before discount was $" + total + " and your cost after discount is $" + (total - (total * .50)));
+            return ("Your final price is $" + (total - (total * .50)));
+        case 5:
+            alert("Your lucky number is " + luckyNumber + ", your cost before discount was $" + total + " and your purchase is free!");
+            return ("Your purchase is free!");
+    }
+}
 
 /**
  * TODO:
@@ -117,7 +141,11 @@ analyzeColor(color);
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+var luckyNumber = Math.floor(Math.random() * 6);
+
+// let total = prompt("What is your total price?");
+//
+// calculateTotal(luckyNumber, total);
 
 /**
  * TODO:

@@ -19,10 +19,10 @@ function sayHello(name) {
  *
  * console.log 'helloMessage' to check your work
  */
-// function sayHello(name) {
-//     let helloMessage = ("Hello, " + name + "!");
-//     console.log(helloMessage);
-// }
+function sayHello(name) {
+    let helloMessage = ("Hello, " + name + "!");
+    console.log(helloMessage);
+}
 
 /**
  * TODO:
@@ -54,10 +54,10 @@ var random = Math.floor((Math.random() * 3) + 1);
  * different result everytime you refresh the page if you are using the random
  * number)
  */
-// function isTwo (random) {
-//     return random === 2;
-// }
-// console.log(random + " " + isTwo(random));
+function isTwo (random) {
+    return random === 2;
+}
+console.log(random + " " + isTwo(random));
 
 /**
  * TODO:
@@ -82,9 +82,9 @@ function calculateTip (percentage, billTotal) {
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
-// let percentage = prompt("What tip percentage?");
-// let billTotal = prompt("What is the total bill?");
-// calculateTip(percentage, billTotal);
+let percentage = prompt("What tip percentage?");
+let billTotal = prompt("What is the total bill?");
+calculateTip(percentage, billTotal);
 
 /**
  * TODO:

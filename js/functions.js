@@ -54,6 +54,10 @@ var random = Math.floor((Math.random() * 3) + 1);
  * different result everytime you refresh the page if you are using the random
  * number)
  */
+// function isTwo (random) {
+//     return random === 2;
+// }
+// console.log(random + " " + isTwo(random));
 
 /**
  * TODO:
@@ -66,6 +70,11 @@ var random = Math.floor((Math.random() * 3) + 1);
  * > calculateTip(0.25, 25.50) // returns 6.375
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
+function calculateTip (percentage, billTotal) {
+    let tip = percentage * billTotal;
+    alert(tip);
+    // return ("Tip is $" + tip);
+}
 
 /**
  * TODO:
@@ -73,6 +82,9 @@ var random = Math.floor((Math.random() * 3) + 1);
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
+// let percentage = prompt("What tip percentage?");
+// let billTotal = prompt("What is the total bill?");
+// calculateTip(percentage, billTotal);
 
 /**
  * TODO:
@@ -88,3 +100,7 @@ var random = Math.floor((Math.random() * 3) + 1);
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
+function applyDiscount (originalPrice, discountPercent) {
+    let discountedPrice = originalPrice * discountPercent;
+    return ("Discounted price is $" + (originalPrice - discountedPrice).toFixed(2));
+}

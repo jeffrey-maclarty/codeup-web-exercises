@@ -62,7 +62,7 @@ alert("Total contracting pay is $" + totalPay + ".");
 // A student can be enrolled in a class only if the class is not full and the class schedule does not
 // conflict with her current schedule.
 let classFull = confirm("Is the class full? ok = yes / cancel = no");
-let classConflict = confirm("Is there a scheduling conflit? ok = yes / cancel = no");
+let classConflict = confirm("Is there a scheduling conflict? ok = yes / cancel = no");
 let canEnroll = !classFull && !classConflict;
 
 alert("Student may enroll in class: " + canEnroll);

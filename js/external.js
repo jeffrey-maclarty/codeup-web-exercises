@@ -74,7 +74,9 @@ alert("Student may enroll in class: " + canEnroll);
 let numberOfItems = prompt("Number of items bought?");
 let offerValid = confirm("Offer is still valid? ok = yes / cancel = no");
 let premiumMember = confirm("Premium member? ok = yes / cancel = no");
-let mayPurchase = (numberOfItems > 2 && offerValid === true) || (offerValid === true && premiumMember === true);
+// let mayPurchase = (numberOfItems > 2 && offerValid === true) || (offerValid === true && premiumMember === true);
+// using truthy / falsy:
+let mayPurchase = (numberOfItems > 2 && offerValid) || (offerValid && premiumMember);
 
 alert("Customer may purchase items: " + mayPurchase);
 

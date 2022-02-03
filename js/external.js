@@ -54,7 +54,7 @@ let facebookHourly = 350;
 let googleHours = 6;
 let amazonHours = 4;
 let facebookHours = 10;
-let totalPay = (googleHourly * googleHours) + (amazonHourly + amazonHours) + (facebookHourly + amazonHours);
+let totalPay = (googleHourly * googleHours) + (amazonHourly + amazonHours) + (facebookHourly + facebookHours);
 
 alert("Total contracting pay is $" + totalPay + ".");
 

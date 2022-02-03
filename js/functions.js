@@ -8,6 +8,9 @@
  * Example
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
+function sayHello(name) {
+    return ("Hello, " + name + "!");
+}
 
 /**
  * TODO:
@@ -16,6 +19,10 @@
  *
  * console.log 'helloMessage' to check your work
  */
+// function sayHello(name) {
+//     let helloMessage = ("Hello, " + name + "!");
+//     console.log(helloMessage);
+// }
 
 /**
  * TODO:
@@ -23,6 +30,8 @@
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
+let myName = "Jeffrey";
+
 
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random

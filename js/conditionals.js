@@ -24,6 +24,17 @@ console.log();
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
+// function analyzeColor(color) {
+//     if (color === "blue") {
+//         return ("Blue is the color of the sky.")
+//     } else if (color === "red") {
+//         return ("Strawberries are red.")
+//     } else if (color === "cyan") {
+//         return ("I don't know anything about cyan.")
+//     } else {
+//         return ("I don't know anything that is " + color + ".")
+//     }
+// }
 
 // Don't change the next two lines!
 // These lines create two variables for you:
@@ -38,10 +49,33 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message every time you refresh the page
  */
 
+// console.log(analyzeColor(randomColor));
+
 /**
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
+function analyzeColor(color) {
+    switch (color) {
+        case "blue":
+            console.log("Blue is the color of the sky.");
+            alert("Blue is the color of the sky.");
+            break;
+        case "red":
+            console.log("Strawberries are red.");
+            alert("Strawberries are red.");
+            break;
+        case "cyan":
+            console.log("I don't know anything about cyan.");
+            alert("I don't know anything about cyan.");
+            break;
+        default:
+            console.log("I don't know anything that is " + color + ".");
+            alert("I don't know anything that is " + color + ".");
+            break;
+    }
+}
+// analyzeColor(randomColor);
 
 /**
  * TODO:
@@ -49,6 +83,8 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+let color = prompt("Type a color:")
+analyzeColor(color);
 
 /* ########################################################################## */
 

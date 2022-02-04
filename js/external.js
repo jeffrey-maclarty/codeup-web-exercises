@@ -35,10 +35,10 @@ alert("Great, " + userColor + " is my favorite color too!");
 // You have rented some movies for your kids: The little mermaid (for 3 days), Brother Bear (for 5 days,
 // they love it), and Hercules (1 day, you don't know yet if they're going to like it). If price for a
 // movie per day is $3, how much will you have to pay?
-let littleMermaid = 3;
-let brotherBear = 5;
-let hercules = 1;
-let dailyCost = 3;
+let littleMermaid = prompt("How many days did you rent The Little Mermaid?");
+let brotherBear = prompt("How many days did you rent Brother Bear?");
+let hercules = prompt("How many days did you rent The Hercules?");
+let dailyCost = prompt("How much does a movie cost for one day?");
 let totalPrice = (littleMermaid * dailyCost) + (brotherBear * dailyCost) + (hercules * dailyCost);
 
 alert("Total cost of movies is $" + totalPrice + ".");
@@ -48,12 +48,12 @@ alert("Total cost of movies is $" + totalPrice + ".");
 // a different rate per hour. Google pays $400, Amazon $380, and Facebook $350. How much will you
 // receive in payment for this week? You worked 10 hours for Facebook, 6 hours for Google and 4 hours
 // for Amazon.
-let googleHourly = 400;
-let amazonHourly = 380;
-let facebookHourly = 350;
-let googleHours = 6;
-let amazonHours = 4;
-let facebookHours = 10;
+let googleHourly = prompt("How much does Google pay per hour?");
+let amazonHourly = prompt("How much does Amazon pay her hour?");
+let facebookHourly = prompt("How much does Facebook pay her hour?");
+let googleHours = prompt("How many hours did you work for Google?");
+let amazonHours = prompt("How many hours did you work for Amazon?");
+let facebookHours = prompt("How many hours did you work for Facebook?");
 let totalPay = (googleHourly * googleHours) + (amazonHourly + amazonHours) + (facebookHourly + facebookHours);
 
 alert("Total contracting pay is $" + totalPay + ".");

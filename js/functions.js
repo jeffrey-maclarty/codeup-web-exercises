@@ -19,10 +19,8 @@ function sayHello(name) {
  *
  * console.log 'helloMessage' to check your work
  */
-function sayHello(name) {
-    let helloMessage = ("Hello, " + name + "!");
-    console.log(helloMessage);
-}
+let helloMessage = sayHello("Jeffrey");
+console.log(helloMessage);
 
 /**
  * TODO:

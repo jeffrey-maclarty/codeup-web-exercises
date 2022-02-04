@@ -24,8 +24,8 @@
 // Make a function named areIdentical(input1, input2) that returns true if both inputs are same value and data type.
 
 function isLowerCase(letter) {
-    // return letter.toLowerCase() === letter;
-    console.log(letter.toLowerCase() === letter)
+    // return (letter.toLowerCase() === letter);
+    console.log(letter.toLowerCase() === letter);
 
 }
 isLowerCase("t");
@@ -39,5 +39,5 @@ console.log(double(3));
 function areIdentical(input1, input2) {
     return input1 === input2;
 }
-console.log(areIdentical(78, 78));
+console.log(areIdentical("tram", "tram"));
 console.log(areIdentical(2, 56));

@@ -31,6 +31,7 @@ function sayHello(name) {
  * console.
  */
 let myName = "Jeffrey";
+console.log(sayHello(myName));
 
 
 // Don't modify the following line, it generates a random number between 1 and 3

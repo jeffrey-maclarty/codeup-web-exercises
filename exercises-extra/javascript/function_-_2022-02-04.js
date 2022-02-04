@@ -7,14 +7,37 @@
 *       -> showName() should be void function. That is, it should not return a value - only execute code
 *   -> Test to ensure your code is working as expected
 * */
-function getName(name) {
-    return prompt("What is your name?")
+// function getName(name) {
+//     return prompt("What is your name?")
+// }
+//
+// console.log(getName())
+//
+// function showName(username) {
+//     alert(username);
+// }
+//
+// showName(getName());
+
+// Make a function named isLowerCase(letter) which returns true if the parameter is lowercased
+// Write a function named double(n) that returns a number times two
+// Make a function named areIdentical(input1, input2) that returns true if both inputs are same value and data type.
+
+function isLowerCase(letter) {
+    // return letter.toLowerCase() === letter;
+    console.log(letter.toLowerCase() === letter)
+
 }
+isLowerCase("t");
+isLowerCase("H");
 
-console.log(getName())
-
-function showName(username) {
-    alert(username);
+function double(n) {
+    return n * 2;
 }
+console.log(double(3));
 
-showName(getName());
+function areIdentical(input1, input2) {
+    return input1 === input2;
+}
+console.log(areIdentical(78, 78));
+console.log(areIdentical(2, 56));

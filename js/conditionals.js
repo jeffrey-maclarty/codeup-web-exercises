@@ -172,6 +172,7 @@ function userNumRequest() {
 
     if (userYes) { // truthy/falsy
         let userNum = prompt("Enter your number");
+
         if (userNum == 0) { // loose equality intentional
             alert("The number " + userNum + " is neither even or odd.");
         } else if (userNum % 2 === 0) {

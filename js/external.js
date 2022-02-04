@@ -79,4 +79,3 @@ let premiumMember = confirm("Premium member? ok = yes / cancel = no");
 let mayPurchase = (numberOfItems > 2 && offerValid) || (offerValid && premiumMember);
 
 alert("Customer may purchase items: " + mayPurchase);
-

@@ -35,11 +35,11 @@ alert("Great, " + userColor + " is my favorite color too!");
 // You have rented some movies for your kids: The little mermaid (for 3 days), Brother Bear (for 5 days,
 // they love it), and Hercules (1 day, you don't know yet if they're going to like it). If price for a
 // movie per day is $3, how much will you have to pay?
-let littleMermaid = prompt("How many days did you rent The Little Mermaid?");
-let brotherBear = prompt("How many days did you rent Brother Bear?");
-let hercules = prompt("How many days did you rent The Hercules?");
-let dailyCost = prompt("How much does a movie cost for one day?");
-let totalPrice = (littleMermaid * dailyCost) + (brotherBear * dailyCost) + (hercules * dailyCost);
+let littleMermaid = parseInt(prompt("How many days did you rent The Little Mermaid?"));
+let brotherBear = parseInt(prompt("How many days did you rent Brother Bear?"));
+let hercules = parseInt(prompt("How many days did you rent The Hercules?"));
+let dailyCost = parseInt(prompt("How much does a movie cost for one day?"));
+let totalPrice = (littleMermaid + brotherBear + hercules) * dailyCost;
 
 alert("Total cost of movies is $" + totalPrice + ".");
 

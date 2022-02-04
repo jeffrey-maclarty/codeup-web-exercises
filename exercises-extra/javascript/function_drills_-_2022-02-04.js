@@ -70,3 +70,7 @@ function isMultipleOf(target, n) {
     return isMult % 1 === 0;
 }
 
+// 11. Make a function name isTrue(boolean)
+function isTrue(boolean) {
+    return boolean === true;
+}

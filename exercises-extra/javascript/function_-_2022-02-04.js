@@ -8,13 +8,13 @@
 *   -> Test to ensure your code is working as expected
 * */
 function getName(name) {
-    return name;
+    return prompt("What is your name?")
 }
 
-console.log(getName("Jeffrey"))
+console.log(getName())
 
 function showName(username) {
     alert(username);
 }
 
-showName(getName("J"));
+showName(getName());

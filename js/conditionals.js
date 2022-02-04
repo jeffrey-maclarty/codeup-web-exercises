@@ -165,3 +165,31 @@ var luckyNumber = Math.floor(Math.random() * 6);
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+userNumRequest();
+
+function userNumRequest() {
+    let userYes = confirm("Would you like to enter a number?");
+
+    if (userYes) { // truthy/falsy
+        let userNum = prompt("Enter your number");
+        if (userNum == 0) { // loose equality intentional
+            alert("The number " + userNum + " is neither even or odd.");
+        } else if (userNum % 2 === 0) {
+            alert("The number " + userNum + " is even.");
+        } else {
+            alert("the number " + userNum + " is odd.")
+        }
+
+        alert("The number " + userNum + " plus 100 is " + (parseInt(userNum) + 100) + ".");
+
+        if (userNum > 0) {
+            alert("The number " + userNum + " is positive.");
+        } else if (userNum < 0) {
+            alert("The number " + userNum + " is negative.")
+        } else {
+            alert("The number " + userNum + " is neither postive or negative.")
+        }
+    } else {
+        alert("Goodbye.");
+    }
+}

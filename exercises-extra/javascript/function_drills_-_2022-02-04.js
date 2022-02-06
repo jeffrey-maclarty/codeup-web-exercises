@@ -3,6 +3,11 @@ console.log("Link Test");
 console.log("---------");
 console.log();
 
+// a b c d e f g h i j k l m n o p q r s t u v w x y z
+// a e o i u
+// b c d f g h j k l m n p q r s t v w x y z
+// ("a" || "b" || "c" || "d" || "e" || "f" || "g" || "h" || "i" || "j" || "k" || "l" || "m" || "n" || "o" || "p" || "q" || "r" || "s" || "t" || "u" || "v" || "w" || "x" || "y" || "z")
+
 // 1. Make a function named isOdd(number)
 function isOdd(number) {
     return number % 2 !== 0;
@@ -74,3 +79,63 @@ function isMultipleOf(target, n) {
 function isTrue(boolean) {
     return boolean === true;
 }
+
+// 12. Make a functino named isFalse(boolean)
+function isFalse(boolean) {
+    return boolean === false;
+}
+
+// 13. Make a function named isTruthy(input), remember that values other than true will behave like true
+function isTruthy(input) {
+    return input == (!false || !0 || !-0 || !0n || !"" || !'' || !`` || !null || !undefined || !NaN);
+}
+
+// returnreturn - does not work
+// document.all?
+// look for simpler way
+
+
+// 14. Make a function named isFalsy(input), remember that values other than false behave like false
+function isFalsy(input) {
+    return input === (false || 0 || -0 || 0n || "" || '' || `` || null || undefined || NaN);
+}
+
+// returnreturn - does not work
+// document.all?
+// look for simpler way
+
+// 15. Make a function named isVowel(letter)
+function isVowel(letter) {
+    return letter === ("a" || "e" || "o" || "i" || "u");
+}
+
+// returnreturn - does not work
+
+// 16. Make a function named isConsonant(letter)
+function isConsonant(letter) {
+    return letter === "b" || "c" || "d" || "f" || "g" || "h" || "j" || "k" || "l" || "m" || "n" || "p" || "q" || "r" || "s" || "t" || "v" || "w" || "x" || "y" || "z";
+}
+
+// returnreturn - does not work
+
+// 17. Make a function named isCapital(letter)
+function isCapital(letter) {
+    return letter === letter.toUpperCase();
+}
+
+// 18. Make a function named isLowerCase(letter)
+function isLowerCase(letter) {
+    return letter === letter.toLowerCase();
+}
+
+// 19. Make a function named hasLowerCase(string)
+function hasLowerCase(string) {
+return string.includes("a" || "b" || "c" || "d" || "e" || "f" || "g" || "h" || "i" || "j" || "k" || "l" || "m" || "n" || "o" || "p" || "q" || "r" || "s" || "t" || "u" || "v" || "w" || "x" || "y" || "z")
+}
+// returnreturn - does not work
+
+// 20. Make a function named isSpace(letter)
+function isSpace(letter) {
+    return letter === " ";
+}
+

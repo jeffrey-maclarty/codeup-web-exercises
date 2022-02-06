@@ -324,4 +324,45 @@ function rollDice(sides) {
 
 // SIMPLE FUNCTION DRILLS
 //
+// 50 - 1.  Make a function called returnTwo() that returns the number 2 when called.  Test this function with console.log(returnTwo())
+function returnTwo() {
+    return 2;
+}
+console.log(returnTwo());
+
+// 51 - 2.  Make a function called sayHowdy() whcich console.logs the string "Howdy!".
+function sayHowdy() {
+    console.log("Howdy!");
+}
+sayHowdy();
+
+// 52 - 3. Make a function called returnName() that returns the string of your name
+function returnName() {
+    return "Jeffrey";
+}
+console.log(returnName());
+
+// 53 - 4. Make a function called addThree() which takes in a number input and returns the number plus 3
+function addThree(num) {
+    return num + 3;
+}
+console.log(addThree(5));
+
+// 54 - 5. Make a function called sayString() which returns the string input passed in
+function sayString(input) {
+    return input;
+}
+console.log(sayString("codeup"));
+
+// CHALLENGE FUNCTION DRILLS
 //
+// 55 - 1. Write a function called identity(input) that takes in an argument called input and returns that input
+function identity(input) {
+    return input;
+}
+console.log(identity("testing input"));
+
+// 56 - 2. Write a function called getRandomNumber(min, max) that returns a random number between min and max values sent to that function call
+function getRandomNumber(min, max) {
+    
+}

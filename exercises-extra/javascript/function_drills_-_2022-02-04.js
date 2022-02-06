@@ -250,6 +250,7 @@ function isBlank(input) {
         return "Space(s)"
     }
 }
+
 // returnreturn - misunderstanding description
 
 // 40. Make a function named trim(string) that removes empty spaces before and after the input
@@ -290,6 +291,7 @@ function and(predicate1, predicate2) {
 function or(predicate1, predicate2) {
     return predicate1 || predicate2;
 }
+
 // returnreturn - misunderstanding description
 
 // 47. Make a function named reverseString(string) that reverses a string
@@ -307,6 +309,7 @@ function reverseString(string) {
     let backToString = reversedArray.join(',');
     console.log("Reversed array to string: " + backToString);
 }
+
 // reverseString("Watch the fox run")
 
 // 48. Make a function named absoluteValue(number) that returns the absolute value of a number
@@ -318,6 +321,9 @@ function absoluteValue(number) {
 function rollDice(sides) {
     return Math.floor(Math.random() * (sides) + 1);
 }
+
+console.log(rollDice(4));
+
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
 
@@ -328,30 +334,35 @@ function rollDice(sides) {
 function returnTwo() {
     return 2;
 }
+
 console.log(returnTwo());
 
 // 51 - 2.  Make a function called sayHowdy() whcich console.logs the string "Howdy!".
 function sayHowdy() {
     console.log("Howdy!");
 }
+
 sayHowdy();
 
 // 52 - 3. Make a function called returnName() that returns the string of your name
 function returnName() {
     return "Jeffrey";
 }
+
 console.log(returnName());
 
 // 53 - 4. Make a function called addThree() which takes in a number input and returns the number plus 3
 function addThree(num) {
     return num + 3;
 }
+
 console.log(addThree(5));
 
 // 54 - 5. Make a function called sayString() which returns the string input passed in
 function sayString(input) {
     return input;
 }
+
 console.log(sayString("codeup"));
 
 // CHALLENGE FUNCTION DRILLS
@@ -360,9 +371,59 @@ console.log(sayString("codeup"));
 function identity(input) {
     return input;
 }
+
 console.log(identity("testing input"));
 
 // 56 - 2. Write a function called getRandomNumber(min, max) that returns a random number between min and max values sent to that function call
 function getRandomNumber(min, max) {
-    
+    // return Math.floor(Math.random() * (max - min)); // produces 0-8
+    return Math.floor(Math.random() * (max - min) + 1); // produces 1-9
 }
+
+console.log(getRandomNumber(1, 10));
+
+// returnreturn - see comments above
+
+// 57 - 3. Write a function called first(input) that returns the first character in the provided string
+function first(input) {
+    return input.charAt(0);
+}
+
+console.log(first("computer"));
+
+// 58 - 4. Write a function called last(input) that returns the last character of a string
+function last(input) {
+    return input.charAt(input.length - 1);
+}
+
+console.log(last("ceiling"));
+
+// 59 - 5. Write a function called reverse(input) that takes a string and returns in reversed
+function reverse(input) {
+    let stringToArray = input.split(" ");
+    let arrayReversed = stringToArray.reverse();
+    return arrayReversed.join(" ");
+}
+
+console.log(reverse("The cat caught the mouse"));
+
+// 60 - 6. Write a function called isNumeric(input) that takes an input and returns a boolean if the input is numeric
+function isNumeric(input) {
+    return !NaN == input;
+    // return !NaN === input;
+    // return NaN !== input;
+}
+
+console.log(isNumeric("dog"));
+console.log(isNumeric(11));
+
+// returnreturn - NaN
+
+// 61 - 7. Write a function called count(input) that takes in a string and returns the number of characters
+function count(input) {
+    return input.length;
+}
+
+console.log(count("four"));
+
+// 62 - 8. 

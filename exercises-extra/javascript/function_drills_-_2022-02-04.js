@@ -257,6 +257,71 @@ function trim(string) {
     return string.trim();
 }
 
+// 41. Make a function named areEqual(input1, input2) that returns if both inputs have the same value
+function areEqual(input1, input2) {
+    if (input1 == input2) {
+        return `${input1} has the same value as ${input2}`
+    }
+}
+
+// 42. Make a function named areIdentical(input1, input2) that returns if both inputs are the same value and data type
+function areIdentical(input1, input2) {
+    if (input1 === input2) {
+        return `${input1} has the same value and data type as ${input2}`
+    }
+}
+
+// 43. Make a function named not(input) that returns the input a flipped boolean
+function not(input) {
+    return !input;
+}
+
+// 44. Make a function notNot(input) that returns the negation of the negation of the input
+function notNot(input) {
+    return !!input;
+}
+
+// 45. Make a function named and(predicate1, predicate2) that returns the logical operation of AND
+function and(predicate1, predicate2) {
+    return predicate1 && predicate2;
+}
+
+// 46. Make a function named or(predicate1, predicate2) that returns the logical operation of OR
+function or(predicate1, predicate2) {
+    return predicate1 || predicate2;
+}
+// returnreturn - misunderstanding description
+
+// 47. Make a function named reverseString(string) that reverses a string
+function reverseString(string) {
+    console.log("Original string: " + string);
+
+    let stringToArray = string.split(" ");
+    console.log("String to array below:");
+    console.log(stringToArray);
+
+    let reversedArray = stringToArray.reverse();
+    console.log("Reversed array below: ");
+    console.log(reversedArray);
+
+    let backToString = reversedArray.join(',');
+    console.log("Reversed array to string: " + backToString);
+}
+// reverseString("Watch the fox run")
+
+// 48. Make a function named absoluteValue(number) that returns the absolute value of a number
+function absoluteValue(number) {
+    return Math.abs(number);
+}
+
+// 49. Make a function named rollDice(sides) that takes in an argument containing the number of sides the die should have.  Generate a random number between 1 up to and including the number of sides
+function rollDice(sides) {
+    return Math.floor(Math.random() * (sides) + 1);
+}
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
+
+
 // SIMPLE FUNCTION DRILLS
 //
 //

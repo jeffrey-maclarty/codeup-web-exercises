@@ -132,8 +132,9 @@ function isLowerCase(letter) {
 
 // 19. Make a function named hasLowerCase(string)
 function hasLowerCase(string) {
-return string.includes("a" || "b" || "c" || "d" || "e" || "f" || "g" || "h" || "i" || "j" || "k" || "l" || "m" || "n" || "o" || "p" || "q" || "r" || "s" || "t" || "u" || "v" || "w" || "x" || "y" || "z")
+    return string.includes("a" || "b" || "c" || "d" || "e" || "f" || "g" || "h" || "i" || "j" || "k" || "l" || "m" || "n" || "o" || "p" || "q" || "r" || "s" || "t" || "u" || "v" || "w" || "x" || "y" || "z")
 }
+
 // returnreturn - does not work
 
 // 20. Make a function named isSpace(letter)
@@ -191,8 +192,70 @@ function divide(a, b) {
     return a / b;
 }
 
+// 31. Make a function named remainder(a, b) that returns remainder after dividing a by b
+function remainder(a, b) {
+    return a % b;
+}
 
+// returnreturn - use standard divide based on descripion?
 
+// 32. Make a function named modulo(a, b) that returns the remainder after dividing a by b
+function modulo(a, b) {
+    return a % b;
+}
+
+// 33. Make a function named cube(n) that returns n * n * n
+function cube(n) {
+    return n * n * n;
+}
+
+// 34. Make a function named squareRoot(n) that returns the square root of the input
+function squareRoot(n) {
+    return Math.sqrt(n);
+}
+
+// 35. Make a function named cubeRoot(n) that returns the cube root of the input
+function cubeRoot(n) {
+    return Math.cbrt(n);
+}
+
+// 36. Make a function named invertSign(number) that returns a negative version of a positive number, a positivie version of a negative, and false for all else
+function invertSign(number) {
+    if (number === NaN) {
+        return false;
+    } else {
+        return number * (-1);
+    }
+}
+
+// returnreturn - "false all else"
+
+// 37. Make a function named degreesToRadians(number)
+function degreesToRadians(number) {
+    return (number * Math.PI) / 180;
+}
+
+// 38. Make a function named radiansToDegrees(number)
+function radiansToDegrees(number) {
+    return number * (180 / Math.PI);
+}
+
+// 39. Make a function named isBlank(input) that determines if a given input is spaces, newline characters, or tabs
+function isBlank(input) {
+    if (input.includes("   ")) {
+        return "Tab"
+    } else if (input === "\n") {
+        return "Newline"
+    } else if (input.includes(" ")) {
+        return "Space(s)"
+    }
+}
+// returnreturn - misunderstanding description
+
+// 40. Make a function named trim(string) that removes empty spaces before and after the input
+function trim(string) {
+    return string.trim();
+}
 
 // SIMPLE FUNCTION DRILLS
 //

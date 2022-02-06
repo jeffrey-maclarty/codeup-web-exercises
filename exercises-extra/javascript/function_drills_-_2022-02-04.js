@@ -426,4 +426,64 @@ function count(input) {
 
 console.log(count("four"));
 
-// 62 - 8. 
+// 62 - 8. Write a function called add(a, b) that returns the sum of a and b
+function add(a, b) {
+    return a + b;
+}
+
+console.log(add(1, 2));
+
+// 63 - 9. Write a function called subtract(a, b) that returns the difference  between the two inputs
+function subtract(a, b) {
+    return a - b;
+}
+console.log(subtract(5, 4));
+
+// 64 - 10.  Write multiply(a, b) function that returns the product
+function multiply(a, b) {
+    return a * b;
+}
+console.log((multiply(4, 5)));
+
+// 65 - 11. Write a divide(a, b) function that returns a divided by b
+function divide(a, b) {
+    return a / b;
+}
+console.log(divide(15, 3));
+
+// 66 - 12. Write a remainder(number, divisor) function that returns the remainder left over when dividing number by the divisor
+function remainder(number, divisor) {
+    return number / divisor;
+}
+console.log(remainder(27, 9));
+
+// 67 - 13. Write the function square(a) that takes in a number and returns the number multiplied by itself
+function square(a) {
+    return a * a;
+}
+console.log(square(10));
+
+// 68 - 14. Write a function called sumOfSquares(a, b) that uses only your add() function and your square function and not + or * operators
+function sumOfSquares(a, b) {
+    let added = add(a, b);
+    let squared = square(a);
+
+}
+// returnreturn - misunderstanding description
+
+// 69 - 15. Write a function called doMath(operator, a, b) that takes 3 parameters.  The first parameter is the name of the math function you want to apply. a and b are teh two numbers to run that function on.
+function doMath(operator, a, b) {
+    if (operator === "add") {
+        return a + b;
+    } else if (operator === "subtract") {
+        return a - b;
+    } else if (operator === "multiply") {
+        return a * b;
+    } else if (operator === "divide") {
+        return a / b;
+    }
+}
+console.log(doMath("add", 15, 5));
+console.log(doMath("subtract", 15, 5));
+console.log(doMath("multiply", 15, 5));
+console.log(doMath("divide", 15, 5));

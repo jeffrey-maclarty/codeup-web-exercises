@@ -8,6 +8,8 @@ console.log();
 // b c d f g h j k l m n p q r s t v w x y z
 // ("a" || "b" || "c" || "d" || "e" || "f" || "g" || "h" || "i" || "j" || "k" || "l" || "m" || "n" || "o" || "p" || "q" || "r" || "s" || "t" || "u" || "v" || "w" || "x" || "y" || "z")
 
+// FUNCTION DRILLS
+//
 // 1. Make a function named isOdd(number)
 function isOdd(number) {
     return number % 2 !== 0;
@@ -139,3 +141,59 @@ function isSpace(letter) {
     return letter === " ";
 }
 
+// 21. Make a function named isZero(number)
+function isZero(number) {
+    return number === 0;
+}
+
+// 22. Make a function named notZero(input)
+function notZero(input) {
+    return input !== 0;
+}
+
+// 23. Make a function named lowerCase(string)
+function lowerCase(string) {
+    return string.toLowerCase();
+}
+
+// 24. Make a function named double(n) that returns a number times 2
+function double(n) {
+    return n * 2;
+}
+
+// 25. Make a function named triple(n) that returns a number times 3
+function triple(n) {
+    return n * 3;
+}
+
+// 26. Make a function named quadruple(n) that returns a number times 4
+function quadruple(n) {
+    return n * 4;
+}
+
+// 27. Make a function named half(n) that returns 1/2 of the provided input
+function half(n) {
+    return n / 2;
+}
+
+// 28. Make a function named subtract(a, b) that returns a minus b
+function subtract(a, b) {
+    return a - b;
+}
+
+// 29. Make a function named multiply(a, b) that return the product of a times b
+function multiply(a, b) {
+    return a * b;
+}
+
+// 30. Make a function named divide(a, b) that returns a divided by b
+function divide(a, b) {
+    return a / b;
+}
+
+
+
+
+// SIMPLE FUNCTION DRILLS
+//
+//

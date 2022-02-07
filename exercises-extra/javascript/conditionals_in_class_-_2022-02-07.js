@@ -29,3 +29,15 @@ function getToDestination (age, isInsured, hasCar, canGetRideshare) {
         console.log("They should call a friend for a ride.")
     }
 }
+
+function canGetRideShare(driverNear, hasMoney) {
+    if (driverNear && hasMoney) {
+        return true;
+    }
+}
+
+console.log(getToDestination(17, true, true, canGetRideShare(true, false)));
+
+console.log(getToDestination(16, false, false, canGetRideShare(true, true)));
+
+console.log(getToDestination(16, false, false, canGetRideShare(true, false)));

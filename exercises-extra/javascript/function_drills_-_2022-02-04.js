@@ -518,5 +518,5 @@ function checkString(str1, str2) {
 // 72 - 3. Create a function that takes in a string and returns true if the last letter is an "a" (otherwise return false).
 function endsWithA(string) {
     let lastChar = string.length;
-    return string.charAt(7) === "a";
+    return string.charAt(lastChar) === "a";
 }

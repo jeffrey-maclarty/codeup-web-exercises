@@ -8,9 +8,9 @@
  * Example
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
-function sayHello(name) {
-    return ("Hello, " + name + "!");
-}
+// function sayHello(name) {
+//     return ("Hello, " + name + "!");
+// }
 
 /**
  * TODO:
@@ -19,8 +19,8 @@ function sayHello(name) {
  *
  * console.log 'helloMessage' to check your work
  */
-let helloMessage = sayHello("Jeffrey");
-console.log(helloMessage);
+// let helloMessage = sayHello("Jeffrey");
+// console.log(helloMessage);
 
 /**
  * TODO:
@@ -28,8 +28,8 @@ console.log(helloMessage);
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
-let myName = "Jeffrey";
-console.log(sayHello(myName));
+// let myName = "Jeffrey";
+// console.log(sayHello(myName));
 
 
 // Don't modify the following line, it generates a random number between 1 and 3
@@ -53,10 +53,10 @@ var random = Math.floor((Math.random() * 3) + 1);
  * different result everytime you refresh the page if you are using the random
  * number)
  */
-function isTwo (random) {
-    return random === 2;
-}
-console.log(random + " " + isTwo(random));
+// function isTwo (random) {
+//     return random === 2;
+// }
+// console.log(random + " " + isTwo(random));
 
 /**
  * TODO:
@@ -69,11 +69,11 @@ console.log(random + " " + isTwo(random));
  * > calculateTip(0.25, 25.50) // returns 6.375
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
-function calculateTip (percentage, billTotal) {
-    let tip = percentage * billTotal;
-    alert(tip);
-    // return ("Tip is $" + tip);
-}
+// function calculateTip (percentage, billTotal) {
+//     let tip = percentage * billTotal;
+//     alert(tip);
+//     // return ("Tip is $" + tip);
+// }
 
 /**
  * TODO:
@@ -81,10 +81,10 @@ function calculateTip (percentage, billTotal) {
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
-let percentage = prompt("What tip percentage?");
-let billTotal = prompt("What is the total bill?");
-calculateTip(percentage, billTotal);
-alert(percentage * billTotal);
+// let percentage = prompt("What tip percentage?");
+// let billTotal = prompt("What is the total bill?");
+// calculateTip(percentage, billTotal);
+// alert(percentage * billTotal);
 
 /**
  * TODO:

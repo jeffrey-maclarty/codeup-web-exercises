@@ -20,24 +20,69 @@ console.log();
 // Call canGetRideshare() in the else if after !isLegalDriver &&...
 // Be sure to log to the user if they can or cannot get a rideshare
 
-function getToDestination (age, isInsured, hasCar, canGetRideshare) {
-    if (age > 16 && hasCar) {
-        console.log("Can use their own vehicle.");
-    } else if ((age <= 16 || !isInsured || !hasCar) && canGetRideshare) {
-        console.log("Can get a rideshare.");
-    } else {
-        console.log("They should call a friend for a ride.")
+// function getToDestination(age, isInsured, hasCar, canGetRideshare) {
+//     if (age > 16 && hasCar) {
+//         console.log("Can use their own vehicle.");
+//     } else if ((age <= 16 || !isInsured || !hasCar) && canGetRideshare) {
+//         console.log("Can get a rideshare.");
+//     } else {
+//         console.log("They should call a friend for a ride.")
+//     }
+// }
+
+// function canGetRideShare(driverNear, hasMoney) {
+//     if (driverNear && hasMoney) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+
+// REVIEW:
+// function getToDestination(age, isInsured, hasCar, canGetRideshare) {
+//     if (age > 16 && isInsured && hasCar) {
+//         console.log("You can use your own vehicle")
+//     } else if (age <= 16 && isInsured === false || !hasCar && canGetRideshare) {
+//         console.log("you can get a rideshare")
+//     } else {
+//         console.log("You gotta call a friend")
+//     }
+// }
+//
+// getToDestination(17, false, true, true);
+
+
+// console.log(getToDestination(16, true, true, canGetRideShare(true, false)));
+//
+// console.log(getToDestination(16, false, false, canGetRideShare(true, true)));
+//
+// console.log(getToDestination(16, false, false, canGetRideShare(true, false)));
+
+function checkWeather(todaysWeather) {
+    // if (todaysWeather === "snowing") {
+    //     console.log("Please stay inside")
+    // } else if (todaysWeather === "raining") {
+    //     console.log("Grab an umbrella")
+    // } else if (todaysWeather === "hailing") {
+    //     console.log("Cover your car")
+    // } else {
+    //     console.log("Go play in the sun")
+    // }
+
+    switch (todaysWeather.toLowerCase().trim()) {
+        case "snowing":
+            console.log("Please stay inside");
+            break;
+        case "raining":
+            console.log("Grab an umbrella");
+            break;
+        case "hailing":
+            console.log("Cover your car");
+            break;
+        default:
+            console.log("Go play in the sun");
+            break;
     }
 }
 
-function canGetRideShare(driverNear, hasMoney) {
-    if (driverNear && hasMoney) {
-        return true;
-    }
-}
-
-console.log(getToDestination(17, true, true, canGetRideShare(true, false)));
-
-console.log(getToDestination(16, false, false, canGetRideShare(true, true)));
-
-console.log(getToDestination(16, false, false, canGetRideShare(true, false)));
+checkWeather(" HailiNg  ")

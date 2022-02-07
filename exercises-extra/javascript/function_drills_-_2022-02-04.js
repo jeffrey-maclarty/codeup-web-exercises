@@ -503,15 +503,20 @@ console.log(doMath("divide", 15, 5));
 
 // 71 - 2. Create a function that takes in two strings
 //      a. If the second string input is present in the first, return the first input string with the second input string removed from it.
-//      b. If the second string input is present multiple times in the first, the second string will only be removed where where it first occurs in the first string
+//      b. If the second string input is present multiple times in the first, the second string will only be removed where it first occurs in the first string
 //      c. If the second tring input is not present in the first, return the first string as entered in the function
 function checkString(str1, str2) {
     let removeOne;
     if (str1.includes(str2)) {
         removeOne = str1.replace(str2, "");
+        return removeOne;
+    } else {
+        return str1;
     }
-    console.log(str1);
-    console.log(str2);
-    console.log(removeOne);
+}
 
+// 72 - 3. Create a function that takes in a string and returns true if the last letter is an "a" (otherwise return false).
+function endsWithA(string) {
+    let lastChar = string.length;
+    return string.charAt(7) === "a";
 }

@@ -540,7 +540,11 @@ function returnFalseMessage(input) {
 //      The function will return true if the username is not the same as the password and the user is at least 18 years old.
 //      If the user is an admin, they do not have to be a certain age but the password must still not match the username.
 function willLoginUser(username, password, userAge, admin) {
-    if (username !== password && >= 18) {
+    console.log(`${username}, ${password}, ${userAge}, ${admin}`)
+    if ((username !== password && userAge >= 18) || (username !== password && admin === true)) {
+        console.log(`${username}, ${password}, ${userAge}, admin`)
         return true;
+    } else {
+        return false;
     }
 }

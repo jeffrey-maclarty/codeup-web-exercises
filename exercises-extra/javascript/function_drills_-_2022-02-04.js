@@ -518,7 +518,29 @@ function checkString(str1, str2) {
 // 72 - 3. Create a function that takes in a string and returns true if the last letter is an "a" (otherwise return false).
 function endsWithA(string) {
     let lastChar = string.length;
-    console.log(string);
-    console.log(lastChar);
     return string.charAt(lastChar - 1) === "a";
+}
+
+// 73 - 4. Create a function that will return how many whitespace characters are at the beginning of a string (hint: use regex)
+
+// returnreturn - regex
+
+// 74 - 5a. Create a function returnTrueMessage() that returns the string "Hey, it's true!"
+function returnTrueMessage(input) {
+    return "Hey, it's true!"
+}
+//      5b. Create a function returnFalseMessage() that returns the string "Hey, it's false!"
+function returnFalseMessage(input) {
+    return "Hey, it's false!"
+}
+//      5b. Create a function returnMessage() that takes in a function and returns the call to the function
+// returnreturn - misunderstanding description
+
+// 75 - 6. Create a function, willLoginUser() that takes in a username string, password string, user age, a boolean indicating if they are an admin.
+//      The function will return true if the username is not the same as the password and the user is at least 18 years old.
+//      If the user is an admin, they do not have to be a certain age but the password must still not match the username.
+function willLoginUser(username, password, userAge, admin) {
+    if (username !== password && >= 18) {
+        return true;
+    }
 }

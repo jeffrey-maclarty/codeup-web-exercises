@@ -84,6 +84,7 @@ function calculateTip (percentage, billTotal) {
 let percentage = prompt("What tip percentage?");
 let billTotal = prompt("What is the total bill?");
 calculateTip(percentage, billTotal);
+alert(percentage * billTotal);
 
 /**
  * TODO:

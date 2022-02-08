@@ -40,8 +40,6 @@ console.log();
 console.log("Exercise 4")
 console.log("----------");
 
-// Create a for loop that uses console.log to create the output shown below.
-
 function numTriangle() {
     let nums;
     for (let a = 1; a <= 9; a++) {
@@ -56,3 +54,18 @@ function numTriangle() {
 
 numTriangle();
 // returnreturn - not working
+// concat lines?
+
+console.log();
+console.log("Exercise 5")
+console.log("----------");
+
+function decreaseByFive() {
+    for (let i = 100; i >= 5; i = i - 5) {
+        console.log(i);
+    }
+}
+
+decreaseByFive();
+
+// returnreturn - why doesn't (i - 5) work?

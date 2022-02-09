@@ -30,8 +30,6 @@ var allCones = Math.floor(Math.random() * 50) + 50;
 // This expression will generate a random number between 1 and 5
 Math.floor(Math.random() * 5) + 1;
 
-
-let conesLeftToSell;
 let purchase;
 
 console.log("Total cones to sell: " + allCones);

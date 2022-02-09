@@ -59,14 +59,58 @@ console.log("         ");
 //     i++;
 // }
 
-let fullNameEntered = false;
-let names = "";
-// WE DON'T KNOW HOW MANY NAMES THEY HAVE
-while (!fullNameEntered) {
+// let fullNameEntered = false;
+// let names = "";
+// // WE DON'T KNOW HOW MANY NAMES THEY HAVE
+// while (!fullNameEntered) {
+//
+//     names = names + " " + prompt("Please enter or add to your name")
+//
+//     fullNameEntered = confirm("Is this your full name?");
+// }
+//
+// alert(names.trim());
 
-    names = names + " " + prompt("Please enter or add to your name")
 
-    fullNameEntered = confirm("Is this your full name?");
+// // TODO: A parking lot with 30 parking spaces wants to display the amount of spaces available as it gets filled.
+//  Let's assume that there are allowing two cars into the parking lot at a time. As those cars take up spaces,
+//  write a do-while loop that prints the spaces available. If the parking lot gets filled, print "this parking lot
+//  is now full" to the console.
+
+// let totalAvailableSpaces = 30;
+// let currentAvailableSpaces = 30;
+// do {
+//     console.log(currentAvailableSpaces);
+//     console.log("Current available spaces: " + currentAvailableSpaces);
+//     currentAvailableSpaces;
+// } while (currentAvailableSpaces >= 30)
+// console.log(currentAvailableSpaces)
+
+// let numberOfSpaces = 30;
+//
+// do {
+//
+//     console.log("spaces remaining: " + numberOfSpaces);
+//
+//     numberOfSpaces = numSpaces - 2;
+//
+// } while (numberOfSpaces)
+//
+// console.log("Full");
+
+
+
+// TODO: using prompt() and alert(), write a while loop that will continue to ask for the correct password until the
+//  correct password is given.
+let pass = "hapless87";
+let isCorrect = false;
+let attempt = "";
+
+
+while (!isCorrect) {
+    attempt = prompt("Enter your password");
+    isCorrect = (attempt === pass);
+    if (!isCorrect) {
+        alert("That is not the correct password");
+    }
 }
-
-alert(names.trim());

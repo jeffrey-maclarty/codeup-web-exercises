@@ -11,7 +11,7 @@ console.log("         ");
 // while (i < 10) {
 //     i++;
 //     console.log("while loop iteration #" + i);
-    // i++;
+// i++;
 // }
 
 // let i = -3;
@@ -50,8 +50,23 @@ console.log("         ");
 // }
 
 // TODO: Use a while loop to output the numbers from 8-50
-let i = 8
-while (i <= 50) {
-    console.log(i)
-    i++;
+// TODO: Using the same example, output the ODD numbers from 8-50
+// let i = 8
+// while (i <= 50) {
+//     if (i % 2 !== 1) {
+//         console.log(i);
+//     }
+//     i++;
+// }
+
+let fullNameEntered = false;
+let names = "";
+// WE DON'T KNOW HOW MANY NAMES THEY HAVE
+while (!fullNameEntered) {
+
+    names = names + " " + prompt("Please enter or add to your name")
+
+    fullNameEntered = confirm("Is this your full name?");
 }
+
+alert(names.trim());

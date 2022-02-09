@@ -32,11 +32,10 @@ var allCones = Math.floor(Math.random() * 50) + 50;
 
 let purchase;
 
-console.log("Total cones to sell: " + allCones);
+console.log(`You begin with ${allCones} cones to sell.`)
 
 do {
-    console.log("Client purchases: " + purchase + " cones.  There are " + allCones + " cones left.");
+    console.log(`Client wants ${purchase} cones.  There are ${allCones} left.`);
     purchase = Math.floor(Math.random() * 5) + 1;
-    allCones = allCones - purchase;
-
+    allCones -= purchase;
 } while (purchase < allCones);

@@ -3,12 +3,6 @@ console.log("Link Test");
 console.log("---------");
 console.log("         ");
 
-// URL
-
-console.log("------------");
-console.log("Exercise 1");
-console.log("------------");
-
 //* LOOPS *//
 
 // // WHAT ARE LOOPS:
@@ -113,22 +107,21 @@ console.log(`--------`);
 //     console.log(`finishing while loop with: ${fives}`);
 // }
 
-
-
-
-
+console.log("------------");
+console.log("Exercise 1");
+console.log("------------");
 // // TODO: MINI EXERCISES
 // // TODO: print all even numbers between 0 and 25;
 
-// var counter = 0; // starting point
-//
-// while(counter <= 25){
-//     console.log(`starting num: ${counter}`);
-//     if(counter % 2 === 0){
-//         console.log(counter);
-//     }
-//     counter +=1;
-// }
+var counter = 0; // starting point
+
+while(counter <= 25){
+    console.log(`starting num: ${counter}`);
+    if(counter % 2 === 0){
+        console.log(counter);
+    }
+    counter +=1;
+}
 
 // TODO: using prompt() and alert(), write a loop that will continue to ask for the correct password until the
 //  correct password is given.
@@ -349,24 +342,24 @@ for(let counter = 1; counter <= 5; counter++ ){
 }
 
 console.log('-------------')
-// // * wrap inner loop in a function
-// function innerLoop(){
-//     for(let counterTwo = 5; counterTwo > 0;  counterTwo--){
-//         // console.log(`inner counter: ${counter}`);
-//         // console.log(counterTwo);
-//         return counterTwo;
-//     }
-// };
-//
-// function outerLoop(){
-//     for(let counter = 1; counter <= 5; counter++ ){
-//         console.log(counter);
-//
-//         if(counter === 5){
-//             innerLoop();
-//         }
-//     }
-// }
+// * wrap inner loop in a function
+function innerLoop(){
+    for(let counterTwo = 5; counterTwo > 0;  counterTwo--){
+        // console.log(`inner counter: ${counter}`);
+        // console.log(counterTwo);
+        return counterTwo;
+    }
+};
+
+function outerLoop(){
+    for(let counter = 1; counter <= 5; counter++ ){
+        console.log(counter);
+
+        if(counter === 5){
+            innerLoop();
+        }
+    }
+}
 
 console.log(outerLoop());
 

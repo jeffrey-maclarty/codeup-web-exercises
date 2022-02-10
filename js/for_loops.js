@@ -41,19 +41,31 @@ console.log("Exercise 4")
 console.log("----------");
 
 function numTriangle() {
+    let a;
+    let b;
     let nums;
     for (let a = 1; a <= 9; a++) {
         // console.log(a);
         for (let b = 0; b < a; b++) {
-        //     console.log(`${b}${a}`)
-        //     nums = b + b;
-        //     console.log(nums);
-            console.log(a);
+            //     console.log(`${b}${a}`)
+            //     nums = b + b;
+            //     console.log(nums);
+            //     console.log(a);
+            console.log(b)
+            nums = nums + b;
         }
+        console.log(nums);
     }
 }
 
 numTriangle();
+
+// from tristan:
+for (let c = 1; c <= 9; c++) {
+    console.log(c.toString().repeat(c));
+}
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat
+
 // returnreturn - not working
 // concat lines?
 

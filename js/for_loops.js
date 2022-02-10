@@ -118,11 +118,11 @@ console.log("----------");
 // TODO: Use a for loop to print the even numbers between 0 and 30, inclusive.
 //  HINT: remember the remainder operator (modulo)
 
-// oddNumbers();
+// evenNumbers();
 
-function oddNumbers() {
+function evenNumbers() {
     for (let i = 0; i <= 30; i++) {
-        if (i % 2 !== 0) {
+        if (i % 2 === 0) {
             console.log(i);
         }
     }
@@ -136,7 +136,7 @@ console.log("----------");
 //  -> If it's neither print "I'm not playing"
 //  -> Print "marco polo" if it's divisible by 3 and 5.
 
-marcoPolo();
+// marcoPolo();
 
 function marcoPolo() {
 

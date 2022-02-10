@@ -5,12 +5,13 @@ console.log("         ");
 
 // https://java.codeup.com/javascript-i/loops/
 
-console.log("------------");
+console.log("");
 console.log("Exercise 2");
 console.log("------------");
 let i = 2;
 
 // ascendNum();
+
 function ascendNum() {
     while (i <= 65536) {
         console.log(i);
@@ -18,7 +19,7 @@ function ascendNum() {
     }
 }
 
-console.log("------------");
+console.log("");
 console.log("Exercise 3");
 console.log("------------");
 // An ice cream seller can't go home until she sells all of her cones. First
@@ -37,6 +38,7 @@ let allCones = Math.floor(Math.random() * 50) + 50;
 let purchase = Math.floor(Math.random() * 5) + 1;
 
 // iceCream();
+
 function iceCream() {
     console.log(`You begin with ${allCones} cones to sell.`)
 

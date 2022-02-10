@@ -128,7 +128,6 @@ function oddNumbers() {
     }
 }
 
-
 console.log();
 console.log("IN CLASS 3")
 console.log("----------");

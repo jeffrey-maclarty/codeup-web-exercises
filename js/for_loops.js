@@ -15,7 +15,7 @@ function showMultiplicationTable(num) {
 }
 
 // showMultiplicationTable(8)
-showMultiplicationTable(7)
+// showMultiplicationTable(7)
 
 console.log();
 console.log("Exercise 3")
@@ -33,7 +33,7 @@ function randomOddEven() {
     }
 }
 
-randomOddEven();
+// randomOddEven();
 
 console.log();
 console.log("Exercise 4")
@@ -48,37 +48,42 @@ function numTriangle() {
 
         for (let b = 0; b < a; b++) {       // number of numbers to log per line (1 1, 2 2s, 3 3s)
 
-        // for (let b = 1; b <= a; b++) {       // number of numbers to log per line (1 1, 2 2s, 3 3s)
-
-            }
-
-            console.log();                      // log here
+            // for (let b = 1; b <= a; b++) {       // number of numbers to log per line (1 1, 2 2s, 3 3s)
 
         }
+
+        console.log(nums);                      // log here
+
     }
+}
 
 // returnreturn - not working
 // concat lines?
 
-// numTriangle();
+numTriangle();
 
 // from tristan:
+function numTriangle2() {
     for (let c = 1; c <= 9; c++) {
         console.log(c.toString().repeat(c));
     }
+}
+
+// numTriangle2();
+
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat
 
 
-    console.log();
-    console.log("Exercise 5")
-    console.log("----------");
+console.log();
+console.log("Exercise 5")
+console.log("----------");
 
-    function decreaseByFive() {
-        for (let i = 100; i >= 5; i = i - 5) {
-            console.log(i);
-        }
+function decreaseByFive() {
+    for (let i = 100; i >= 5; i = i - 5) {
+        console.log(i);
     }
+}
 
-    decreaseByFive();
+// decreaseByFive();
 
 // returnreturn - why doesn't (i - 5) work?

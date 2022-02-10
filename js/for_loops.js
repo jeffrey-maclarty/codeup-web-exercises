@@ -43,25 +43,40 @@ console.log();
 console.log("Exercise 4")
 console.log("----------");
 
+// printNumStacks();
+
+// from review:
+// function printNumStacks() {
+//     for (let outerNum = 1; outerNum < 10; outerNum++) {
+//         let numString = outerNum.toString();
+//         for (let innerNum = 1; innerNum <= outerNum; innerNum++) {
+//             // "2" + "2"...  22
+//             numString += numString.toString();
+//         }
+//         console.log(numString);
+//     }
+// }
+
+
 // numTriangle();
 
-function numTriangle() {
-    let a;
-    let b;
-    let nums;
-
-    for (let a = 1; a <= 9; a++) {          // number of lines to log
-
-        for (let b = 0; b < a; b++) {       // number of numbers to log per line (1 1, 2 2s, 3 3s)
-
-            // for (let b = 1; b <= a; b++) {       // number of numbers to log per line (1 1, 2 2s, 3 3s)
-
-        }
-
-        console.log(nums);                      // log here
-
-    }
-}
+// function numTriangle() {
+//     let a;
+//     let b;
+//     let nums;
+//
+//     for (let a = 1; a <= 9; a++) {          // number of lines to log
+//
+//         for (let b = 0; b < a; b++) {       // number of numbers to log per line (1 1, 2 2s, 3 3s)
+//
+//             // for (let b = 1; b <= a; b++) {       // number of numbers to log per line (1 1, 2 2s, 3 3s)
+//
+//         }
+//
+//         console.log(nums);                      // log here
+//
+//     }
+// }
 
 // returnreturn - not working
 // concat lines?

@@ -16,7 +16,7 @@ function showMultiplicationTable(num) {
 }
 
 // showMultiplicationTable(8)
-showMultiplicationTable(11)
+showMultiplicationTable(7)
 
 console.log();
 console.log("Exercise 3")
@@ -45,9 +45,10 @@ function numTriangle() {
     for (let a = 1; a <= 9; a++) {
         // console.log(a);
         for (let b = 0; b < a; b++) {
-            // console.log(`${b}${a}`)
-            // nums = b + b;
-            // console.log(nums);
+        //     console.log(`${b}${a}`)
+        //     nums = b + b;
+        //     console.log(nums);
+            console.log(a);
         }
     }
 }

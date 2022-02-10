@@ -8,20 +8,22 @@ console.log("Exercise 2")
 console.log("----------");
 
 // Create a function named showMultiplicationTable that accepts a number and console.logs the multiplication table for that number (just multiply by the numbers 1 through 10)
+
+// showMultiplicationTable(8)
+// showMultiplicationTable(7)
 function showMultiplicationTable(num) {
     for (let i = 1; i <= 10; i++) {
         console.log(`${num} x ${i} = ${num * i}`);
     }
 }
 
-// showMultiplicationTable(8)
-// showMultiplicationTable(7)
-
 console.log();
 console.log("Exercise 3")
 console.log("----------");
 
 // Use a for loop and the code from the previous lessons to generate 10 random numbers between 20 and 200 and output to the console whether each number is odd or even.
+
+// randomOddEven();
 function randomOddEven() {
     for (let i = 1; i <= 10; i++) {
         let randNum = Math.floor(Math.random() * 180) + 20;
@@ -33,12 +35,11 @@ function randomOddEven() {
     }
 }
 
-// randomOddEven();
-
 console.log();
 console.log("Exercise 4")
 console.log("----------");
 
+numTriangle();
 function numTriangle() {
     let a;
     let b;
@@ -60,30 +61,25 @@ function numTriangle() {
 // returnreturn - not working
 // concat lines?
 
-numTriangle();
-
 // from tristan:
+// numTriangle2();
 function numTriangle2() {
     for (let c = 1; c <= 9; c++) {
         console.log(c.toString().repeat(c));
     }
 }
 
-// numTriangle2();
-
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat
-
 
 console.log();
 console.log("Exercise 5")
 console.log("----------");
 
+// decreaseByFive();
 function decreaseByFive() {
     for (let i = 100; i >= 5; i = i - 5) {
         console.log(i);
     }
 }
-
-// decreaseByFive();
 
 // returnreturn - why doesn't (i - 5) work?

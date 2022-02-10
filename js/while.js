@@ -39,3 +39,8 @@ do {
     purchase = Math.floor(Math.random() * 5) + 1;
     allCones -= purchase;
 } while (purchase < allCones);
+if (purchase > allCones) {
+    console.log(`I cannot sell you ${purchase} cones, I only have ${allCones} left.`)
+} else if (purchase === allCones) {
+    console.log('I sold them all!')
+}

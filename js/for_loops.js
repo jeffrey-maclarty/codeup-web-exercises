@@ -6,7 +6,6 @@ console.log();
 console.log();
 console.log("Exercise 2")
 console.log("----------");
-
 // Create a function named showMultiplicationTable that accepts a number
 // and console.logs the multiplication table for that number (just
 // multiply by the numbers 1 through 10)
@@ -23,7 +22,6 @@ function showMultiplicationTable(num) {
 console.log();
 console.log("Exercise 3")
 console.log("----------");
-
 // Use a for loop and the code from the previous lessons to generate
 // 10 random numbers between 20 and 200 and output to the console whether
 // each number is odd or even.
@@ -35,7 +33,7 @@ function randomOddEven() {
         let randNum = Math.floor(Math.random() * 180) + 20;
         if (randNum % 2 === 0) {
             console.log(`${randNum} is even`)
-        } else if (randNum % 2 !== 0) {
+        } else {
             console.log(`${randNum} is odd`);
         }
     }

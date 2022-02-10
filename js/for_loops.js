@@ -11,7 +11,6 @@ console.log("----------");
 function showMultiplicationTable(num) {
     for (let i = 1; i <= 10; i++) {
         console.log(`${num} x ${i} = ${num * i}`);
-        // console.log(num + " + " + i + " = " + (num * i))
     }
 }
 
@@ -44,41 +43,42 @@ function numTriangle() {
     let a;
     let b;
     let nums;
-    for (let a = 1; a <= 9; a++) {
-        // console.log(a);
-        for (let b = 0; b < a; b++) {
-            //     console.log(`${b}${a}`)
-            //     nums = b + b;
-            //     console.log(nums);
-            //     console.log(a);
-            console.log(b)
-            nums = nums + b;
+
+    for (let a = 1; a <= 9; a++) {          // number of lines to log
+
+        for (let b = 0; b < a; b++) {       // number of numbers to log per line (1 1, 2 2s, 3 3s)
+
+        // for (let b = 1; b <= a; b++) {       // number of numbers to log per line (1 1, 2 2s, 3 3s)
+
+            }
+
+            console.log();                      // log here
+
         }
-        console.log(nums);
     }
-}
-
-numTriangle();
-
-// from tristan:
-for (let c = 1; c <= 9; c++) {
-    console.log(c.toString().repeat(c));
-}
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat
 
 // returnreturn - not working
 // concat lines?
 
-console.log();
-console.log("Exercise 5")
-console.log("----------");
+// numTriangle();
 
-function decreaseByFive() {
-    for (let i = 100; i >= 5; i = i - 5) {
-        console.log(i);
+// from tristan:
+    for (let c = 1; c <= 9; c++) {
+        console.log(c.toString().repeat(c));
     }
-}
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat
 
-decreaseByFive();
+
+    console.log();
+    console.log("Exercise 5")
+    console.log("----------");
+
+    function decreaseByFive() {
+        for (let i = 100; i >= 5; i = i - 5) {
+            console.log(i);
+        }
+    }
+
+    decreaseByFive();
 
 // returnreturn - why doesn't (i - 5) work?

@@ -136,18 +136,29 @@ console.log("----------");
 //  -> If it's neither print "I'm not playing"
 //  -> Print "marco polo" if it's divisible by 3 and 5.
 
-// marcoPolo();
+marcoPolo();
 
 function marcoPolo() {
+
+
     for (let i = 1; i <= 40; i++) {
         if (i % 3 === 0 && i % 5 === 0) {
             console.log(`${i} - Marco Polo`)
         } else if (i % 3 === 0) {
+            addZero();
             console.log(`${i} - Marco`)
         } else if (i % 5 === 0) {
+            addZero();
             console.log(`${i} - Polo`)
         } else {
+            addZero();
             console.log(`${i} - I'm not playing`)
+        }
+
+        function addZero() {
+            if (i.toString().length === 1) {
+                i = ("0" + i);
+            }
         }
     }
 }

@@ -136,7 +136,7 @@ console.log("----------");
 //  -> If it's neither print "I'm not playing"
 //  -> Print "marco polo" if it's divisible by 3 and 5.
 
-// marcoPolo();
+marcoPolo();
 
 function marcoPolo() {
 
@@ -157,7 +157,7 @@ function marcoPolo() {
 
         function addZero() {
             if (i.toString().length === 1) {
-                i = ("0" + i);
+                i = (`0${i}`)
             }
         }
     }

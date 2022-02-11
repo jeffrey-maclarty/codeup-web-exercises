@@ -16,7 +16,7 @@ var dog4 = "lola";
 // therefore, for this exercise, Fido is odd
 // thus even index values will be considered an odd element
 // LOCAL DESIGN CHOICE
-var dogNames = ["Fido", "Spot", "Fifi", "Lola"];
+var dogNames = ["Fido", "Spot", "Fifi", "Lola", "Fido"];
 var dogAges = [5, 2, 3, 10];
 
 // can combine data types in a single array - avoid this
@@ -90,3 +90,35 @@ dogNames.forEach(function(dogName, index, array) {
 
 dogNames[0] = "Zantor";
 console.log(dogNames);
+
+
+
+let fruits = [];
+
+fruits.unshift("apple");
+fruits.push("banana");
+fruits.unshift("cherry");
+fruits.unshift("lemon");
+fruits.push("mango");
+fruits.unshift("pear");
+
+
+// fruits.sort();
+
+console.log(fruits);
+
+// indexOf
+// var dogNames = ["Fido", "Spot", "Fifi", "Lola", "Fido"];
+console.log(dogNames.indexOf("Fido", 1))
+
+// lastIndexOf
+console.log(dogNames.lastIndexOf("Fido",))
+
+// slice
+console.log(dogNames.slice(1, 3))
+
+// reverse
+// forEach
+dogNames.reverse().forEach(function (dogName) {
+    console.log(dogName);
+})

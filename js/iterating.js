@@ -94,8 +94,6 @@
     returnTwo(names2);
     returnFive(names2);
 
-    return names2;
-
     function returnOne(array) {
         console.log(array[0]);
         return name;

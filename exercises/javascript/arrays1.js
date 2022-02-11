@@ -28,3 +28,34 @@ console.log(schedule);
 // ARRAY.indexOf(ITEM) - identify index of item
 let workIndex = schedule.indexOf('work');
 console.log(workIndex);
+
+
+// Can you explain how this works?
+
+let a = [1, 23, 100, 99, 4, 3]
+
+console.log(a);
+
+a.sort(function(a,b) {
+  return a - b;
+});
+
+console.log(a)
+
+let b = [1, 23, 100, 99, 4, 3]
+
+console.log(b);
+
+b.sort(function(a,b) {
+  return b - a;
+});
+
+console.log(b)
+
+console.log(schedule);
+
+schedule.sort(function(a,b) {
+  return b - a;
+});
+
+console.log(schedule)

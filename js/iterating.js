@@ -96,12 +96,12 @@
 
     function returnOne(array) {
         console.log(array[0]);
-        return name;
+        return array[0];
     }
 
     function returnTwo(array) {
         console.log(array[1]);
-        return (array[1]);
+        return array[1];
     }
 
     function returnFive(array) {

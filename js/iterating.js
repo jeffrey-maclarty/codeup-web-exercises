@@ -1,12 +1,12 @@
 (function () {
     "use strict";
-    console.log("Link Test");
-    console.log("---------");
+    console.log(`Link Test`);
+    console.log(`---------`);
     console.log();
 
     console.log();
-    console.log("Exercise 1")
-    console.log("----------");
+    console.log(`Exercise 1`)
+    console.log(`----------`);
     /**
      * TODO:
      * Create an array of 4 people's names and store it in a variable called
@@ -16,8 +16,8 @@
     console.log(`The 'names' variable is a ${typeof names}.`);
 
     console.log();
-    console.log("Exercise 2")
-    console.log("----------");
+    console.log(`Exercise 2`)
+    console.log(`----------`);
     /**
      * TODO:
      * Create a log statement that will log the number of elements in the names
@@ -26,8 +26,8 @@
     console.log(`There are ${names.length} elements/names in the 'names' array.`)
 
     console.log();
-    console.log("Exercise 3")
-    console.log("----------");
+    console.log(`Exercise 3`)
+    console.log(`----------`);
     /**
      * TODO:
      * Create log statements that will print each of the names individually by
@@ -41,8 +41,8 @@
 
 
     console.log();
-    console.log("Exercise 4")
-    console.log("----------");
+    console.log(`Exercise 4`)
+    console.log(`----------`);
     /**
      * TODO:
      * Write some code that uses a for loop to log every item in the names
@@ -58,8 +58,8 @@
     }
 
     console.log();
-    console.log("Exercise 5")
-    console.log("----------");
+    console.log(`Exercise 5`)
+    console.log(`----------`);
     /**
      * TODO:
      * Refactor your above code to use a `forEach` loop
@@ -70,8 +70,8 @@
     })
 
     console.log();
-    console.log("Exercise 6")
-    console.log("----------");
+    console.log(`Exercise 6`)
+    console.log(`----------`);
 
     /**
      * TODO:

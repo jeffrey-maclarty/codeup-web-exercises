@@ -1,8 +1,8 @@
 (function () {
     "use strict";
 
-    console.log("Link Test");
-    console.log("---------");
+    console.log(`Link Test`);
+    console.log(`---------`);
     console.log();
 
     // https://java.codeup.com/javascript-i/arrays/manipulating/

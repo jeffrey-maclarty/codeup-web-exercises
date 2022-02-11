@@ -1,13 +1,13 @@
 "use strict";
-console.log("Link Test");
-console.log("---------");
-console.log("         ");
+console.log(`Link Test`);
+console.log(`---------`);
+console.log();
 
 // https://java.codeup.com/javascript-i/loops/
 
-console.log("");
-console.log("Exercise 2");
-console.log("------------");
+console.log();
+console.log(`Exercise 2`);
+console.log(`----------`);
 let i = 2;
 
 // ascendNum();
@@ -19,9 +19,9 @@ function ascendNum() {
     }
 }
 
-console.log("");
-console.log("Exercise 3");
-console.log("------------");
+console.log();
+console.log(`Exercise 3`);
+console.log(`----------`);
 // An ice cream seller can't go home until she sells all of her cones. First
 // write enough code that generates a random number between 50 and 100
 // representing the amount of cones to sell before you start your loop. Inside

@@ -1,8 +1,8 @@
 (function () {
     "use strict";
 
-    console.log("Link Test");
-    console.log("---------");
+    console.log(`Link Test`);
+    console.log(`---------`);
     console.log();
 
     // https://java.codeup.com/javascript-i/arrays/manipulating/
@@ -11,8 +11,8 @@
     var planetsArray;
 
     console.log();
-    console.log("Exercise 1")
-    console.log("----------");
+    console.log(`Exercise 1`)
+    console.log(`----------`);
     /**
      * TODO:
      * Convert planetsString to an array, and save it in a variable named
@@ -24,8 +24,8 @@
     console.log(planetsArray);
 
     console.log();
-    console.log("Exercise 2")
-    console.log("----------");
+    console.log(`Exercise 2`)
+    console.log(`----------`);
     /**
      * TODO:
      * Create a string with <br> tags between each planet. console.log() your
@@ -39,8 +39,8 @@
     console.log(`This would be useful to add strings to HTML via JavaScript.`)
 
     console.log();
-    console.log("Exercise Bonus")
-    console.log("---------------");
+    console.log(`Exercise Bonus`)
+    console.log(`---------------`);
     /**
      * BONUS:
      * Create another string that would display your planets in an undordered

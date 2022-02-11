@@ -1,11 +1,11 @@
 "use strict";
-console.log("Link Test");
-console.log("---------");
+console.log(`Link Test`);
+console.log(`---------`);
 console.log();
 
 console.log();
-console.log("Exercise 2")
-console.log("----------");
+console.log(`Exercise 2`)
+console.log(`----------`);
 // Create a function named showMultiplicationTable that accepts a number
 // and console.logs the multiplication table for that number (just
 // multiply by the numbers 1 through 10)
@@ -20,8 +20,8 @@ function showMultiplicationTable(num) {
 }
 
 console.log();
-console.log("Exercise 3")
-console.log("----------");
+console.log(`Exercise 3`)
+console.log(`----------`);
 // Use a for loop and the code from the previous lessons to generate
 // 10 random numbers between 20 and 200 and output to the console whether
 // each number is odd or even.
@@ -40,48 +40,9 @@ function randomOddEven() {
 }
 
 console.log();
-console.log("Exercise 4")
-console.log("----------");
+console.log(`Exercise 4`)
+console.log(`----------`);
 
-// printNumStacks();
-
-// from review:
-// function printNumStacks() {
-//     for (let outerNum = 1; outerNum < 10; outerNum++) {
-//         let numString = outerNum.toString();
-//         for (let innerNum = 1; innerNum <= outerNum; innerNum++) {
-//             // "2" + "2"...  22
-//             numString += numString.toString();
-//         }
-//         console.log(numString);
-//     }
-// }
-
-
-// numTriangle();
-
-// function numTriangle() {
-//     let a;
-//     let b;
-//     let nums;
-//
-//     for (let a = 1; a <= 9; a++) {          // number of lines to log
-//
-//         for (let b = 0; b < a; b++) {       // number of numbers to log per line (1 1, 2 2s, 3 3s)
-//
-//             // for (let b = 1; b <= a; b++) {       // number of numbers to log per line (1 1, 2 2s, 3 3s)
-//
-//         }
-//
-//         console.log(nums);                      // log here
-//
-//     }
-// }
-
-// returnreturn - not working
-// concat lines?
-
-// from tristan:
 // numTriangle2();
 
 function numTriangle2() {
@@ -93,8 +54,8 @@ function numTriangle2() {
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat
 
 console.log();
-console.log("Exercise 5")
-console.log("----------");
+console.log(`Exercise 5`)
+console.log(`----------`);
 
 // decreaseByFive();
 
@@ -104,11 +65,9 @@ function decreaseByFive() {
     }
 }
 
-// returnreturn - why doesn't (i - 5) work?
-
 console.log();
-console.log("IN CLASS 1")
-console.log("----------");
+console.log(`IN CLASS 1`)
+console.log(`----------`);
 let letters = "";
 
 console.log(letters.length);
@@ -126,8 +85,8 @@ function lecture() {
 console.log(letters.length);
 
 console.log();
-console.log("IN CLASS 2")
-console.log("----------");
+console.log(`IN CLASS 2`)
+console.log(`----------`);
 // TODO: Use a for loop to print the even numbers between 0 and 30, inclusive.
 //  HINT: remember the remainder operator (modulo)
 
@@ -142,8 +101,8 @@ function evenNumbers() {
 }
 
 console.log();
-console.log("IN CLASS 3")
-console.log("----------");
+console.log(`IN CLASS 3`)
+console.log(`----------`);
 // TODO: loop through numbers 1 - 40. Print "marco" if it's divisible by 3.
 //  Print "polo" if it's divisible by 5.
 //  -> If it's neither print "I'm not playing"

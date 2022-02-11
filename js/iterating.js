@@ -106,7 +106,8 @@
 
     function returnFive(array) {
         console.log(array[4]);
-        return names2[4];
+        console.log(array[array.length -1]);
+        return array[array.length -1];
     }
 
 })();

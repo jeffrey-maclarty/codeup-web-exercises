@@ -186,10 +186,16 @@
 
     function bookList() {
         for (let i = 0; i < books.length; i++) {
-            console.log("Title # " + (i + 1))
-            console.log("Title: " + books[i].title);
-            console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName);
+            // console.log("Book # " + (i + 1))
+
+            console.log(`Book # ${(i + 1)}`);
+            // console.log("Title: " + books[i].title);
+            console.log(`Title: ${books[i].title}`);
+            // console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName);
+            console.log(`Author: ${books[i].author.firstName} ${books[i].author.lastName}`)
+            console.log(`---`);
         }
+        console.log(`...`)
     }
 
     console.log();

@@ -106,6 +106,55 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+
+    let books = [
+        {
+            title: "The Salmon of Doubt",
+            author: {
+                firstName: "Douglas",
+                lastName: "Adams",
+            }
+        },
+        {
+            title: "The Brothers Karamazov",
+            author: {
+                firstName: "Fyodor",
+                lastName: "Dostoyevsky",
+            }
+        },
+        {
+            title: "Foundation",
+            author: {
+                firstName: "Isaac",
+                lastName: "Asimov",
+            }
+        },
+        {
+            title: "Post Office",
+            author: {
+                firstName: "Charles",
+                lastName: "Bukowski",
+            }
+        },
+        {
+            title: "All of Us",
+            author: {
+                firstName: "Raymond",
+                lastName: "Carver",
+            }
+        },
+
+    ]
+
+    console.log(books[0].title);
+    console.log(books[0].author.firstName);
+    console.log(books[0].author.lastName);
+    console.log();
+    console.log(books[3].title);
+    console.log(books[3].author.firstName);
+    console.log(books[3].author.lastName);
+
+
     console.log();
     console.log(`Exercise 5`)
     console.log(`----------`);

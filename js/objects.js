@@ -206,7 +206,20 @@
      *   `showBookInfo` function.
      */
 
-    function createBook(bookTitle, authorFirst, authorLast) {
-
+    let books2 = [];
+    createBook();
+    // function createBook(bookTitle, firstName, lastName) {
+        function createBook(bookTitle, author) {
+        books2.title = bookTitle;
+        books2.author = author;
+        // books2.author.firstName = firstName;
+        // books2.author.lastName = lastName;
     }
+
+
+    // console.log(createBook("Lighthousekeeping", "Jeanette", "Winterson"));
+    console.log(createBook("Lighthousekeeping", "Jeanette Winterson"));
+    console.log(books2);
+
+
 })();

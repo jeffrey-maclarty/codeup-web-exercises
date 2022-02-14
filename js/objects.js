@@ -209,20 +209,21 @@
      */
 
     let books2 = [];
-    createBook();
 
-    // function createBook(bookTitle, firstName, lastName) {
-    function createBook(bookTitle, author) {
-        books2.title = bookTitle;
-        books2.author = author;
-        // books2.author.firstName = firstName;
-        // books2.author.lastName = lastName;
+    function createBook(bookTitle, firstName, lastName) {
+        books2 = {
+            title: bookTitle,
+            author: {
+                firstName: firstName,
+                lastName: lastName,
+            }
+        }
+        books.push(books2);
+        bookList();
     }
 
+    createBook("Lighthousekeeping", "Jeanette", "Winterson");
 
-    // console.log(createBook("Lighthousekeeping", "Jeanette", "Winterson"));
-    console.log(createBook("Lighthousekeeping", "Jeanette Winterson"));
     console.log(books2);
-
 
 })();

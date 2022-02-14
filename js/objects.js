@@ -185,8 +185,8 @@
     bookList();
 
     function bookList() {
-        for (let i = 1; i < books.length + 1; i++) {
-            console.log("Title # " + i)
+        for (let i = 0; i < books.length; i++) {
+            console.log("Title # " + (i + 1))
             console.log("Title: " + books[i].title);
             console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName);
         }
@@ -206,4 +206,7 @@
      *   `showBookInfo` function.
      */
 
+    function createBook(bookTitle, authorFirst, authorLast) {
+
+    }
 })();

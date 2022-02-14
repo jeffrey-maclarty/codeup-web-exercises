@@ -186,12 +186,8 @@
 
     function bookList() {
         for (let i = 0; i < books.length; i++) {
-            // console.log("Book # " + (i + 1))
-
             console.log(`Book # ${(i + 1)}`);
-            // console.log("Title: " + books[i].title);
             console.log(`Title: ${books[i].title}`);
-            // console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName);
             console.log(`Author: ${books[i].author.firstName} ${books[i].author.lastName}`)
             console.log(`---`);
         }
@@ -214,8 +210,9 @@
 
     let books2 = [];
     createBook();
+
     // function createBook(bookTitle, firstName, lastName) {
-        function createBook(bookTitle, author) {
+    function createBook(bookTitle, author) {
         books2.title = bookTitle;
         books2.author = author;
         // books2.author.firstName = firstName;

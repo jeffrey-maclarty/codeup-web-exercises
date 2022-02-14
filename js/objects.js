@@ -73,7 +73,7 @@
         {name: 'George', amount: 320}
     ];
 
-    // hebDiscount();
+    hebDiscount();
 
     function hebDiscount() {
         let shopperDiscount;
@@ -81,8 +81,8 @@
 
         for (let i = 0; i < shoppers.length; i++) {
             if (shoppers[i].amount >= 200) { // YES DISCOUNT
-                shopperDiscount = (shoppers[i].amount * .12);
-                shopperDiscountPrice = (shoppers[i].amount - shopperDiscount);
+                shopperDiscount = (shoppers[i].amount * .12).toFixed(2);
+                shopperDiscountPrice = (shoppers[i].amount - shopperDiscount).toFixed(2);
                 console.log(`${shoppers[i].name}'s original price: $${shoppers[i].amount}, Discount: $${shopperDiscount}, Final Price: $${shopperDiscountPrice}`);
             } else { // NO DISCOUNT
                 console.log(`${shoppers[i].name} does not get a discount and pays $${shoppers[i].amount}`);

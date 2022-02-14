@@ -195,6 +195,21 @@
     }
 
     console.log();
+    console.log(`Exercise 5 - forEach version`)
+    console.log(`----------`);
+    bookList2();
+
+    function bookList2() {
+        books.forEach(function (book, index) {
+            console.log(`Book # ${(index + 1)}`);
+            console.log(`Title: ${book.title}`);
+            console.log(`Author: ${book.author.firstName} ${book.author.lastName}`)
+            console.log(`---`);
+        })
+        console.log(`...`)
+    }
+
+    console.log();
     console.log(`Exercise 6 - BONUS`)
     console.log(`----------`);
     /**

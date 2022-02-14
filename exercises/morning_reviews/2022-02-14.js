@@ -1,7 +1,7 @@
 "use strict";
 console.log(`Link Test`);
 console.log(`---------`);
-console.log(`         `);
+console.log();
 
 // Write a function called findAverage that takes in an
 // array of integers representing grades and returns
@@ -13,10 +13,12 @@ let grades = [95, 74, 86, 100];
 
 findAverage(grades);
 function findAverage(array) {
+    // let sumOfGrades;
     let sumOfGrades = 0;
     let avgOfGrades;
 
     for (let i = 0; i < array.length; i++) {
+        // sumOfGrades = sumOfGrades + array[i];
         sumOfGrades += array[i];
     }
 

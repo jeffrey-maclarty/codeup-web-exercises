@@ -50,6 +50,18 @@
     let planetsStringList1 = planetsArray.join('</li><li>');
     let planetsStringList2 = (`<ul><li>${planetsStringList1}</li></ul>`)
 
+    // review:
+    function buildPlanetUl(arrOfPlanets) {
+        let newString = "<ul>";
+        for (let i = 0; i < arrOfPlanets.length; i++) {
+            newString += "<li>";
+            newString += arrOfPlanets[i];
+            newString += "</li>";
+        }
+        newString += "</ul>";
+        return newString;
+    }
+
     console.log(planetsStringList2);
 
     document.write(planetsStringList2);

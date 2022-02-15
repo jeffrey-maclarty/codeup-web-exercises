@@ -17,10 +17,15 @@
      *  > console.log(person.firstName) // "Rick"
      *  > console.log(person.lastName) // "Sanchez"
      */
-    let person = {
-        firstName: "Jeffrey",
-        lastName: "MacLarty",
-    };
+
+        // let person = {
+        //     firstName: "Jeffrey",
+        //     lastName: "MacLarty",
+        // };
+
+    let person = {};
+    person.firstName = "Jeffrey";
+    person.lastName = "MacLarty";
 
     // console.log(`Object: ${person}`);
     console.log(person);
@@ -43,16 +48,16 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
+
     person.sayHello = function () {
-        return ("Hello from " + person.firstName + " " + person.lastName);
+        console.log("Hello from " + person.firstName + " " + person.lastName);
+        // OR USING 'this.'
+        return ("Hello from " + this.firstName + " " + this.lastName);
     }
 
     console.log(person.sayHello());
     // console.log(Object.keys(person));
 
-    console.log();
-    console.log(`Exercise 3`)
-    console.log(`----------`);
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
      * more than $200. If a shopper spends more than $200, they get a 12%
@@ -73,6 +78,28 @@
         {name: 'George', amount: 320}
     ];
 
+    console.log();
+    console.log(`Exercise 3 - forEach`)
+    console.log(`----------`);
+
+    hebDiscountForEach();
+
+    function hebDiscountForEach() {
+        shoppers.forEach(function (shopper) {
+            if (shopper.amount >= 200) {
+                let discount = (shopper.amount * .12);
+                let amountAfterDiscount = (shopper.amount - discount);
+                console.log(shopper.name + ", your amount before discount is $" + shopper.amount + ", your discount is $" + discount + " and your total is $" + amountAfterDiscount);
+            } else {
+                console.log(shopper.name + "'s receives no discount and the total is $" + shopper.amount);
+            }
+        })
+    }
+
+    console.log();
+    console.log(`Exercise 3 - for`)
+    console.log(`----------`);
+
     hebDiscount();
 
     function hebDiscount() {
@@ -90,6 +117,7 @@
 
         }
     }
+
 
     console.log();
     console.log(`Exercise 4`)
@@ -204,6 +232,7 @@
             console.log(`Book # ${(index + 1)}`);
             console.log(`Title: ${book.title}`);
             console.log(`Author: ${book.author.firstName} ${book.author.lastName}`)
+            // showBookInfo(book);
             console.log(`---`);
         })
         console.log(`...`)
@@ -212,6 +241,7 @@
     console.log();
     console.log(`Exercise 6 - BONUS`)
     console.log(`----------`);
+
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
@@ -223,22 +253,48 @@
      *   `showBookInfo` function.
      */
 
-    let books2 = [];
+    // let books2 = [];
+    //
+    // function createBook(bookTitle, firstName, lastName) {
+    //     books2 = {
+    //         title: bookTitle,
+    //         author: {
+    //             firstName: firstName,
+    //             lastName: lastName,
+    //         }
+    //     }
+    //     books.push(books2);
+    //     bookList();
+    // }
+    //
+    // createBook("Lighthousekeeping", "Jeanette", "Winterson");
+    //
+    // console.log(books2);
 
-    function createBook(bookTitle, firstName, lastName) {
-        books2 = {
-            title: bookTitle,
-            author: {
-                firstName: firstName,
-                lastName: lastName,
-            }
-        }
-        books.push(books2);
-        bookList();
-    }
+    // REVIEW:
+    // function createBook(title, authorName) {
+    //     let authorNameSplit = authorName.split(' ');
+    //     return {
+    //         title: title,
+    //         author: {
+    //             firstName: authorNameSplit[0],
+    //             lastName: authorNameSplit[1],
+    //         }
+    //     }
+    // }
 
-    createBook("Lighthousekeeping", "Jeanette", "Winterson");
-
-    console.log(books2);
-
+    // console.log(createBook('Clean Code', 'Bob Martin'));
+    //
+    // function addBook(book) {
+    //     books.push(book);
+    // }
+    //
+    // console.log(book);
+    //
+    // function showBookInfo(book) {
+    //     // console.log(`Book # ${(index + 1)}`);
+    //     console.log(`Title: ${book.title}`);
+    //     console.log(`Author: ${book.author.firstName} ${book.author.lastName}`)
+    //     console.log(`---`);
+    // }
 })();

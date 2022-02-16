@@ -10,7 +10,9 @@
         radius: 3,
 
         getArea: function () {
-            return Math.PI * (Math.pow(this.radius, 2));
+            // return Math.PI * (this.radius^2); // DO NOT USE ^ FOR EXPONENTS
+            return Math.PI * (this.radius ** 2);
+            // return Math.PI * (Math.pow(this.radius, 2));
         },
 
         logInfo: function (doRounding) {

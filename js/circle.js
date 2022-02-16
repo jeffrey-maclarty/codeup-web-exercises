@@ -1,8 +1,5 @@
 (function() {
     "use strict";
-    console.log(`Link Test`);
-    console.log(`---------`);
-    console.log();
 
     // create a circle object
     var circle = {

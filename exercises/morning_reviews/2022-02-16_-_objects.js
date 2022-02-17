@@ -123,10 +123,7 @@ console.log(`------------`);
 //     dob: "1989-11-30")
 
 
-
 // console.log(person2);
-
-
 
 
 // function car(make, model, year) {
@@ -143,9 +140,8 @@ console.log(`------------`);
 // console.log(myCar2);
 
 
-
 // Defines a contact info object
-function ContactInfo(phoneNumber, streetAddress, city, state, postalCode, emailAddress){
+function ContactInfo(phoneNumber, streetAddress, city, state, postalCode, emailAddress) {
     this.phoneNumber = phoneNumber;
     this.streetAddress = streetAddress;
     this.city = city;
@@ -153,6 +149,7 @@ function ContactInfo(phoneNumber, streetAddress, city, state, postalCode, emailA
     this.postalCode = postalCode;
     this.emailAddress = emailAddress;
 }
+
 // Defines a person object
 function Person(names, occupation, dob, contactInfo) {
     this.names = names;
@@ -160,6 +157,7 @@ function Person(names, occupation, dob, contactInfo) {
     this.dob = dob;
     this.contactInfo = contactInfo;
 }
+
 // makes a new person object instance (by invoking the constructor)
 let person2 = new Person(
     ["Casey", "J", "Edwards"],
@@ -173,4 +171,38 @@ let person2 = new Person(
         '90210',
         'nope@no-no-no.no'));
 
-console.log(person2.contactInfo.emailAddress);
+// console.log(person2.contactInfo.emailAddress);
+
+// JS Object Warmup, pt 4:
+// We are going to create a method which
+//  allows a user to input their desired amount of names names
+// use prompt, alert, confirm inside of a while loop
+// assign each name to an array
+// once the user decides they are done giving names, end the loop and return the string array
+// then assigning that returned array by invoking your new function on the Person.names property value!
+// Things to consider:
+// Should this be a standalone function or should it be a method on the Person object?
+
+// userInput();
+
+getNames();
+
+function getNames() {
+
+    let namesArr = [];
+    let hasMoreNames = true;
+
+    while (hasMoreNames){
+        namesArr.push(prompt("Enter name"));
+
+        hasMoreNames = confirm("Keep entering names?");
+
+    }
+
+    console.log(namesArr);
+
+    return namesArr;
+
+}
+
+

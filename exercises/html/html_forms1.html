@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="shortcut icon" href="#">
+</head>
+<body>
+
+<for method="POST" action="https://request-inspector-glitch.me">
+<!-- METHOD REFERS TO
+    POST: SENDING INFORMATION
+    GET: REQUESTING INFORMATION
+
+    ACTION IS THE LOCATION INFORMATION WILL BE SENT TO
+-->
+
+<!-- QUERY STRINGS
+    key-value pairs sent in the body for POST and
+    appended to the url for GET prepended by '?'
+    multiple key-value paris are separated by '&'
+
+    ?key1=value1&key2=value2
+    https://request-inspector.glitch.me?zipcode=78205
+-->
+    <label for="username">Username</label>
+    <input id="username" name="username" type="text">
+    <br>
+
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password">
+    <br>
+
+    <input type="submit">
+    <br>
+    <button type="Submit">Send</button>
+<!-- <input> is a void element
+    <button type="submit"> gives more flexibility\
+-->
+</for>
+
+
+<script defer src=""></script>
+
+</body>
+</html>

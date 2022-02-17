@@ -2,13 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Register With Us</title>
 
     <link rel="shortcut icon" href="#">
 </head>
 <body>
+<h3>Register With Us</h3>
 
-<script defer src=""></script>
+<form method="POST" action="https://request-inspector.glitch.me/">
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" placeholder="Enter your email">
+    <br>
+
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" placeholder="Enter your password">
+    <br><br>
+
+    <label for="bio"></label>
+    <textarea id="bio" name="bio" rows="10" cols="50"></textarea>
+    <br><br>
+
+
+    <h4>How did you hear about us?</h4>
+    <input type="radio" name="how_did_you_hear1" value="billboard"> Billboard<br>
+    <input type="radio" name="how_did_you_hear2" value="radio"> Radio Advertisement<br>
+    <input type="radio" name="how_did_you_hear3" value="internet"> Internet Adverstisement<br>
+    <input type="radio" name="how_did_you_hear4" value="other"> Other<br>
+    <br>
+
+    <label for="browser">What browser are you using?</label>
+    <br>
+    <select id="browser" name="browser">
+        <option value="brave">Brave</option>
+        <option value="chrome">Chrome</option>
+        <option value="chromium">Chromium</option>
+        <option value="firefox">Firefox</option>
+        <option value="safari">Safari</option>
+    </select>
+    <br><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+
+<!--<script defer src=""></script>-->
 
 </body>
 </html>

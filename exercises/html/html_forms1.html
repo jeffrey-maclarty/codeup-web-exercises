@@ -2,31 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>HTML Forms</title>
 
     <link rel="shortcut icon" href="#">
 </head>
 <body>
+<form method="POST" action="https://request-inspector-glitch.me">
+    <!-- METHOD REFERS TO
+        POST: SENDING INFORMATION
+        GET: REQUESTING INFORMATION
 
-<for method="POST" action="https://request-inspector-glitch.me">
-<!-- METHOD REFERS TO
-    POST: SENDING INFORMATION
-    GET: REQUESTING INFORMATION
+        ACTION IS THE LOCATION INFORMATION WILL BE SENT TO
+    -->
 
-    ACTION IS THE LOCATION INFORMATION WILL BE SENT TO
--->
+    <!-- QUERY STRINGS
+        key-value pairs sent in the body for POST and
+        appended to the url for GET prepended by '?'
+        multiple key-value paris are separated by '&'
 
-<!-- QUERY STRINGS
-    key-value pairs sent in the body for POST and
-    appended to the url for GET prepended by '?'
-    multiple key-value paris are separated by '&'
-
-    ?key1=value1&key2=value2
-    https://request-inspector.glitch.me?zipcode=78205
--->
+        ?key1=value1&key2=value2
+        https://request-inspector.glitch.me?zipcode=78205
+    -->
     <label for="username">Username</label>
     <input id="username" name="username" type="text">
     <br>
+    <!--
+        <label for ="" and <input id="" reference each other
+    -->
 
     <label for="password">Password</label>
     <input id="password" name="password" type="password">
@@ -35,13 +37,51 @@
     <input type="submit">
     <br>
     <button type="Submit">Send</button>
-<!-- <input> is a void element
-    <button type="submit"> gives more flexibility\
--->
-</for>
+    <!-- <input> is a void element
+        <button type="submit"> gives more flexibility\
+    -->
+</form>
+<br>
 
 
-<script defer src=""></script>
+<form>
+    <label for="username2">Username</label>
+    <input id="username2" name="username" type="text">
+</form>
+<br>
 
+<!-- TEXTAREA: -->
+<form>
+    <textarea name="comment"></textarea>
+    <br>
+    <textarea name="comment" rows="4" cols="50"></textarea>
+    <br><br>
+
+    <label for="w3review">Review of W3Schools:</label>
+    <br>
+    <textarea id="w3review" name="w3review" rows="7" cols="70">
+At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
+
+Whitespace is formatted as-is from the html - ^empty line^
+    THIS IS TABBED IN THE HTML
+THIS IS NOT TABBED IN THE HTML
+    </textarea>
+</form>
+<br><br>
+
+<!-- CHECKBOXES AND RADIO BUTTONS -->
+<form>
+    <input name="newsletter_signup" value="true" type="checkbox">Sign Up For The Email Newsletter
+<!-- checked="checked" to prefill the box -->
+    <br>
+    A <input type="radio" name="quiz_question_1" value="a"><br>
+    B <input type="radio" name="quiz_question_1" value="b" checked="checked"><br>
+    C <input type="radio" name="quiz_question_1" value="c"><br>
+    D <input type="radio" name="quiz_question_1" value="d"><br>
+<!-- checked="checked" to prefill the box -->
+</form>
+
+
+<!--<script defer src=""></script>-->
 </body>
 </html>

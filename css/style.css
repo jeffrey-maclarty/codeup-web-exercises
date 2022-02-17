@@ -1,10 +1,38 @@
 /* @import url('https://fonts.googleapis.com/'); */
 /* https://fonts.google.com/ */
 
-H1 {
+body {
+    background-color: darkblue;
     color: aqua;
+
+}
+
+#title {
+        display: flex;
+    justify-content: center;
+}
+hr {
+    width: 80%;
+    background-color: lawngreen;
+    border: none;
+    height: 3px;
 }
 
 H2 {
-    color: aqua;
+
+}
+
+img {
+    border-radius: 50%;
+    opacity: .4;
+}
+
+ul {
+    list-style-type: circle;
+}
+
+th {
+    color: black;
+    text-align: left;
+    background-color: lawngreen;
 }

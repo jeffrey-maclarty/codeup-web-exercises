@@ -5,14 +5,14 @@
     --white: #FFFFFF;
     --black: #000000;
 
-    --bg-info: #cddeff;
-    --bg-info-text: #5f5caf;
-    --bg-success: #cff3da;
-    --bg-success-text: #05652e;
-    --bg-warn: #fcfbc9;
-    --bg-warn-text: #968421;
-    --bg-error: #fad3d7;
-    --bg-error-text: #a44c60;
+    --info-bg: #cddeff;
+    --info-text: #5f5caf;
+    --success-bg: #cff3da;
+    --success-text: #05652e;
+    --warn-bg: #fcfbc9;
+    --warn-text: #968421;
+    --error-bg: #fad3d7;
+    --error-text: #a44c60;
 
     --border: #d3d3d3;
 }
@@ -34,21 +34,21 @@ body, html {
     font-weight: bold;
 }
 .message-info {
-    background-color: var(--bg-info);
-    color: var(--bg-info-text);
+    background-color: var(--info-bg);
+    color: var(--info-text);
 }
 
 .message-success {
-    background-color: var(--bg-success);
-    color: var(--bg-success-text)
+    background-color: var(--success-bg);
+    color: var(--success-text)
 }
 
 .message-warning {
-    background-color: var(--bg-warn);
-    color: var(--bg-warn-text);
+    background-color: var(--warn-bg);
+    color: var(--warn-text);
 }
 
 .message-error {
-    background-color: var(--bg-error);
-    color: var(--bg-error-text);
+    background-color: var(--error-bg);
+    color: var(--error-text);
 }

@@ -1,0 +1,13 @@
+/* @import url('https://fonts.googleapis.com/'); */
+/* https://fonts.google.com/ */
+
+:root {
+    --white: #FFFFFF;
+    --black: #000000;
+
+}
+
+/* REMOVEME: */
+* {
+    border: 1px solid var(--black);
+}

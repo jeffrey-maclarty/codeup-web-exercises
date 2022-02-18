@@ -76,6 +76,13 @@ fieldset {
     border: 3px var(--button-border) solid;
 }
 
+.btn:hover {
+    background-color: var(--white);
+    border-color: var(--white);
+    color: #0fb784;
+    transition: 1s;
+}
+
 .form-control {
     /* There must be 4px on top of the text and below the text of an input with this class */
     /* It should have a separation of .5em from elements on top of it and below it */

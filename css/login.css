@@ -1,3 +1,13 @@
+:root {
+    --white: #FFFFFF;
+    --black: #000000;
+
+    --red: #eb5757;
+    --purple: #9b51e0;
+    --blue: #2d9cdb;
+    --green: #27ae60;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -13,6 +23,7 @@ body, html {
 form {
     /* This form should be separated from other elements by 1em */
     /* There must be 1em between the content and the border of this element */
+    padding: 1em;
 }
 
 fieldset {
@@ -22,11 +33,19 @@ fieldset {
     /* There must be 1em between the content and the border of this element */
     /* It should have no border */
     /* Its background should be white */
+    padding: 1em;
+    border: none;
+    background-color: var(--white);
 }
 
 .width-80 {
     /* The element with this class should be 80% of the width and it must be centered */
     /* Read how to center elements with margin here: http://learnlayout.com/margin-auto.html*/
+    width: 80%;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+
+
 }
 
 .form-group {

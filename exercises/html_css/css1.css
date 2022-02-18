@@ -103,7 +103,7 @@ a:visited {
 .categories li {
     padding-bottom: 6px;
     border-bottom: dotted 1px #333333;
-    list-style-image: url("../../img/github-codeup_chevron_icon-10px_x_10px.png");
+    list-style-image: url("../../img/github-codeup_chevron-10x10.png");
 }
 
 .my-form {

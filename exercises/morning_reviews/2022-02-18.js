@@ -16,4 +16,5 @@ function isANumber (input) {
 isANumber(10);
 isANumber("test");
 isANumber(false);
-isANumber([34343, 434343])
+isANumber([34343, 434343]);
+isANumber("10");

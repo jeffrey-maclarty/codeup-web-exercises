@@ -1,17 +1,16 @@
 /* @import url('https://fonts.googleapis.com/'); */
 /* https://fonts.google.com/ */
 
+* {
+    border: 1px solid black;
+}
+
 body {
     background-color: darkblue;
     color: aqua;
     border:
     margin: auto;
     text-align: center;
-}
-
-#title {
-    display: flex;
-    justify-content: center;
 }
 
 hr {
@@ -34,6 +33,7 @@ img {
 
 ul {
     list-style-image: url("../img/github-codeup_chevron_icon-10px_x_10px.png");
+    ;
 }
 
 th {
@@ -42,11 +42,28 @@ th {
     background-color: lawngreen;
 }
 
-.list1 {
-    float: left;
-    width: 33.3%;
-}
 
 .container {
     margin: 25px;
 }
+
+.Body1Lists {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    display: flex;
+    justify-content: center;
+}
+
+th td {
+    display: flex;
+    justify-content: left;
+}
+
+/*tr {*/
+/*    display: flex;*/
+/*    justify-content: left;*/
+/*    padding-right: 2*/
+/*}*/

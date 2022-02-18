@@ -6,7 +6,7 @@ console.log();
 function isANumber (input) {
     if (typeof input === 'number') {
         console.log(`${input} is a number.`);
-        true;
+        return true;
     } else {
         console.log(`${input} is _NOT_ a number.`);
         return false;

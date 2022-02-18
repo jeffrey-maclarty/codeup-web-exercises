@@ -35,6 +35,7 @@ body, html {
     border-radius: 7px;
     font-weight: bold;
 }
+
 .message-info {
     background-color: var(--info-bg);
     color: var(--info-text);

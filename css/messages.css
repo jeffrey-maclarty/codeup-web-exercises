@@ -26,7 +26,9 @@ body, html {
 }
 
 .message {
-    margin: .5em .5em .5em 1em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: .5em;
     padding: .5em;
     width: 95%;
     border: 2px solid var(--border);

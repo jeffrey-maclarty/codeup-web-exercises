@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 /* https://fonts.google.com/ */
 
 * {
@@ -10,6 +10,7 @@ body {
     color: aqua;
     margin: auto;
     text-align: center;
+    font-family: Poppins, Arial, sans-serif;
 }
 
 hr {
@@ -26,7 +27,7 @@ h2 {
 
 img {
     border-radius: 50%;
-    opacity: .4;
+    opacity: .3;
     height: 20%;
     width: 40%;
 }
@@ -63,4 +64,13 @@ table {
 .list1 {
     display: flex;
     justify-content: space-between;
+}
+
+.Body2Images {
+    background-image: url("../img/welcome-veridian-02.png")
+}
+
+a {
+    color: lawngreen;
+    text-decoration: none;
 }

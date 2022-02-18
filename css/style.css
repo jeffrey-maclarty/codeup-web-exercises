@@ -2,13 +2,12 @@
 /* https://fonts.google.com/ */
 
 * {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
 }
 
 body {
     background-color: darkblue;
     color: aqua;
-    border:
     margin: auto;
     text-align: center;
 }
@@ -20,7 +19,8 @@ hr {
     height: 3px;
 }
 
-H2 {
+h2 {
+    text-decoration: underline;
 
 }
 
@@ -31,9 +31,12 @@ img {
     width: 40%;
 }
 
+ul, ol {
+    text-align: left;
+}
+
 ul {
     list-style-image: url("../img/github-codeup_chevron_icon-10px_x_10px.png");
-    ;
 }
 
 th {
@@ -57,13 +60,7 @@ table {
     justify-content: center;
 }
 
-th td {
+.list1 {
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
 }
-
-/*tr {*/
-/*    display: flex;*/
-/*    justify-content: left;*/
-/*    padding-right: 2*/
-/*}*/

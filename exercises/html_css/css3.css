@@ -7,3 +7,41 @@
 
     --black: #000000;
 }
+
+.container-1 {
+    display: flex;
+/*    align-items: flex-start;*/
+/*    align-items: flex-end;*/
+/*    align-items: center;*/
+    align-items: stretch; /* STRETCH IS THE DEFAULT */
+    /*flex-direction: column;*/
+}
+
+.container-2 {
+    display: flex;
+    /*justify-content: flex-start;*/ /* DEFAULT */
+    justify-content: space-around;
+}
+.container-1 div, .container-2 div{
+    border: 1px #cccccc solid;
+    padding: 10px;
+}
+
+.box-1 {
+    flex: 2;
+    order: 2;
+}
+
+.box-2 {
+    flex: 1;
+    order: 3
+}
+
+.box-3 {
+    flex: 1;
+    order: 1;
+}
+
+.container-2-box {
+    width: 25%;
+}

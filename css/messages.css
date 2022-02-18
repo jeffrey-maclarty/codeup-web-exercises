@@ -5,6 +5,16 @@
     --white: #FFFFFF;
     --black: #000000;
 
+    --bg-info: #cddeff;
+    --bg-info-text: #5f5caf;
+    --bg-success: #cff3da;
+    --bg-success-text: #05652e;
+    --bg-warn: #fcfbc9;
+    --bg-warn-text: #968421;
+    --bg-error: #fad3d7;
+    --bg-error-text: #a44c60;
+
+    --border: #d3d3d3;
 }
 
 body, html {
@@ -13,4 +23,32 @@ body, html {
     padding: 0;
     margin: 0;
     font-family: Arial, Ubuntu, sans-serif;
+}
+
+.message {
+    margin: .5em .5em .5em 1em;
+    padding: .5em;
+    width: 95%;
+    border: 2px solid var(--border);
+    border-radius: 7px;
+    font-weight: bold;
+}
+.message-info {
+    background-color: var(--bg-info);
+    color: var(--bg-info-text);
+}
+
+.message-success {
+    background-color: var(--bg-success);
+    color: var(--bg-success-text)
+}
+
+.message-warning {
+    background-color: var(--bg-warn);
+    color: var(--bg-warn-text);
+}
+
+.message-error {
+    background-color: var(--bg-error);
+    color: var(--bg-error-text);
 }

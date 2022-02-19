@@ -1,0 +1,32 @@
+/* @import url('https://fonts.googleapis.com/'); */
+/* https://fonts.google.com/ */
+
+:root {
+    --white: #FFFFFF;
+    --black: #000000;
+
+}
+
+/* REMOVEME: */
+* {
+    border: 1px solid var(--black);
+}
+
+
+.nav-list {
+    display: flex;
+    flex-wrap: wrap; /* default is nowrap */
+    gap: 1rem;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-list li {
+    /*width: min-content;*/
+    /*width: max-content;*/
+
+    flex-grow: 1; /* 0 is the default */
+    flex-shrink: 1; /* 1 is the default */
+}

@@ -1,0 +1,76 @@
+* {
+    /*border: 1px solid var(--black);*/
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* flex-end flex-start vs end start */
+/* use end and flex */
+/* https://stackoverflow.com/questions/54654050/difference-between-flex-end-and-end */
+
+.flex-container {
+    /*height: 500px;*/
+    display: flex;
+    /*flex-direction: column-reverse;*/
+    /* row, row-reverse, column, column-reverse */
+    /* https://www.w3schools.com/cssref/css3_pr_flex-direction.asp */
+    background-color: grey;
+    /*justify-content: end;*/
+    /* main axis - horizontal */
+    /* justify-content is a 'container' modifier */
+    /* start, center, end, space-around, space-between, space-evenly*/
+    /* https://www.w3schools.com/cssref/css3_pr_justify-content.asp */
+    align-items: start;
+    /* cross axis - vertical */
+    /* align-tems is a 'container' modifier */
+    /* start, center, end, stretch */
+    /* https://www.w3schools.com/CSSref/css3_pr_align-items.asp */
+    /*flex-wrap: wrap;*/
+}
+
+.item {
+    flex: 1 0 100px;
+    /* flex: 1(grow) 0(shrink) 100px(basis) */
+    /* basis 0 will make even columns */
+    /* flex: 1; is flex: 1 0 0;
+/*width: 100px;*/
+    /*flex-basis: 300px;*/
+    height: 100px;
+    background: blue;
+    color: white;
+    margin: 10px;
+    /*flex-grow: 1;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item:nth-of-type(1) {
+    /*align-self: start;*/
+    /*order: 2;*/
+    /*flex-grow: 3;*/
+    /*flex-basis: 200px;*/
+    /*flex-shrink: 1;*/
+}
+
+.item:nth-of-type(2) {
+    /*align-self: center;*/
+    /*order: 1;*/
+    /*flex-basis: 300px;*/
+    /*flex-basis: 50%;*/
+    /*flex-grow: 1;*/
+    /*flex-shrink:2 ;*/
+
+}
+
+.item:nth-of-type(3) {
+    /*align-self: end;*/
+    /*order: 1;*/
+    /*flex-grow: 2;*/
+    /*flex-shrink:3 ;*/
+}
+

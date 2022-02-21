@@ -3,9 +3,5 @@ console.log(`Link Test`);
 console.log(`---------`);
 console.log();
 
-// URL
-
-console.log();
-console.log(`Exercise 1`);
-console.log(`------------`);
+// https://www.youtube.com/watch?v=hdI2bqOjy3c&list=PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX
 

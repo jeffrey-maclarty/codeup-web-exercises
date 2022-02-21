@@ -12,30 +12,59 @@ body {
     background-color: var(--beigeish);
 }
 
+h3 {
+    color: black;
+    font-weight: bolder;
+    font-size: larger;
+}
+
 hr {
     background-color: var(--bluegray);
 }
 
-.button {
+input {
     background-color: var(--lightbluegray);
-    padding: 10px 15px;
     border: none;
-    border-radius: 10px;
+    margin: 10px;
+    height: 30px;
+    border-radius: 5px;
 }
 
-.button:hover {
+button {
+    background-color: var(--lightbluegray);
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+}
+
+button:hover {
     background-color: var(--bluegray);
     color: var(--whiteish);
-}
-
-.button:hover.hover-halfsec {
     transition: .5s;
 }
 
-.button:hover.hover-onesec {
-    transition: 1s;
+textarea {
+    background-color: var(--lightbluegray);
+    border-radius: 5px;
+    margin-bottom: 5px;
+    border: none;
 }
 
-.button:hover.hover-twosec {
-    transition: 2s;
+textarea, .textarea-button {
+    /*border: solid 1px var(--black);*/
 }
+
+select {
+    background-color: var(--lightbluegray);
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+}
+
+/* STYLING OPTION IS LIMITED */
+/*option {*/
+/*    background-color: var(--black);*/
+/*    color: black;*/
+/*}*/

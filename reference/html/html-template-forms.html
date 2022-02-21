@@ -3,13 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="css/">
+    <link rel="stylesheet" href="html-template-forms.css">
 
     <link rel="shortcut icon" href="#">
 </head>
 <body>
 
-<script defer src=""></script>
+<h3>Login & Password</h3>
+<form method="POST" action="https://request-inspector.glitch.me/">
+
+    <label for="username">Username:</label>
+    <input id="username" name="username" type="text" placeholder=" enter username">
+    <br>
+
+    <label for="password">Password:</label>
+    <input id="password" name="password" type="password" placeholder=" enter password">
+    <br>
+
+    <button type="submit">Submit</button>
+</form>
+<hr>
+
+<form method="POST" action="https://request-inspector.glitch.me/">
+    <label for="textarea"><h3>Textarea</h3></label>
+    <textarea id="textarea" name="textarea" rows="20" cols="60"></textarea>
+    <br>
+    <button type="submit" class="textarea-button">Submit</button>
+</form>
+<hr>
+
+<form method="POST" action="https://request-inspector.glitch.me/">
+    <label for="select-dropdown"><h3>Select (dropdown)</h3></label>
+    <select id="select-dropdown" name="dropdown">
+        <option class="test-option" value="Choice 1">Choice 1</option>
+        <option value="Choice 2">Choice 2</option>
+        <option value="Choice 3">Choice 3</option>
+        <option value="Choice 4">Choice 4</option>
+    </select>
+</form>
+<hr>
+
 
 </body>
 </html>

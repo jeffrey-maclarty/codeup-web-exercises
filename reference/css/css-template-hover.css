@@ -1,0 +1,41 @@
+:root {
+    --white: #FFFFFF;
+    --black: #000000;
+
+    --bluegray: #1C658C;
+    --lightbluegray: #398AB9;
+    --beigeish: #D8D2CB;
+    --whiteish: #EEEEEE;
+}
+
+body {
+    background-color: var(--beigeish);
+}
+
+hr {
+    background-color: var(--bluegray);
+}
+
+.button {
+    background-color: var(--lightbluegray);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+}
+
+.button:hover {
+    background-color: var(--bluegray);
+    color: var(--whiteish);
+}
+
+.button:hover.hover-halfsec {
+    transition: 1s;
+}
+
+.button:hover.hover-onesec {
+    transition: 1s;
+}
+
+.button:hover.hover-twosec {
+    transition: 2s;
+}

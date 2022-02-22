@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+/* https://fonts.google.com/ */
+
+* {
+    /*border: 1px solid black;*/
+}
+
+body {
+    background-color: darkblue;
+    color: aqua;
+    margin: auto;
+    text-align: center;
+    font-family: Poppins, Arial, sans-serif;
+}
+
+hr {
+    width: 80%;
+    background-color: lawngreen;
+    border: none;
+    height: 3px;
+}
+
+h2 {
+    text-decoration: underline;
+
+}
+
+img {
+    border-radius: 50%;
+    opacity: .6;
+    height: 20%;
+    width: 40%;
+}
+
+img:hover {
+    display: none;
+}
+
+ul, ol {
+    text-align: left;
+    background-color: black;
+}
+
+ul {
+    list-style-image: url("../img/github-codeup_chevron-10x10.png");
+}
+
+th {
+    color: black;
+    text-align: left;
+    background-color: lawngreen;
+    font-family: Helvetica, sans-serif;
+}
+
+
+.container {
+    margin: 25px;
+}
+
+.Body1Lists {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    background-color: black;
+}
+
+.list1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Body2Images {
+    background-image: url("../img/welcome-veridian-03.png")
+}
+
+a {
+    color: lawngreen;
+    text-decoration: none;
+}

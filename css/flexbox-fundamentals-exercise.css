@@ -112,8 +112,13 @@ section:nth-of-type(3) h3 {
     background: brown;
     /* enter needed declarations here */
     /*justify-content: space-evenly;*/
-    /* returnreturn - stretch or something */
+    /*justify-content: stretch;*/
+    flex-grow: 3;
 }
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow */
+/* https://www.w3schools.com/CSSref/css3_pr_flex-grow.asp */
+/* returnreturn - ask how this works */
+
 
 .large-brown-box:nth-of-type(2) {
     margin: 0 1em;

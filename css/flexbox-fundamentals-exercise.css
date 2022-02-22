@@ -43,14 +43,21 @@ h2, h3 {
     /* enter needed declarations here */
     /*padding: 20px;*/
     /*gap: .5em;*/
+    /*display: flex;*/   /* review */
+    /*flex-direction: column;*/   /* review */
+    /*justify-content: space-evenly;*/   /* review */
 }
 
 section {
     /* enter needed declarations here */
-    display: flex;
+    display: flex; /* review */
+    /* justify-content: space-between; */ /* review */
     flex-direction: row;
     margin-top: 15px;
     margin-bottom: 15px;
+    /*margin: 15px 0;*/ /* review */
+    /*flex-wrap: wrap;*/ /* review */
+    /*align-items: space-evenly;*/ /* review */
 }
 
 section:nth-of-type(1) {
@@ -63,7 +70,7 @@ section:nth-of-type(1) {
 
 section:nth-of-type(1) div:last-child {
     /* enter needed declarations here */
-    align-self: start;
+    align-self: start; /* review */
 }
 
 .purple-box {
@@ -74,12 +81,14 @@ section:nth-of-type(1) div:last-child {
 
 .purple-box:nth-of-type(1) {
     /* enter needed declarations here */
-    flex: 3;
+    flex: 2;
+    /*flex-grow: 2;*/ /* review */
 }
 
 .purple-box:nth-of-type(2) {
     /* enter needed declarations here */
-    flex: 2;
+    flex: 1;
+    /*flex-grow: 1;*/ /* review */
 }
 
 .blue-box {
@@ -91,11 +100,15 @@ section:nth-of-type(1) div:last-child {
 section:nth-of-type(3) {
     /* enter needed declarations here */
     align-items: center;
+    /*justify-content: end;*/ /* review */
+    /*background-color: coral;*/
 }
 
 section:nth-of-type(3) h3 {
     /* enter needed declarations here */
-    flex: 1;
+    flex: 1; /* flex-grow */
+    /*margin-right: auto;*/ /* review */
+    /*background-color: red*/
 
 }
 
@@ -114,12 +127,10 @@ section:nth-of-type(3) h3 {
     /* enter needed declarations here */
     /*justify-content: space-evenly;*/
     /*justify-content: stretch;*/
-    flex-grow: 3;
+    flex-grow: 1;
 }
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow */
 /* https://www.w3schools.com/CSSref/css3_pr_flex-grow.asp */
-/* returnreturn - ask how this works */
-
 
 .large-brown-box:nth-of-type(2) {
     margin: 0 1em;
@@ -127,7 +138,7 @@ section:nth-of-type(3) h3 {
 
 section:nth-of-type(5) {
     /* enter needed declarations here */
-    justify-content: space-evenly;
+    justify-content: space-evenly; /* review */
 }
 
 .yellow-box {

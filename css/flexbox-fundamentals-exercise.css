@@ -41,20 +41,27 @@ h2, h3 {
     padding: 1em;
     margin: 0 auto;
     /* enter needed declarations here */
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+
 }
 
 section {
     /* enter needed declarations here */
+    display: flex;
+    flex-direction: row;
 }
 
 section:nth-of-type(1) {
     height: 3em;
     background: lightgreen;
     /* enter needed declarations here */
+    justify-content: space-between;
+    align-items: center;
 }
 
 section:nth-of-type(1) div:last-child {
     /* enter needed declarations here */
+    align-self: start;
 }
 
 .purple-box {

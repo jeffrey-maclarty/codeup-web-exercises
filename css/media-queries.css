@@ -1,9 +1,10 @@
-/* @import url('https://fonts.googleapis.com/'); */
-/* https://fonts.google.com/ */
-
 :root {
     --white: #FFFFFF;
     --black: #000000;
+
+    --skip-button: #ccffff; /* light blue */
+    --skip-border: #c8cece; /* light gray */
+    --link-bg-small: #cccccc; /* gray */
 
 }
 
@@ -13,19 +14,118 @@
 
 body {
     box-sizing: border-box;
-    margin: 0;
+    margin: 15px;
     padding: 0;
 }
 
+.alert-info {
+    background-color: var(--skip-button);
+    font-size: .8rem;
+    padding: 10px;
+    border: 2px solid var(--skip-border);
 
-
-
-/* small and up - large phones and tablets */
-@media only screen and (min-width: 600px) {
-
+    display: flex;
+    justify-content: center;
 }
 
+.alert-info a {
+    color: var(--black);
+    text-decoration: none;
+}
+
+h1 {
+    color: var(--black);
+    font-size: 2rem;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+.nav-links {
+    padding: 10px;
+    margin: 10px;
+}
+
+.nav-links li {
+    background-color: var(--link-bg-small);
+    font-size: .8rem;
+    height: 15px;
+    list-style: none;
+    margin-bottom: 5px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.header-img img {
+    margin: auto;
+    width: 339px;
+    height: 224px;
+
+    display: flex;
+}
+
+
+#social-media-links img {
+    width: 20px;
+    height: 20px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+#social-media-links {
+    align-self: center;
+}
+
+/*!* small and up - large phones and tablets *!*/
+/*@media only screen and (min-width: 600px) {*/
+
+/*}*/
+
 /* medium and up */
-@media only screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+
+    .hidden-on-desktop {
+        display: none;
+    }
+
+    body {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .header-img img {
+        width: 890px;
+        height: 385px;
+    }
+
+    h1 {
+        display: flex;
+        flex-grow: 1;
+        justify-content: start;
+    }
+
+    .nav {
+        display: flex;
+        /*justify-content: center;*/
+        /*align-content: center;*/
+        /*align-items: center;*/
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        /*justify-content: center;*/
+        /*align-content: end;*/
+        /*align-self: center;*/
+        /*align-content: center;*/
+    }
+
+    /* returnreturn - .nav / .nav-links - why doesn't this center vertically? */
+
 
 }

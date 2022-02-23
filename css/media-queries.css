@@ -75,11 +75,10 @@ nav {
     padding-bottom: 15px;
 }
 
-#social-media-links img {
-    width: 20px;
-    height: 20px;
+i {
+    color: black;
+    font-size: 1.5rem;
 }
-
 p {
     margin-bottom: 25px;
 }

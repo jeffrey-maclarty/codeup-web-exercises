@@ -1,0 +1,31 @@
+/* @import url('https://fonts.googleapis.com/'); */
+/* https://fonts.google.com/ */
+
+:root {
+    --white: #FFFFFF;
+    --black: #000000;
+
+}
+
+* {
+    /*border: 1px solid var(--black);*/
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+/* small and up - large phones and tablets */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* medium and up */
+@media only screen and (min-width: 768px) {
+
+}

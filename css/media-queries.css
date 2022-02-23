@@ -9,17 +9,15 @@
 }
 
 * {
-    /*box-sizing: border-box;*/
-    /*margin: 5px;*/
+    /*margin: 0;*/
     /*padding: 0;*/
 
-    border: 1px solid var(--black);
+    /*border: 1px solid var(--black);*/
 }
 
 body {
     box-sizing: border-box;
     margin: 15px;
-    padding: 0;
 }
 
 .alert-info {
@@ -46,13 +44,14 @@ h1 {
 }
 
 nav {
-    width: 100%
+    width: 100%;
 
     display: flex;
     justify-content: center;
 }
+
 .nav-links {
-    width: 100%;
+    min-width: 100%;
     padding: 10px;
     margin: 10px;
 }
@@ -60,9 +59,9 @@ nav {
 .nav-links li {
     background-color: var(--link-bg-small);
     font-size: .8rem;
-    height: 15px;
+    line-height: 40px;
     list-style: none;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 
     display: flex;
     justify-content: center;
@@ -70,22 +69,40 @@ nav {
 
 .header-img img {
     margin: auto;
-    width: 339px;
-    height: 224px;
-
-    display: flex;
+    /*width: 339px;*/
+    /*height: 224px;*/
+    max-width: 100%;
+    padding-bottom: 15px;
 }
-
 
 #social-media-links img {
     width: 20px;
     height: 20px;
 }
 
+p {
+    margin-bottom: 25px;
+}
+
+/* align with left side of footer */
+#social-media-links {
+    padding-bottom: 5px;
+}
+/* compensate for img:nth-of-type(3) below */
+#social-media-links img:nth-of-type(2) {
+    margin-left: 4px;
+}
+
+/* this image is rectangular and is squished at 20x20 */
+#social-media-links img:nth-of-type(3) {
+    width: 30px;
+}
+
 footer {
     width: 100%;
 
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -105,42 +122,4 @@ footer {
         display: none;
     }
 
-    body {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .header-img img {
-        width: 890px;
-        height: 385px;
-    }
-
-    h1 {
-        display: flex;
-        flex-grow: 1;
-        justify-content: start;
-    }
-
-    .nav {
-        display: flex;
-        /*justify-content: center;*/
-        /*align-content: center;*/
-        /*align-items: center;*/
-    }
-
-    .nav-links {
-        display: flex;
-        flex-direction: row;
-        /*justify-content: center;*/
-        /*align-content: end;*/
-        /*align-self: center;*/
-        /*align-content: center;*/
-    }
-
-    /* returnreturn - .nav / .nav-links - why doesn't this center vertically? */
-
-
-    #social-media-links {
-        justify-content: space-between;
-    }
 }

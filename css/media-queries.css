@@ -9,6 +9,10 @@
 }
 
 * {
+    /*box-sizing: border-box;*/
+    /*margin: 5px;*/
+    /*padding: 0;*/
+
     /*border: 1px solid var(--black);*/
 }
 
@@ -73,6 +77,8 @@ h1 {
 }
 
 footer {
+    width: 100%;
+
     display: flex;
     justify-content: space-between;
 }
@@ -128,4 +134,7 @@ footer {
     /* returnreturn - .nav / .nav-links - why doesn't this center vertically? */
 
 
+    #social-media-links {
+        justify-content: space-between;
+    }
 }

@@ -53,24 +53,96 @@
 </nav>
 
 <container>
+
+    <!-- JUMBOTRON BEGIN -->
     <div class="jumbotron">
         <h1 class="display-4">Welcome to Pizza World!</h1>
     </div>
+    <!-- JUMBOTRON END -->
 
     <h2>Build your own Pizza!</h2>
-        <ul class="nav nav-tabs bg-dark">
-  <li class="nav-item">
-    <a class="nav-link active" href="#"><span class="badge badge-pill badge-secondary">1</span> Size and Crust</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#"><span class="badge badge-pill badge-secondary">2</span> Cheese and Sauce</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#"><span class="badge badge-pill badge-secondary">3</span> Toppings</a>
-  </li>
 
-</ul>
+    <!-- NAV-TABS BEGIN -->
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="#"><span class="badge badge-pill badge-secondary">1</span> Size and
+                Crust</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><span class="badge badge-pill badge-secondary">2</span> Cheese and Sauce</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><span class="badge badge-pill badge-secondary">3</span> Toppings</a>
+        </li>
+    </ul>
+    <!-- NAV-TABS END -->
 
+    <!-- CARD BEGIN -->
+    <div class="card">
+        <div class="card-body">
+            Choose size and crust.
+        </div>
+        <!-- CARD HAND TOSSED BEGIN -->
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                Hand Tossed
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
+                <li class="list-group-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="size" id="size-small-hand-tossed"
+                               value="size-small-hand-tossed" checked>
+                        <label class="form-check-label" for="size-small-hand-tossed">
+                            Small (10")
+                        </label>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="size" id="size-medium-hand-tossed"
+                               value="size-medium-hand-tossed" checked>
+                        <label class="form-check-label" for="size-medium-hand-tossed">
+                            Medium (12")
+                        </label>
+                    </div>
+                </li>
+            </ul>
+            <button type="button" class="btn btn-primary">Primary</button>
+        </div>
+        <!-- CARD HAND TOSSED END -->
+
+        <!-- CARD CRISPY THIN BEGIN -->
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                Crispy Thin
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.</li>
+                <li class="list-group-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="size" id="size-medium-crispy-thin"
+                               value="size-medium-crispy-thin" checked>
+                        <label class="form-check-label" for="size-medium-crispy-thin">
+                            Medium (12")
+                        </label>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="size" id="size-large-crispy-thin"
+                               value="size-large-crispy-thin" checked>
+                        <label class="form-check-label" for="size-large-crispy-thin">
+                            Large (14")
+                        </label>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        <!-- CARD CRISPY THIN END -->
+    </div>
+    <!-- CARD END-->
 
 </container>
 

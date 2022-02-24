@@ -29,7 +29,9 @@
 .jumbotron > h1 {
     text-align: center;
     background-color: white;
-    margin: 0 -9999rem; /* returnreturn - research this, probably misunderstanding what it does */
+    margin: 0 -9999rem;
+    /* returnreturn - research this, probably misunderstanding what it does */
+    /* also, not responsive */
     opacity: 75%;
 }
 

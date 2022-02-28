@@ -31,11 +31,19 @@
 }
 
 .card-form-margins {
-    margin: 15px;
+    /*margin: 15px;*/
+}
+
+.toppings-margins {
+    /*margin: 5px;*/
+    /*padding: 5px 0;*/
+    padding-top: 5px;
+    padding-bottom: 5px;
+
 }
 
 .cheese-margin {
-    margin: 15px;
+    /*margin: 15px;*/
 }
 
 .toppings-width {
@@ -44,11 +52,8 @@
 
 
 li > .list-group-item {
-    width: 100%;
+    /*width: 100%;*/
 }
-
-
-
 
 
 * {
@@ -78,9 +83,6 @@ li > .list-group-item {
     /*!* also, not responsive *!*/
     /*opacity: 75%;*/
 }
-
-
-
 
 
 /*!* extra small and down - phones *!*/

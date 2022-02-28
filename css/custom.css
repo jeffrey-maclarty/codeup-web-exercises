@@ -26,10 +26,3 @@
         display: none;
     }
 }
-
-/* small and up - large phones and tablets */
-@media only screen and (min-width: 600px) {
-    /*.jumbotron {*/
-    /*    display: none;*/
-    /*}*/
-}

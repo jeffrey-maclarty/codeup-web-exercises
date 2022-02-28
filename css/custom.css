@@ -24,7 +24,9 @@
     opacity: 75%;
 }
 
-
+.card > .card {
+    margin: 15px;
+}
 
 
 

@@ -8,6 +8,8 @@
 }
 
 * {
+    margin: 0;
+    padding: 0;
     /*border: solid 1px red;*/
 }
 
@@ -19,13 +21,13 @@
     text-align: center;
     background-color: white;
     margin: 0 -9999rem;
-    /*!* returnreturn - research this, probably misunderstanding what it does *!*/
-    /*!* also, not responsive *!*/
+    /*returnreturn - research this, probably misunderstanding what it does*/
+    /*also, not responsive*/
     opacity: 75%;
 }
 
 .card > .card {
-    margin: 15px;
+    /*margin: 15px;*/
 }
 
 .card-form-margins {
@@ -36,17 +38,14 @@
     margin: 15px;
 }
 
-.input-group-prepend {
-
-
+.toppings-width {
+    /*width: 100%*/
 }
 
 
-
-
-
-
-
+li > .list-group-item {
+    width: 100%;
+}
 
 
 

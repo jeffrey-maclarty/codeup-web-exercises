@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="css/custom.css">
@@ -127,7 +129,9 @@
                             </li>
                         </ul>
                     </div>
-                    <a href="#" class="btn btn-primary card-button">Go somewhere</a>
+                    <div class="d-flex justify-content-end bg-light border">
+                        <a href="#" class="btn btn-primary card-button">Next Step ></a>
+                    </div>
                 </div>
                 <!-- TAB - SIZE AND CRUST END -->
             </div>
@@ -179,7 +183,10 @@
                             </div>
                         </form>
                     </div>
-                    <a href="#" class="btn btn-primary card-button">Go somewhere</a>
+                    <div class="d-flex justify-content-end bg-light border">
+                        <a href="#" class="btn btn-primary card-button d-flex justify-content-end">< Previous Step</a>
+                        <a href="#" class="btn btn-primary card-button d-flex justify-content-end">Next Step ></a>
+                    </div>
                 </div>
             </div>
 
@@ -200,13 +207,13 @@
                             Choose Meats
                         </div>
                         <form>
-                            <div class="input-group mb-3">
+                            <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <ul class="list-group">
+                                    <ul class="list-group list-group-flush">
                                         <li class="list-group-item">
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="topping-beef">
-                                                <label class="custom-control-label" for="topping-beef">
+                                                <label class="custom-control-label toppings-width" for="topping-beef">
                                                     Beef
                                                 </label>
                                             </div>
@@ -249,7 +256,7 @@
                         <form>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <ul class="list-group">
+                                    <ul class="list-group list-group-flush">
                                         <li class="list-group-item">
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input"
@@ -293,7 +300,9 @@
                     </div>
                 </div>
             </div>
-            <a href="#" class="btn btn-primary card-button">Go somewhere</a>
+            <div class="d-flex justify-content-end bg-light border">
+                <a href="#" class="btn btn-primary card-button d-flex justify-content-end">Checkout <i class="ri-shopping-cart-2-line"></i></a>
+            </div>
         </div>
     </div>
     <!-- TAB - TOPPINGS END -->

@@ -25,3 +25,34 @@ console.log(`------------`);
 //   'reference error',
 //   'type error'
 // ]
+
+// var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "reference error", "type error"];
+// let newArray = [];
+//
+// function removeOne (array, remove) {
+//     for (let i = 0; i <= array.length; i++) {
+//         if (array[i] === remove) {
+//             newArray = array.splice(i, 1);
+//             console.log(array.splice(i, 1));
+//         }
+//     }
+    // console.log(bugs);
+    // console.log(newArray);
+    // console.log(bugs);
+// }
+
+// REVIEW
+let anArr = [];
+var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "reference error", "type error"];
+function removeAll (anArray, valueToRemove) {
+    let filteredArr = [];
+    anArr.forEach(function (ele) {
+        if (valueToRemove !== ele) {
+            filteredArr.push(ele);
+        }
+    });
+    console.log(filteredArr);
+}
+
+// console.log(bugs);
+removeAll(bugs, "ant");

@@ -17,3 +17,19 @@
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
+
+/* extra small and down - phones */
+@media only screen and (max-width: 768px) {
+
+    .jumbotron {
+        display: none;
+    }
+}
+
+/* small and up - large phones and tablets */
+@media only screen and (min-width: 600px) {
+    /*.jumbotron {*/
+    /*    display: none;*/
+    /*}*/
+}

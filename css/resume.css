@@ -1,45 +1,82 @@
-/* @import url('https://fonts.googleapis.com/'); */
-/* https://fonts.google.com/ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
     --white: #FFFFFF;
     --black: #000000;
 
+    --green: #95ab76;
+    --blue: #00008b;
 }
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    border: 1px solid var(--black);
+    /*border: 1px solid var(--black);*/
 }
 
 html {
     font-size: 16px;
 }
 
+body {
+    font-family: Poppins, sans-serif; !important;
+    margin: 15px;
+    padding-left: 10px;
+    border-left: solid black 2px;
+}
+
 .centered {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
+    /*position: fixed;*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
+}
+
+.text-centered {
+    text-align: center;
+}
+
+h1 h3 {
+    font-weight: 800;
+    font-size: 60px;
+}
+
+h4 {
+    color: var(--blue);
+}
+
+.contact-list > li {
+    list-style: none;
+    font-size: .9rem;
+    margin-top: 10px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+li > i {
+    position: relative;
+    bottom: -3px;
+}
+
+hr {
+    border: 5px solid var(--green);
+}
+
+.skills-indent {
+    margin-left: 5px;
 }
 
 .dev-container {
- border: solid 1px green;
+    /*border: solid 1px green;*/
 }
 
 .dev-row {
- border: solid 3px red;
+    /*border: solid 3px red;*/
 }
 
 .dev-column {
- border: dotted 3px blue;
-}
-
-.title-longtext {
-text-align: center;
+    /*border: dotted 3px blue;*/
 }
 
 /* extra small and down - phones */
@@ -49,6 +86,10 @@ text-align: center;
 
 /* small and up - large phones and tablets */
 @media only screen and (min-width: 600px) {
+
+    .contact-list {
+        margin-left: 25px;
+    }
 
 }
 

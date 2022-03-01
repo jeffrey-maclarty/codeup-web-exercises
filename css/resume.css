@@ -38,6 +38,10 @@ html {
  border: dotted 3px blue;
 }
 
+.title-longtext {
+text-align: center;
+}
+
 /* extra small and down - phones */
 @media only screen and (max-width: 600px) {
 

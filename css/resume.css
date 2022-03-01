@@ -61,6 +61,8 @@ li > i {
 
 hr {
     border: 5px solid var(--green);
+    margin-left: -20px;
+    margin-right: -20px;
 }
 
 .skills-indent {
@@ -102,3 +104,4 @@ hr {
 @media only screen and (min-width: 992px) {
 
 }
+

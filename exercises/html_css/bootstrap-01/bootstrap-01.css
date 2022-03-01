@@ -8,14 +8,14 @@
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    border: 1px solid var(--black);
+    /*padding: 0;*/
+    /*margin: 0;*/
+    /*box-sizing: border-box;*/
+    /*border: 1px solid var(--black);*/
 }
 
 html {
-    font-size: 16px;
+    /*font-size: 16px;*/
 }
 
 .centered {
@@ -26,23 +26,19 @@ html {
     transform: translate(-50%, -50%);
 }
 
-
-/* extra small and down - phones */
-@media only screen and (max-width: 600px) {
-
+body {
+    margin: 30px;
 }
 
-/* small and up - large phones and tablets */
-@media only screen and (min-width: 600px) {
-
+.dev-container {
+    border: solid 1px green;
 }
 
-/* medium and up */
-@media only screen and (min-width: 768px) {
-
+.dev-row {
+    border: solid 3px red;
+    height: 300px;
 }
 
-/* large and up */
-@media only screen and (min-width: 992px) {
-
+.dev-column {
+    border: dotted 3px blue;
 }

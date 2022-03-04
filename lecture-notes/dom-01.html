@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- <script src="https://kit.fontawesome.com/af4388c1b5.js" crossorigin="anonymous"></script> -->
+<!--    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">-->
+
+<!--    <link rel="stylesheet" href="css/">-->
+
+    <link rel="shortcut icon" href="#">
+
+    <!-- https://java.codeup.com/javascript-i/bom-and-dom/ -->
+
+    <title></title>
+</head>
+<body>
+<!--01-->
+<!--<button id="btnToClick1">Click Me</button>-->
+
+<!--02-->
+<!--<h1>List One</h1>-->
+<!--<ul>-->
+<!--    <li class="odd list-one-item">List 1, Item 1</li>-->
+<!--    <li class="even list-one-item">List 1, Item 2</li>-->
+<!--</ul>-->
+<!--<h1>List Two</h1>-->
+<!--<ul>-->
+<!--    <li class="odd list-two-item">List 2, Item 1</li>-->
+<!--    <li class="even list-two-item">List 2, Item 2</li>-->
+<!--</ul>-->
+
+<!--03-->
+<!--<form name="login">-->
+<!--    <div>-->
+<!--        <label for="username">Username</label>-->
+<!--        <input id="username" name="username" type="text">-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label for="password">Password</label>-->
+<!--        <input id="password" name="password" type="password">-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <input type="submit">-->
+<!--    </div>-->
+<!--</form>-->
+
+<!--04-->
+<!--<h1 id="main-heading">Hello World!</h1>-->
+<!--<div id="main-section">-->
+<!--    <p>Paragraph 1</p>-->
+<!--    <p>Paragraph 2</p>-->
+<!--</div>-->
+
+<!--<h1 id="main-heading1">Hello World!</h1>-->
+<!--<div id="main-section2">-->
+<!--    <p>Paragraph 1</p>-->
+<!--    <p>Paragraph 2</p>-->
+<!--</div>-->
+<script>
+    "use strict";
+    (function() {
+        // Get the main heading h1 by id
+        // var mainHeading = document.getElementById('main-heading');
+
+        // console.log(mainHeading.innerHTML); // Prints Hello World!
+
+        // Assign a new value to the inner HTML of the main heading
+        // mainHeading.innerHTML = "Hello Codeup!";
+
+        // console.log(mainHeading.innerHTML); // Prints Hello Codeup!
+
+        // Get the main section div by id
+        // var mainSection = document.getElementById('main-section2');
+
+        // console.log(mainSection.innerHTML);
+        // Prints
+        // <p>Paragraph 1</p>
+        // <p>Paragraph 2</p>
+
+    })();
+</script>
+
+<!--05-->
+<!--<a href="http://www.yahoo.com" id="search-link">Web Search</a>-->
+
+<script>
+    "use strict";
+    // (function() {
+    //     // Get the search link anchor by id
+    //     var searchLink = document.getElementById("search-link");
+    //
+    //     // Does an element have an attribute?
+    //     console.log(searchLink.hasAttribute("href")); // Prints true
+    //     console.log(searchLink.hasAttribute("class")); // Prints false
+    //
+    //     // Get an attribute value
+    //     console.log(searchLink.getAttribute("href")); // Prints "http://www.yahoo.com"
+    //
+    //     // Add or modify an attribute
+    //     searchLink.setAttribute("class", "btn btn-default");
+    //     // Adds the attribute class and sets it to "btn btn-default"
+    //
+    //     // searchLink.setAttribute("href", "http://google.com");
+    //     // Changes the href attribute to "http://google.com"
+    //
+    //     // Remove an attribute
+    //     searchLink.removeAttribute("class"); // Remove the class attribute
+    // })();
+</script>
+
+<!--06-->
+<ul>
+    <li data-dbid="123">Item one</li>
+    <li data-dbid="234">Item two</li>
+    <li data-dbid="456">Item three</li>
+</ul>
+<script>
+    "use strict";
+    (function() {
+        // Get the main heading h1 by id
+        var listItems = document.getElementsByTagName('li');
+        console.log(document.getElementsByTagName('li'));
+        for (var i = 0; i < listItems.length; i++) {
+            var dbId = listItems[i].getAttribute("data-dbid");
+            console.log(dbId);
+        }
+        // Prints
+        // 123
+        // 234
+    })();
+</script>
+
+
+
+
+
+<script defer src="dom-01.js"></script>
+
+</body>
+</html>

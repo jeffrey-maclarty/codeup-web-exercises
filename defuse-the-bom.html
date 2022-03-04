@@ -28,11 +28,13 @@
         }
 
         let timer = setInterval(updateTimer, 1000);
+        // https://developer.mozilla.org/en-US/docs/Web/API/setInterval
 
         // TODO: When this function runs, it needs to
         // cancel the interval/timeout for updateTimer()
         function defuseTheBOM() {
             clearInterval(timer);
+            // https://developer.mozilla.org/en-US/docs/Web/API/clearInterval
             alert("You stopped the bomb.")
         }
 

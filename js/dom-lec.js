@@ -15,18 +15,32 @@ nameElement.innerText = getGitHubInfo().name;
 nameElement.style["color"] = 'white';
 console.log(nameElement)
 
+nameElement.innerText = "hi, " + getGitHubInfo().name;
+nameElement.classList.add('col-1');
+nameElement.classList.add('align-self-end');
+nameElement.classList.add('text-start');
+
 // TODO: Add nameElement to the DOM - specifically in between the GitHub Logo and the ul on the navbar
 
 
 
 
 
+navContent.insertBefore(nameElement, navContent.children[1]);
 
+
+let contentDiv = document.querySelector('div.container.container-fluid.container.md.row.mx-md-auto.mt-4');
+
+let details = document.createElement('p');
+details.innerText = getGitHubInfo().details;
+
+contentDiv.replaceChildren(details);
 
 
 // PRETEND THIS IS AN API CALL ACROSS THE INTERWEBS
 function getGitHubInfo(){
     return {
-        name: "vegetasrevenge"
+        name: "vegetasrevenge",
+        details: "I AM HERE"
     };
 }

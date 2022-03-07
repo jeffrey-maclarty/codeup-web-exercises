@@ -54,8 +54,17 @@
 
         // TODO: Set text color on every other list item to grey
         // TODO: Set text color of li with dbid = 1 to blue
-        for (let i = 0; i <= listItems.length; i++) {
-            if (i % 2 === 0) {
+
+        // returnreturn - find solution with nth
+
+        // for (let i = 0; i <= listItems.length; i++) {
+        //     if (i % 2 === 0) {
+        //         listItems[i].style.color = 'grey';
+        //     }
+        // }
+
+        for (let i = 1; i < listItems.length; i++) {
+            if (i % 2 !== 0) {
                 listItems[i].style.color = 'grey';
             }
         }

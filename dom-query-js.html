@@ -49,7 +49,8 @@
         //
         // TODO: Uncomment next line and get the main header element by id
         // var mainHeader = document.querySelector('#main-header');
-        // console.log(`mainHeader: `, mainHeader)
+        // let mainHeader = document.getElementById('main-header');
+        // console.log(`mainHeader: `, mainHeader);
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
         // mainHeader.innerHTML = "JavaScript is Cool";
@@ -76,6 +77,16 @@
         //     }
         // }
 
+        // from review:
+        // for (let i = 0; i <= listItems.length; i += 2) {
+        //         listItems[i].style.color = 'grey';
+
+            // from review:
+            // if (listItems[i].getAttribute("data-dbid") == 1) {
+            //     listItems[i].style.color = "blue";
+            // }
+        // }
+
         // for (let i = 1; i < listItems.length; i++) {
         //     if (i % 2 !== 0) {
         //         listItems[i].style.color = 'grey';
@@ -87,6 +98,7 @@
         // watch nested quotes
 
         // listItemDbidOne.style.color = 'blue';
+
 
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
@@ -139,7 +151,7 @@
 
 
         let listenFive = function (event) {
-            var subParagraphs = document.querySelectorAll('.sub-paragraph')
+            var subParagraphs = document.querySelectorAll('.sub-paragraph');
             subParagraphs[0].textContent = "Mission Accomplished";
         }
         document.getElementById('btn-5').addEventListener('click', listenFive);

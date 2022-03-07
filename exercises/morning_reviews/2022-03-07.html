@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--    <link rel="stylesheet" href="css/style.css">-->
+
+    <link rel="shortcut icon" href="#">
+    <title></title>
+</head>
+<body>
+
+<!--
+Create an HTML file with only an unordered list with the id of pets
+in the body. Within an inline script declare and array called pets with
+four elements. Loop through the list and add each element as a list
+item to the ul.
+-->
+
+<ul id="pets">
+<!--    <li></li>-->
+<!--    <li></li>-->
+<!--    <li></li>-->
+<!--    <li></li>-->
+</ul>
+
+<script>
+    // let petsArray = ["cat", "dog", "fish", "hamster"];
+    //
+    // let listItems = document.querySelectorAll('li');
+    //
+    // for (let i = 0; i <= petsArray.length; i++) {
+    //     listItems[i].innerText = petsArray[i];
+    // }
+
+    // misread description, was supposed to add <li> with script
+
+    // review:
+    let pets = ["dog", "cat", "bird", "rat"];
+
+    let petList = document.getElementById("pets");
+
+    for (let i = 0;i < pets.length; i++) {
+
+        let li = document.createElement("li");
+
+        li.innerText = pets[i];
+
+        petList.appendChild(li);
+    }
+
+
+</script>
+
+</body>
+</html>

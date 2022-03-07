@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="#">
     <title>DOM: Query and Modify</title>
 </head>
 <body>
@@ -24,30 +25,54 @@
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
+<p class="sub-paragraph">
+    "subParagraph 2"
+    <br>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur et libero minima quaerat vitae. At autem consequatur culpa dolores earum est ipsam itaque nemo, perferendis, quia rerum vel velit voluptate.
+</p>
 
 <script>
-    (function() {
+    (function () {
         "use strict";
         // TODO: Uncomment next line and get the main header element by id
-        // var mainHeader = ;
+        var mainHeader = document.querySelector('#main-header');
+        console.log(`mainHeader: `, mainHeader)
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+        mainHeader.innerHTML = "JavaScript is Cool";
 
         // TODO: Uncomment the next line and get the sub header element by id
-        // var subHeader = ;
+        var subHeader = document.querySelector('#sub-header');
+        console.log(`subHeader: `, subHeader);
 
         // TODO: Set the text color of subHeader to blue
+        subHeader.style.color = 'blue';
 
         // TODO: Uncomment the next line and get all list items
-        // var listItems = ;
+        var listItems = document.querySelectorAll('li');
+        console.log(`listItems: `, listItems)
 
         // TODO: Set text color on every other list item to grey
         // TODO: Set text color of li with dbid = 1 to blue
+        for (let i = 0; i <= listItems.length; i++) {
+            if (i % 2 === 0) {
+                listItems[i].style.color = 'grey';
+            }
+        }
+
+        let listItemDbidOne = document.querySelector('li[data-dbid="1"]');
+
+        // watch nested quotes
+
+        listItemDbidOne.style.color = 'blue';
+
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        // var subParagraphs = ;
+        var subParagraphs = document.querySelectorAll('.sub-paragraph')
+        console.log(`subParagraphs: `, subParagraphs)
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+        subParagraphs[0].textContent = "Mission Accomplished";
     })();
 </script>
 </body>

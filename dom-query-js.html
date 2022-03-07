@@ -7,6 +7,16 @@
 </head>
 <body>
 
+<button id="btn-1">Button 1</button>
+<br><br>
+<button id="btn-2">Button 2</button>
+<br><br>
+<button id="btn-3">Button 3</button>
+<br><br>
+<button id="btn-4">Button 4</button>
+<br><br>
+<button id="btn-5">Button 5</button>
+
 <h1 id="main-header">Hello World!</h1>
 <ul>
     <li data-dbid="1">Item 1</li>
@@ -92,39 +102,48 @@
 
         // BEGIN DOM EXERCISE 1:
         //
-        var mainHeader = document.querySelector('#main-header');
-        console.log(`mainHeader: `, mainHeader)
+        let listenOne = function (event) {
+            var mainHeader = document.querySelector('#main-header');
+            mainHeader.innerHTML = "JavaScript is Cool";
+        }
+        document.getElementById('btn-1').addEventListener('click', listenOne);
 
-        mainHeader.innerHTML = "JavaScript is Cool";
 
-        var subHeader = document.querySelector('#sub-header');
-        console.log(`subHeader: `, subHeader);
 
-        subHeader.style.color = 'blue';
+        let listenTwo = function (event) {
+            var subHeader = document.querySelector('#sub-header');
+            subHeader.style.color = 'blue';
+        }
+        document.getElementById('btn-2').addEventListener('click', listenTwo);
 
-        var listItems = document.querySelectorAll('li');
-        console.log(`listItems: `, listItems)
 
-        // for (let i = 0; i <= listItems.length; i++) {
-        //     if (i % 2 === 0) {
-        //         listItems[i].style.color = 'grey';
-        //     }
-        // }
 
-        for (let i = 1; i < listItems.length; i++) {
-            if (i % 2 !== 0) {
-                listItems[i].style.color = 'grey';
+        let listenThree = function (event) {
+            var listItems = document.querySelectorAll('li');
+
+            for (let i = 1; i < listItems.length; i++) {
+                if (i % 2 !== 0) {
+                    listItems[i].style.color = 'grey';
+                }
             }
         }
+        document.getElementById('btn-3').addEventListener('click', listenThree);
 
-        let listItemDbidOne = document.querySelector('li[data-dbid="1"]');
 
-        listItemDbidOne.style.color = 'blue';
 
-        var subParagraphs = document.querySelectorAll('.sub-paragraph')
-        console.log(`subParagraphs: `, subParagraphs)
+        let listenFour = function (event) {
+            let listItemDbidOne = document.querySelector('li[data-dbid="1"]');
+            listItemDbidOne.style.color = 'blue';
+        }
+        document.getElementById('btn-4').addEventListener('click', listenFour);
 
-        subParagraphs[0].textContent = "Mission Accomplished";
+
+
+        let listenFive = function (event) {
+            var subParagraphs = document.querySelectorAll('.sub-paragraph')
+            subParagraphs[0].textContent = "Mission Accomplished";
+        }
+        document.getElementById('btn-5').addEventListener('click', listenFive);
         // END DOM EXERCISE 1
 
     })();

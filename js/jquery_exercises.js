@@ -4,9 +4,7 @@
 
 // EXERCISE 1: INTRODUCTION
 // $(document).ready(function() {
-
 // alert("DOM has finished loading");
-
 // });
 
 
@@ -32,7 +30,37 @@
 // chooses the first one
 
 
-// 6 - Remove the duplicate id. Each id should be unique on that page.
+// review:
+
+// let student = [{
+//     name: "J",
+//     id: 12,
+//     role: "student"
+// }]
+//
+// $('body').append(getTemplate(student));
+//
+// function getTemplate(student) {
+//     return (`
+// <div>
+//
+// <h1>TEMPLATES >>>>>> YEAH!!!!</h1>
+//
+// <p>Hey, ${student[0].name}! Did you know you can use template literals to create HTML?</p>
+//
+// </div>
+//
+// <ul>
+//     <li>Item 1</li>
+//     <li>Item 2</li>
+//     <li>Item 3</li>
+//     <li>Item 4</li>
+//     <li>Item 5</li>
+//     <li>Item 6</li>
+//     <li>Item 7</li>
+// </ul>
+// `);
+// }
 
 
 // CLASS SELECTORS
@@ -76,12 +104,14 @@ $('h1').click(
     }
 );
 
+
 // 3 - Make all paragraphs have a font size of 18px when they are double clicked.
 $('p').dblclick(
     function () {
         $(this).css('font-size', '18px');
     }
 );
+
 
 // 4 - Set all li text color to red when the mouse is hovering; reset to black when it is not.
 $('li').hover(

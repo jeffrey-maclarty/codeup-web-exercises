@@ -16,9 +16,9 @@ let enteredCode = "";
 
 $(document).keyup(function (event) {
     toString(enteredCode);
-    console.log(event.keyCode);
+    // console.log(event.keyCode);
     enteredCode += event.keyCode;
-    console.log(enteredCode);
+    // console.log(enteredCode);
     if (enteredCode === konamiCode) {
         alert("You have added 30 lives!");
     } else {

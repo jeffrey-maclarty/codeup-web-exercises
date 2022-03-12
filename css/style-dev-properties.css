@@ -1,0 +1,22 @@
+* {
+    border: 1px solid var(black);
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container-dev {
+    border: solid 1px green;
+}
+
+.row-dev {
+    border: solid 3px red;
+}
+
+.col-dev {
+    border: dotted 3px blue;
+}  

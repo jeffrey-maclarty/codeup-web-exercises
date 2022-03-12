@@ -1,0 +1,34 @@
+/* @import url('https://fonts.googleapis.com/'); */
+
+:root {
+    --white: #FFFFFF;
+    --black: #000000;
+
+
+}
+
+/* BEGIN GLOBAL DEFAULTS */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+/* END GLOBAL DEFAULTS */
+
+.container-main {
+    display: flex;
+    justify-content: center;
+}
+
+.card{
+    border: darkcyan 2px solid;
+    margin: 5px;
+    background-color: coral;
+}

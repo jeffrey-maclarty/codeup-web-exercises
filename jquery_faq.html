@@ -9,18 +9,37 @@
     <!--    <link rel="stylesheet" href="css/style.css">-->
     <!--    <link rel='stylesheet" href="css/style-dev-properties.css">-->
 
-<!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"-->
-<!--            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>-->
+    <!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"-->
+    <!--            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>-->
 
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 
     <script defer src="js/jquery_faq.js"></script>
 
     <style>
+        body {
+            background-color: darkseagreen;
+        }
+
+        button {
+            background-color: lightseagreen;
+            border: 1px solid black;
+        }
         .invisible {
             visibility: hidden;
+        }
+
+        img {
+            height: 150px;
+            margin: 10px;
+        }
+
+        .images-container, .buttons {
+            display: flex;
+            justify-content: center;
         }
     </style>
 
@@ -99,14 +118,18 @@
         <li>Located in Maine</li>
         <li>Tallest mountain on the Atlantic Coast - Cadillac Mountain</li>
         <li>Native Americans have inhabited the area called Acadia for at least 12,000 years</li>
-        <li>The Italian explorer Giovanni da Verrazzano sailed along the coast of Mount Desert Island during an expedition for the French Crown in 1524</li>
+        <li>The Italian explorer Giovanni da Verrazzano sailed along the coast of Mount Desert Island during an
+            expedition for the French Crown in 1524
+        </li>
     </ul>
 
     <h3>American Samoa</h3>
     <ul>
         <li>In the United States territory of American Samoa</li>
         <li>It is distributed across three islands: Tutuila, Ofu, and Ta‘ū</li>
-        <li>The coral reefs are under significant threat due to rising ocean temperatures and carbon dioxide concentration</li>
+        <li>The coral reefs are under significant threat due to rising ocean temperatures and carbon dioxide
+            concentration
+        </li>
         <li>Ofu and Olosega are the remains of a single basaltic volcano</li>
     </ul>
 
@@ -119,5 +142,19 @@
     </ul>
 </div>
 
+<div class="images-container">
+    <div>
+        <div class="image1" id="image1"><img src="img/welcome-veridian-01.png" alt=""></div>
+        <div class="buttons"><button id="button1" type="submit">Image 1</button></div>
+    </div>
+    <div>
+        <div class="image1" id="image2"><img src="img/welcome-veridian-02.png" alt=""></div>
+        <div class="buttons"><button id="button2" type="submit">Image 2</button></div>
+    </div>
+    <div>
+        <div class="image1" id="image3"><img src="img/welcome-veridian-03.png" alt=""></div>
+        <div class="buttons"><button id="button3" type="submit">Image 3</button></div>
+    </div>
+</div>
 </body>
 </html>

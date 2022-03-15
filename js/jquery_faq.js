@@ -13,23 +13,12 @@ $("#visibility-switch").click(function () {
     $("dd").toggleClass("invisible");
 })
 
-$("dt").click(function () {
-    $(this).css("background-color", "coral");
-})
+// $("dt").click(function () {
+//     $(this).css("background-color", "coral");
+// })
 
 
 // TRAVERSING
-
-
-
-
-
-
-
-
-
-
-
 $("dt").click(function () {
     $(this).css("background-color", "yellow");
 })
@@ -44,4 +33,18 @@ $("#last-li-yellow").click(function () {
         $(this).children().last().css("background-color", "yellow");
     })
 
+})
+
+$("h3").click(function () {
+    console.log(`clicking h3`)
+    $(this).next().css("font-weight", "bold");
+})
+
+$("li").click(function () {
+    $(this).parent().children(":first-child").css("color", "blue");
+})
+
+// BONUS
+$("button1").click(function() {
+    $("#image1").htm
 })

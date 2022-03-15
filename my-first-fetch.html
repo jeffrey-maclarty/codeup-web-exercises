@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">-->
+
+    <!--    <link rel="stylesheet" href="css/style.css">-->
+    <!--    <link rel="stylesheet" href="css/style-dev.css">-->
+
+    <!--    <script defer src="js/script.js"></script>-->
+
+    <link rel="shortcut icon" href="#">
+    <title></title>
+</head>
+<body>
+
+<!-- rapidapi.com/collection/list-of-free-apis -->
+
+<!--<div id="weather"></div>-->
+<div class="container-words-api">
+
+
+</div>
+
+<!--<script src="js/keys.js"></script>-->
+<script>
+
+    fetch("https://shazam.p.rapidapi.com/search?term=cowboy%20junkies&locale=en-US&offset=0&limit=5", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "shazam.p.rapidapi.com",
+            "x-rapidapi-key": "2f0ed1b5ddmsh5cd379d3a62b831p179775jsnabc9b7e61e71"
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(`data: `, data)
+            console.log(`data.tracks: `, data.tracks)
+            console.log(`data.tracks.hits: `, data.tracks.hits);
+            console.log(`data.tracks.hits.[1].track: `, data.tracks.hits[1].track.title)
+
+
+            for (let i = 0; i < data.tracks; i++) {
+                console.log(`title: `, data.tracks.hits[i].track[i].title);
+            }
+
+
+        })
+        .catch(err => {
+            console.error(err);
+        });
+
+
+    <!-- rapidapi.com/collection/list-of-free-apis -->
+
+    // fetch("https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&&units=imperial&appid=" + OWM_KEY)
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         console.log(data)
+    //         let html = "";
+    //
+    //         html += "<ul>";
+    //
+    //         // for (let i = 0; i < data.daily.length; i++) {
+    //         for (let i = 0; i < 5; i++) {
+    //             let dailyTemp = data.daily[i].temp.day
+    //             console.log(data.daily[i].temp.day);
+    //
+    //             html += '<li>' + dailyTemp + '</li>';
+    //         }
+    //         html += "</ul>"
+    //
+    //         $("#weather").html(html);
+    //     });
+
+
+</script>
+
+<!--<script defer src="https://code.jquery.com/jquery-3.6.0.min.js"-->
+<!--        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>-->
+
+</body>
+</html>

@@ -1,29 +1,24 @@
 "use strict";
 
+// ATTRIBUTES AND CSS
 $("dd").addClass("invisible");
-// let visible = false;
 
 //language=HTML
 $("dl").prepend(`
     <button id='visibility-switch' type='submit'>Visibility</button>
     <br><br>`);
 
-// $("#visibility-switch").click(function () {
-//     if (visible) {
-//         visible = false;
-//         $("dd").removeClass("invisible");
-//     } else {
-//         visible = true;
-//         $("dd").addClass("invisible")
-//     }
-// })
-
-$("visibility-switch").click(function () {
+$("#visibility-switch").click(function () {
+    console.log(`visibility switch click`);
     $("dd").toggleClass("invisible");
 })
 
+$("dt").click(function () {
+    $(this).css("background-color", "coral");
+})
 
 
+// TRAVERSING
 
 
 

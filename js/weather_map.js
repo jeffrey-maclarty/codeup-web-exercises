@@ -151,8 +151,11 @@ fetch("https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&&uni
         day5.dailyWindDeg = data.daily[4].wind_deg;
         day5.dailyWindGust = data.daily[4].wind_gust;
         day5.dailyWindSpeed = data.daily[4].wind_speed;
-
+        console.log(data);
+        console.log(data.daily[4].weather[0].icon)
+        console.log(day5.dailyWeatherIcon)
     }).then(function () {
+
     renderForecasts();
 })
 
@@ -168,48 +171,63 @@ function renderForecasts() {
         day5.dayOfWeekName = new Date(day5.dailyDate * 1000).toLocaleDateString('en', {weekday: 'long'})
     }
 
+    function weatherIcons() {
+        let icon5 = "http://openweathermap.org/img/w/[day5.dailyWeatherIcon].png"
+    }
+
     for (let i = 1; i <= 5; i++) {
         //language=html
         $("#day" + [i]).html(`
-            <div class="daily daily-day">${day1.dayOfWeekName}</div>
-            <div class="daily">${day1.dailyWeatherDescription}</div>
-            <div class="daily">${parseInt(day1.dailyTempDay)}&#176;</div>
+            <div class="daily daily-large">${day1.dayOfWeekName}</div>
+            <div><img src="http://openweathermap.org/img/w/${day1.dailyWeatherIcon}.png"
+                      alt="Icon indicating daily weather"></div>
+            <div class="daily daily-normal">${day1.dailyWeatherDescription}</div>
+            <div class="daily daily-large">${parseInt(day1.dailyTempDay)}&#176;</div>
         `)
     }
 
     //language=HTML
     // $("#day1").html(`
-    //     <div class="daily daily-day">${day1.dayOfWeekName}</div>
-    //     <div class="daily">${day1.dailyWeatherDescription}</div>
-    //     <div class="daily">${parseInt(day1.dailyTempDay)}&#176;</div>
+    //     <div class="daily daily-large">${day1.dayOfWeekName}</div>
+    //     <div><img src="http://openweathermap.org/img/w/${day1.dailyWeatherIcon}.png" alt="Icon indicating daily weather"></div>
+    //     <div class="daily daily-normal">${day1.dailyWeatherDescription}</div>
+    //     <div class="daily daily-large">${parseInt(day1.dailyTempDay)}&#176;</div>
     // `)
 
     //language=HTML
     $("#day2").html(`
-        <div class="daily daily-day">${day2.dayOfWeekName}</div>
-        <div class="daily">${day2.dailyWeatherDescription}</div>
-        <div class="daily">${parseInt(day2.dailyTempDay)}&#176;</div>
+        <div class="daily daily-large">${day2.dayOfWeekName}</div>
+        <div><img src="http://openweathermap.org/img/w/${day2.dailyWeatherIcon}.png"
+                  alt="Icon indicating daily weather"></div>
+        <div class="daily daily-normal">${day2.dailyWeatherDescription}</div>
+        <div class="daily daily-large">${parseInt(day2.dailyTempDay)}&#176;</div>
     `)
 
     //language=HTML
     $("#day3").html(`
-        <div class="daily daily-day">${day3.dayOfWeekName}</div>
-        <div class="daily">${day3.dailyWeatherDescription}</div>
-        <div class="daily">${parseInt(day3.dailyTempDay)}&#176;</div>
+        <div class="daily daily-large">${day3.dayOfWeekName}</div>
+        <div><img src="http://openweathermap.org/img/w/${day3.dailyWeatherIcon}.png"
+                  alt="Icon indicating daily weather"></div>
+        <div class="daily daily-normal">${day3.dailyWeatherDescription}</div>
+        <div class="daily daily-large">${parseInt(day3.dailyTempDay)}&#176;</div>
     `)
 
     //language=HTML
     $("#day4").html(`
-        <div class="daily daily-day">${day4.dayOfWeekName}</div>
-        <div class="daily">${day4.dailyWeatherDescription}</div>
-        <div class="daily">${parseInt(day4.dailyTempDay)}&#176;</div>
+        <div class="daily daily-large">${day4.dayOfWeekName}</div>
+        <div><img src="http://openweathermap.org/img/w/${day4.dailyWeatherIcon}.png"
+                  alt="Icon indicating daily weather"></div>
+        <div class="daily daily-normal">${day4.dailyWeatherDescription}</div>
+        <div class="daily daily-large">${parseInt(day4.dailyTempDay)}&#176;</div>
     `)
 
     //language=HTML
     $("#day5").html(`
-        <div class="daily daily-day">${day5.dayOfWeekName}</div>
-        <div class="daily">${day5.dailyWeatherDescription}</div>
-        <div class="daily">${parseInt(day5.dailyTempDay)}&#176;</div>
+        <div class="daily daily-large">${day5.dayOfWeekName}</div>
+        <div><img src="http://openweathermap.org/img/w/${day5.dailyWeatherIcon}.png"
+                  alt="Icon indicating daily weather"></div>
+        <div class="daily daily-normal">${day5.dailyWeatherDescription}</div>
+        <div class="daily daily-large">${parseInt(day5.dailyTempDay)}&#176;</div>
     `)
 }
 

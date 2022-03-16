@@ -151,9 +151,6 @@ fetch("https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&&uni
         day5.dailyWindDeg = data.daily[4].wind_deg;
         day5.dailyWindGust = data.daily[4].wind_gust;
         day5.dailyWindSpeed = data.daily[4].wind_speed;
-        console.log(data);
-        console.log(data.daily[4].weather[0].icon)
-        console.log(day5.dailyWeatherIcon)
     }).then(function () {
 
     renderForecasts();
@@ -161,26 +158,23 @@ fetch("https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&&uni
 
 function renderForecasts() {
 
-    convertUnixToDay();
-
-    function convertUnixToDay() {
+    // UNIX TIME TO DAY OF THE WEEK
+    (function () {
+        console.log(`time working`)
         day1.dayOfWeekName = new Date(day1.dailyDate * 1000).toLocaleDateString('en', {weekday: 'long'})
         day2.dayOfWeekName = new Date(day2.dailyDate * 1000).toLocaleDateString('en', {weekday: 'long'})
         day3.dayOfWeekName = new Date(day3.dailyDate * 1000).toLocaleDateString('en', {weekday: 'long'})
         day4.dayOfWeekName = new Date(day4.dailyDate * 1000).toLocaleDateString('en', {weekday: 'long'})
         day5.dayOfWeekName = new Date(day5.dailyDate * 1000).toLocaleDateString('en', {weekday: 'long'})
-    }
+    })();
 
-    function weatherIcons() {
-        let icon5 = "http://openweathermap.org/img/w/[day5.dailyWeatherIcon].png"
-    }
-
+    // LOOP FOR RENDERING
     for (let i = 1; i <= 5; i++) {
         //language=html
         $("#day" + [i]).html(`
             <div class="daily daily-large">${day1.dayOfWeekName}</div>
-            <div><img src="http://openweathermap.org/img/w/${day1.dailyWeatherIcon}.png"
-                      alt="Icon indicating daily weather"></div>
+            <div class="daily"><img src="http://openweathermap.org/img/w/${day1.dailyWeatherIcon}.png"
+                      alt="Icon indicating daily weather" class="daily"></div>
             <div class="daily daily-normal">${day1.dailyWeatherDescription}</div>
             <div class="daily daily-large">${parseInt(day1.dailyTempDay)}&#176;</div>
         `)
@@ -189,7 +183,7 @@ function renderForecasts() {
     //language=HTML
     // $("#day1").html(`
     //     <div class="daily daily-large">${day1.dayOfWeekName}</div>
-    //     <div><img src="http://openweathermap.org/img/w/${day1.dailyWeatherIcon}.png" alt="Icon indicating daily weather"></div>
+    //     <div class="daily"><img src="http://openweathermap.org/img/w/${day1.dailyWeatherIcon}.png" alt="Icon indicating daily weather" class=daily></div>
     //     <div class="daily daily-normal">${day1.dailyWeatherDescription}</div>
     //     <div class="daily daily-large">${parseInt(day1.dailyTempDay)}&#176;</div>
     // `)
@@ -197,8 +191,8 @@ function renderForecasts() {
     //language=HTML
     $("#day2").html(`
         <div class="daily daily-large">${day2.dayOfWeekName}</div>
-        <div><img src="http://openweathermap.org/img/w/${day2.dailyWeatherIcon}.png"
-                  alt="Icon indicating daily weather"></div>
+        <div class="daily"><img src="http://openweathermap.org/img/w/${day2.dailyWeatherIcon}.png"
+                  alt="Icon indicating daily weather" class="daily"></div>
         <div class="daily daily-normal">${day2.dailyWeatherDescription}</div>
         <div class="daily daily-large">${parseInt(day2.dailyTempDay)}&#176;</div>
     `)
@@ -206,8 +200,8 @@ function renderForecasts() {
     //language=HTML
     $("#day3").html(`
         <div class="daily daily-large">${day3.dayOfWeekName}</div>
-        <div><img src="http://openweathermap.org/img/w/${day3.dailyWeatherIcon}.png"
-                  alt="Icon indicating daily weather"></div>
+        <div class="daily"><img src="http://openweathermap.org/img/w/${day3.dailyWeatherIcon}.png"
+                  alt="Icon indicating daily weather" class="daily"></div>
         <div class="daily daily-normal">${day3.dailyWeatherDescription}</div>
         <div class="daily daily-large">${parseInt(day3.dailyTempDay)}&#176;</div>
     `)
@@ -215,8 +209,8 @@ function renderForecasts() {
     //language=HTML
     $("#day4").html(`
         <div class="daily daily-large">${day4.dayOfWeekName}</div>
-        <div><img src="http://openweathermap.org/img/w/${day4.dailyWeatherIcon}.png"
-                  alt="Icon indicating daily weather"></div>
+        <div class="daily"><img src="http://openweathermap.org/img/w/${day4.dailyWeatherIcon}.png"
+                  alt="Icon indicating daily weather" class="daily"></div>
         <div class="daily daily-normal">${day4.dailyWeatherDescription}</div>
         <div class="daily daily-large">${parseInt(day4.dailyTempDay)}&#176;</div>
     `)
@@ -224,8 +218,8 @@ function renderForecasts() {
     //language=HTML
     $("#day5").html(`
         <div class="daily daily-large">${day5.dayOfWeekName}</div>
-        <div><img src="http://openweathermap.org/img/w/${day5.dailyWeatherIcon}.png"
-                  alt="Icon indicating daily weather"></div>
+        <div class="daily"><img src="http://openweathermap.org/img/w/${day5.dailyWeatherIcon}.png"
+                  alt="Icon indicating daily weather" class="daily"></div>
         <div class="daily daily-normal">${day5.dailyWeatherDescription}</div>
         <div class="daily daily-large">${parseInt(day5.dailyTempDay)}&#176;</div>
     `)

@@ -1,10 +1,13 @@
-/* @import url('https://fonts.googleapis.com/'); */
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 
 :root {
     --white: #FFFFFF;
     --black: #000000;
 
-
+    --green-dark: #062C30;
+    --green-medium: #05595B;
+    --yellowish: #E2D784;
+    --whitish: #F5F5F5;
 }
 
 /* BEGIN GLOBAL DEFAULTS */
@@ -17,21 +20,39 @@
 }
 
 html {
+    font-family: Lato;
     font-size: 16px;
 }
 
 /* END GLOBAL DEFAULTS */
 
+body {
+    background-color: var(--green-medium);
+}
+
+.container-main {
+
+}
 .container-days {
     display: flex;
     justify-content: space-evenly;
-}
 
-.day {
     text-align: center;
 }
 
+.day {
+    background-color: var(--yellowish);
+    border: 3px solid var(--green-dark);
+    color: var(--green-dark);
+    width: 145px;
+}
+
 .daily {
+
+}
+
+.daily > img {
+    height: 65px;
 
 }
 
@@ -43,6 +64,8 @@ html {
 .daily-large {
     font-size: 1.6rem;
 }
+
+
 
 
 /* extra small and down - phones */

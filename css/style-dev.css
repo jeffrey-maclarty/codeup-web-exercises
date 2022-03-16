@@ -1,0 +1,45 @@
+* {
+    outline: 1px solid black;
+}
+
+.centered-1 {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    outline: none;
+
+}
+
+.centered-2 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    outline: none;
+}
+
+.centered-3 {
+    position: fixed;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    outline: none;
+}
+
+.container-dev {
+    outline: solid 1px green;
+}
+
+.row-dev {
+    outline: solid 3px red;
+}
+
+.col-dev {
+    outline: dotted 3px blue;
+}
+
+.testing {
+    display: flex;
+    justify-content: center;
+} 

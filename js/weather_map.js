@@ -161,7 +161,6 @@ function renderForecasts() {
     convertUnixToDay();
 
     function convertUnixToDay() {
-
         day1.dayOfWeekName = new Date(day1.dailyDate * 1000).toLocaleDateString('en', {weekday: 'long'})
         day2.dayOfWeekName = new Date(day2.dailyDate * 1000).toLocaleDateString('en', {weekday: 'long'})
         day3.dayOfWeekName = new Date(day3.dailyDate * 1000).toLocaleDateString('en', {weekday: 'long'})

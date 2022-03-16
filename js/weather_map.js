@@ -1,7 +1,7 @@
 "use strict";
 
 // VARIABLES AND DEFAULTS
-let day1 =[];
+
 
 // FETCH AND DAY OBJECTS
 fetch("https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&&units=imperial&appid=" + OWM_KEY)
@@ -158,9 +158,9 @@ fetch("https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&&uni
 
 function renderForecasts() {
 
-    dateTimeConversion();
+    convertUnixToDay();
 
-    function dateTimeConversion() {
+    function convertUnixToDay() {
 
         day1.dayOfWeekName = new Date(day1.dailyDate * 1000).toLocaleDateString('en', {weekday: 'long'})
         day2.dayOfWeekName = new Date(day2.dailyDate * 1000).toLocaleDateString('en', {weekday: 'long'})
@@ -169,48 +169,49 @@ function renderForecasts() {
         day5.dayOfWeekName = new Date(day5.dailyDate * 1000).toLocaleDateString('en', {weekday: 'long'})
     }
 
+    for (let i = 1; i <= 5; i++) {
+        //language=html
+        $("#day" + [i]).html(`
+            <div class="daily daily-day">${day1.dayOfWeekName}</div>
+            <div class="daily">${day1.dailyWeatherDescription}</div>
+            <div class="daily">${parseInt(day1.dailyTempDay)}&#176;</div>
+        `)
+    }
 
-//language=html
-//     sendToPage();
-//     function sendToPage() {
-//         for (let i = 1; i <= 5; i++) {`
-//             $("#day[i]").html(${day[i].dayOfWeekName}
-//             <br>
-//             ${day[i].dailyWeatherDescription}
-//             <br>
-//             ${day[i].dailyTempDay}`
-//         }
-//     }
+    //language=HTML
+    // $("#day1").html(`
+    //     <div class="daily daily-day">${day1.dayOfWeekName}</div>
+    //     <div class="daily">${day1.dailyWeatherDescription}</div>
+    //     <div class="daily">${parseInt(day1.dailyTempDay)}&#176;</div>
+    // `)
 
-    $("#day1").html(`${day1.dayOfWeekName}
-    <br>
-    ${day1.dailyWeatherDescription}
-    <br>
-    ${parseInt(day1.dailyTempDay)}&#176;`)
+    //language=HTML
+    $("#day2").html(`
+        <div class="daily daily-day">${day2.dayOfWeekName}</div>
+        <div class="daily">${day2.dailyWeatherDescription}</div>
+        <div class="daily">${parseInt(day2.dailyTempDay)}&#176;</div>
+    `)
 
-    $("#day2").html(`${day2.dayOfWeekName}
-    <br>
-    ${day2.dailyWeatherDescription}
-    <br>
-    ${parseInt(day2.dailyTempDay)}&#176;`)
+    //language=HTML
+    $("#day3").html(`
+        <div class="daily daily-day">${day3.dayOfWeekName}</div>
+        <div class="daily">${day3.dailyWeatherDescription}</div>
+        <div class="daily">${parseInt(day3.dailyTempDay)}&#176;</div>
+    `)
 
-    $("#day3").html(`${day3.dayOfWeekName}
-    <br>
-    ${day3.dailyWeatherDescription}
-    <br>
-    ${parseInt(day3.dailyTempDay)}&#176;`)
+    //language=HTML
+    $("#day4").html(`
+        <div class="daily daily-day">${day4.dayOfWeekName}</div>
+        <div class="daily">${day4.dailyWeatherDescription}</div>
+        <div class="daily">${parseInt(day4.dailyTempDay)}&#176;</div>
+    `)
 
-    $("#day4").html(`${day4.dayOfWeekName}
-    <br>
-    ${day4.dailyWeatherDescription}
-    <br>
-    ${parseInt(day4.dailyTempDay)}&#176;`)
-
-    $("#day5").html(`${day5.dayOfWeekName}
-    <br>
-    ${day5.dailyWeatherDescription}
-    <br>
-    ${parseInt(day5.dailyTempDay)}&#176;`)
+    //language=HTML
+    $("#day5").html(`
+        <div class="daily daily-day">${day5.dayOfWeekName}</div>
+        <div class="daily">${day5.dailyWeatherDescription}</div>
+        <div class="daily">${parseInt(day5.dailyTempDay)}&#176;</div>
+    `)
 }
 
 

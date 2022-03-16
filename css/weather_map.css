@@ -31,6 +31,13 @@ html {
     text-align: center;
 }
 
+.daily {
+    font-size: 1.2rem;
+}
+.daily-day {
+    font-size: 1.6rem;
+}
+
 
 /* extra small and down - phones */
 @media only screen and (max-width: 600px) {

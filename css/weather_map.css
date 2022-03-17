@@ -33,6 +33,11 @@ body {
 .container-main {
 
 }
+
+.nav {
+    text-align: center;
+}
+
 .container-days {
     display: flex;
     justify-content: space-evenly;
@@ -65,7 +70,10 @@ body {
     font-size: 1.6rem;
 }
 
-
+.container-map {
+    text-align: center;
+    margin-top: 20px;
+}
 
 
 /* extra small and down - phones */

@@ -257,11 +257,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiamVmZnJleS1tYWNsYXJ0eSIsImEiOiJjbDB1YzR3djAwN
 navigator.geolocation.getCurrentPosition(foundLoc, errorLoc);
 
 function foundLoc(position) {
+    // CENTER HARDCODED DUE TO VPN
     centerHere([position.coords.longitude, position.coords.latitude])
 }
 
 function errorLoc() {
-    centerHere([.77, 43])
+    centerHere([-70.83, 42.93])
 }
 
 let coordinates;
@@ -273,12 +274,14 @@ function centerHere(center) {
         center: [-70.83, 42.93],
         zoom: 11
     });
+
     map.addControl(
         new MapboxGeocoder({
             accessToken: mapboxgl.accessToken,
             mapboxgl: mapboxgl
         })
     );
+
     map.on('style.load', function () {
         map.on('click', function (e) {
             coordinates = e.lngLat;
@@ -302,4 +305,3 @@ $('#map').click(function () {
 // console.log(`clicklon - in testLonLat: `, clicklon)
 // console.log(`userLit - in testLonLat: `, clickLat)
 // }
-

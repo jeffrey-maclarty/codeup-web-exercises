@@ -4,10 +4,10 @@
     --white: #FFFFFF;
     --black: #000000;
 
-    --green-dark: #062C30;
-    --green-medium: #05595B;
-    --yellowish: #E2D784;
-    --whitish: #F5F5F5;
+    --purple: #533E85;
+    --blue: #488FB1;
+    --teal: #4FD3C4;
+    --green: #C1F8CF;
 }
 
 /* BEGIN GLOBAL DEFAULTS */
@@ -27,7 +27,7 @@ html {
 /* END GLOBAL DEFAULTS */
 
 body {
-    background-color: var(--green-medium);
+    background-color: var(--blue);
 }
 
 .container-main {
@@ -47,9 +47,9 @@ body {
 }
 
 .day {
-    background-color: var(--yellowish);
-    border: 3px solid var(--green-dark);
-    color: var(--green-dark);
+    background-color: var(--teal);
+    border: 3px solid var(--purple);
+    color: var(--purple);
     width: 145px;
 }
 
@@ -72,17 +72,14 @@ body {
 }
 
 .container-map {
-        display: flex;
+    display: flex;
     justify-content: center;
 
-    /*width: 90vw;*/
-    /*height: 100vh;*/
-    /*text-align: center;*/
     margin-top: 20px;
 }
 
 #map {
-
+    border: 3px solid var(--purple);
     height: 500px;
     width: 80vw;
 

@@ -72,8 +72,20 @@ body {
 }
 
 .container-map {
-    text-align: center;
+        display: flex;
+    justify-content: center;
+
+    /*width: 90vw;*/
+    /*height: 100vh;*/
+    /*text-align: center;*/
     margin-top: 20px;
+}
+
+#map {
+
+    height: 500px;
+    width: 80vw;
+
 }
 
 

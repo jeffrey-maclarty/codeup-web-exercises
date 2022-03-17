@@ -1,10 +1,29 @@
 "use strict";
 
 // VARIABLES AND DEFAULTS
+// let defaultFetch = "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&&units=imperial&appid=";
+// let clickLon =
+// let clickFetch = "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&&units=imperial&appid=";
+// let userLonLat;
+let userLon;
+console.log(`initial userLon`, userLon)
+let userLat;
+let clickFetch = "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&&units=imperial&appid=";
+let fetchVariable = "";
+
+function getWeather(userLon, userLat) {
+    if (userLon == undefined) {
+        console.log(`userLon is undefined`)
+        fetchVariable = "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&&units=imperial&appid=";
+    } else {
+        fetchVariable = "https://api.openweathermap.org/data/2.5/onecall?lat=" + userLat +"&lon=" + userLon + "&&units=imperial&appid=";
+        console.log(`userLon is: `, userLon)
+    }
+}
 
 
 // FETCH AND DAY OBJECTS
-fetch("https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&&units=imperial&appid=" + OWM_KEY)
+fetch("https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&&units=imperial&appid=" + OPENWEATHER_KEY)
     .then(response => response.json())
     .then(data => {
         day1.dailyClouds = data.daily[0].clouds;
@@ -174,7 +193,7 @@ function renderForecasts() {
         $("#day" + [i]).html(`
             <div class="daily daily-large">${day1.dayOfWeekName}</div>
             <div class="daily"><img src="http://openweathermap.org/img/w/${day1.dailyWeatherIcon}.png"
-                      alt="Icon indicating daily weather" class="daily"></div>
+                                    alt="Icon indicating daily weather" class="daily"></div>
             <div class="daily daily-normal">${day1.dailyWeatherDescription}</div>
             <div class="daily daily-large">${parseInt(day1.dailyTempDay)}&#176;</div>
         `)
@@ -192,7 +211,7 @@ function renderForecasts() {
     $("#day2").html(`
         <div class="daily daily-large">${day2.dayOfWeekName}</div>
         <div class="daily"><img src="http://openweathermap.org/img/w/${day2.dailyWeatherIcon}.png"
-                  alt="Icon indicating daily weather" class="daily"></div>
+                                alt="Icon indicating daily weather" class="daily"></div>
         <div class="daily daily-normal">${day2.dailyWeatherDescription}</div>
         <div class="daily daily-large">${parseInt(day2.dailyTempDay)}&#176;</div>
     `)
@@ -201,7 +220,7 @@ function renderForecasts() {
     $("#day3").html(`
         <div class="daily daily-large">${day3.dayOfWeekName}</div>
         <div class="daily"><img src="http://openweathermap.org/img/w/${day3.dailyWeatherIcon}.png"
-                  alt="Icon indicating daily weather" class="daily"></div>
+                                alt="Icon indicating daily weather" class="daily"></div>
         <div class="daily daily-normal">${day3.dailyWeatherDescription}</div>
         <div class="daily daily-large">${parseInt(day3.dailyTempDay)}&#176;</div>
     `)
@@ -210,7 +229,7 @@ function renderForecasts() {
     $("#day4").html(`
         <div class="daily daily-large">${day4.dayOfWeekName}</div>
         <div class="daily"><img src="http://openweathermap.org/img/w/${day4.dailyWeatherIcon}.png"
-                  alt="Icon indicating daily weather" class="daily"></div>
+                                alt="Icon indicating daily weather" class="daily"></div>
         <div class="daily daily-normal">${day4.dailyWeatherDescription}</div>
         <div class="daily daily-large">${parseInt(day4.dailyTempDay)}&#176;</div>
     `)
@@ -219,13 +238,64 @@ function renderForecasts() {
     $("#day5").html(`
         <div class="daily daily-large">${day5.dayOfWeekName}</div>
         <div class="daily"><img src="http://openweathermap.org/img/w/${day5.dailyWeatherIcon}.png"
-                  alt="Icon indicating daily weather" class="daily"></div>
+                                alt="Icon indicating daily weather" class="daily"></div>
         <div class="daily daily-normal">${day5.dailyWeatherDescription}</div>
         <div class="daily daily-large">${parseInt(day5.dailyTempDay)}&#176;</div>
     `)
 }
 
+// BEGIN MAPBOX
+mapboxgl.accessToken = 'pk.eyJ1IjoiamVmZnJleS1tYWNsYXJ0eSIsImEiOiJjbDB1YzR3djAwNGtxM2RvMmhxYmlpM3Y0In0.aPhDJkVZqz4gMPgq0RNV0Q';
+
+navigator.geolocation.getCurrentPosition(foundLoc, errorLoc);
+
+function foundLoc(position) {
+    // console.log(pos);
+    centerHere([position.coords.longitude, position.coords.latitude])
+}
+
+function errorLoc() {
+    centerHere([.77, 43])
+}
+
+let coordinates;
+
+function centerHere(center) {
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: center, // starting position [lng, lat]
+        zoom: 11 // starting zoom
 
 
+    });
+    map.addControl(
+        new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl
+        })
+    );
+    map.on('style.load', function () {
+        map.on('click', function (e) {
+            coordinates = e.lngLat;
+            console.log(coordinates)
+        });
+    });
+}
 
 
+// GRAB LON LAT ON CLICK
+$('#map').click(function () {
+    console.log(`jq click`, coordinates);
+    userLon = coordinates.lng.toFixed(2);
+    userLat = coordinates.lat.toFixed(2);
+    // console.log(`userLon: `, userLon);
+    // console.log(`userLat: `, userLat);
+    testLonLat();
+    getWeather()
+})
+
+function testLonLat() {
+    console.log(`test userLon: `, userLon);
+    console.log(`test userLat: `, userLat);
+}

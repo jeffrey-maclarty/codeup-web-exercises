@@ -6,22 +6,36 @@ let day2 = [];
 let day3 = [];
 let day4 = [];
 let day5 = [];
+let days = [];
 let newLon;
 let newLat;
 let fetchVariable = "";
-let coordinates;
+let clickLoc;
+let idleLoc;
 
-let tempLon = 42.93;
-let tempLat = -70.83;
+let tempLon = -70.83;
+let tempLat = 42.93;
 
 getWeatherData(tempLon, tempLat)
 
 
 // BEGIN FETCH AND SANITIZE
 function getWeatherData(lat, lon) {
-    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${OPENWEATHER_KEY}`)
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lon}&lon=${lat}&units=imperial&appid=${OPENWEATHER_KEY}`)
+        // returnreturn - lat lon are not working correctly
         .then(response => response.json())
         .then(data => {
+
+                // function extractWeatherData(dayObj) {
+                //     console.log(`test`)
+                //     return {
+                //
+                //         date: dayObj.dt,
+                //         dailyTemp: dayObj.temp.day,
+                //         humidity: dayObj.humidity,
+                //         pressure: dayObj.pressure
+                //     }
+                // }
 
                 // for (let i = 0; i < 5; i++) { // BEGIN
                 day1.date = data.daily[0].dt;
@@ -105,6 +119,7 @@ function getWeatherData(lat, lon) {
         renderForecasts();
     })
 }
+
 // END FETCH AND SANITIZE
 
 // BEGINRENDER HTML
@@ -175,6 +190,7 @@ function renderForecasts() {
 
     })();
 }
+
 // END RENDER HTML
 
 
@@ -213,21 +229,30 @@ function centerHere(center) {
     // ON USERCLICK, GET LON LAT AND PLACE MARKER
     map.on('style.load', function () {
         map.on('click', function (e) {
-            coordinates = e.lngLat;
+            newLon = e.lngLat.lng;
+            newLat = e.lngLat.lat;
+            sendToFetch(newLon, newLat);
             new mapboxgl.Marker()
                 .setLngLat(e.lngLat)
                 .addTo(map);
         });
     });
+
+    // GET LON LAT AFTER A SEARCH AND RENDER
+    map.on('idle', function () {
+        idleLoc = map.getCenter();
+        let {lng, lat} = map.getCenter();
+        newLon = idleLoc.lng;
+        newLat = idleLoc.lat;
+        sendToFetch(newLon, newLat);
+    })
 }
+
 // END MAPBOX
 
-// GRAB LON LAT ON CLICK
-$('#map').click(function () {
-    newLon = parseFloat(coordinates.lng.toFixed(2));
-    newLat = parseFloat(coordinates.lat.toFixed(2));
+
+function sendToFetch(newLon, newLat) {
+    newLon = newLon.toFixed(2);
+    newLat = newLat.toFixed(2);
     getWeatherData(newLon, newLat)
-    console.log(`newLon - in jq: `, newLon)
-    console.log(`userLit - in jq: `, newLat)
-    console.log(`typeof newLon - in jq: `, typeof newLon)
-})
+}

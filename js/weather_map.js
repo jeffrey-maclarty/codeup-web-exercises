@@ -16,7 +16,8 @@ let tempLat = -70.83;
 
 getWeatherData(tempLon, tempLat)
 
-// FETCH AND SANITIZE
+
+// BEGIN FETCH AND SANITIZE
 function getWeatherData(lat, lon) {
     fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${OPENWEATHER_KEY}`)
         .then(response => response.json())
@@ -104,9 +105,9 @@ function getWeatherData(lat, lon) {
         renderForecasts();
     })
 }
+// END FETCH AND SANITIZE
 
-
-// RENDER HTML
+// BEGINRENDER HTML
 function renderForecasts() {
 
     // UNIX TIME TO DAY OF THE WEEK
@@ -174,6 +175,7 @@ function renderForecasts() {
 
     })();
 }
+// END RENDER HTML
 
 
 // BEGIN MAPBOX
@@ -217,10 +219,8 @@ function centerHere(center) {
                 .addTo(map);
         });
     });
-
-
-
 }
+// END MAPBOX
 
 // GRAB LON LAT ON CLICK
 $('#map').click(function () {

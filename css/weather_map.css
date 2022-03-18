@@ -34,32 +34,75 @@ body {
 
 }
 
+/* DAYS AND CARDS */
 .container-days {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 
     text-align: center;
-
 }
 
-.day {
+.container-cards {
+    background-color: transparent;
+    width: 175px;
+    height: 250px;
+    perspective: 500px;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.7s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.card-back {
+    background-color: var(--teal);
+    transform: rotateY(180deg);
+    border: 3px solid var(--purple);
+    color: var(--purple);
+}
+
+.container-cards:hover .card {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card-front {
     background-color: var(--teal);
     border: 3px solid var(--purple);
     color: var(--purple);
-    width: 145px;
 }
 
-.daily {
-
-}
-
-.daily-normal {
-    font-size: 1.3rem;
+.card-content-small,
+.card-content-medium,
+.card-content-large {
     margin-bottom: 10px;
 }
+.card-content-small {
+    font-size: 1rem;
+}
+.card-content-normal {
+    font-size: 1.3rem;
+}
 
-.daily-large {
+.card-content-large {
     font-size: 1.6rem;
+    margin-top: 5px;
+}
+
+.card-content-large-date {
+    border-bottom: 3px solid var(--purple);
+    opacity: .7;
 }
 
 .container-map {
@@ -69,13 +112,32 @@ body {
     margin-top: 20px;
 }
 
+
+.daily-normal {
+    /*    font-size: 1.3rem;*/
+    /*    margin-bottom: 10px;*/
+}
+
+
+.container-map {
+    /*display: flex;*/
+    /*justify-content: center;*/
+
+    /*margin-top: 20px;*/
+}
+
 #map {
     border: 3px solid var(--purple);
     height: 500px;
-    width: 80vw;
+    width: 96vw;
 
 }
 
+
+/* */
+
+
+/* */
 
 /* extra small and down - phones */
 @media only screen and (max-width: 600px) {

@@ -9,7 +9,6 @@ let idleLoc;
 let tempLon = -70.83;
 let tempLat = 42.93;
 
-
 getWeatherData(tempLon, tempLat)
 
 
@@ -19,12 +18,11 @@ function getWeatherData(lat, lon) {
         // returnreturn - lat lon are not working correctly, have to be reversed
         .then(response => response.json())
         .then(data => {
-
-             
+            
                 for (let i = 0; i <= 5; i++) {
 
                     let dayName = new Date(data.daily[i].dt * 1000).toLocaleDateString('en', {weekday: 'long'});
-                    let dayDate = new Date(data.daily[i].dt * 1000).toISOString().split('T')[0];
+                    let dayDate = new Date(data.daily[i].dt * 1000).toISOString().split('T')[0];  // from ryan
 
                     let humidity = data.daily[i].humidity;
                     let sunrise = data.daily[i].sunrise;
@@ -33,56 +31,33 @@ function getWeatherData(lat, lon) {
                     let description = data.daily[i].weather[0].description;
                     let icon = data.daily[i].weather[0].icon;
                     let windGust = data.daily[i].wind_gust;
+                    let rainProb = data.daily[i].pop;
 
-                    //language=html
+                    //language=HTML
+                    // FRONT OF CARDS
                     $("#card-" + [i]).html(`
-<!--                        <div class="container-cards">-->
-<!--                            <div class="flip-card-inner">-->
-<!--                                <div class="flip-card-front">-->
-                                    <div class="card-content-large card-content-large-date">${dayName}</div>
-                                    <div><img src="http://openweathermap.org/img/w/${icon}.png" alt="Daily weather icon">
-                                    </div>
-                                    <div class="card-content-normal">${description}</div>
-                                    <div class="card-content-large">${parseInt(tempDay)}&#176;</div>
-<!--                                </div>-->
+                        <div class="card-content-large card-content-date">${dayName}</div>
+                        <div><img src="http://openweathermap.org/img/w/${icon}.png" alt="Daily weather icon"
+                                  class="card-content-normal">
+                        </div>
+                        <div class="card-content-normal">${description}</div>
+                        <div class="card-content-large card-content-temp">${parseInt(tempDay)}&#176;</div>
                     `)
 
+                    //language=HTML
+                    // BACK OF CARDS
                     $("#card-back-" + [i]).html(`
-                        
-<!--                                <div class="flip-card-back">-->
-                                    <div class="card-content-large card-content-large-date">${dayDate}</div>
-                                    <div class="card-content-small">Humidity: ${humidity}</div>
-                                    <div class="card-content-small">Sunrise: ${sunrise}</div>
-                                    <div class="card-content-small">Sunset: ${sunset}</div>
-                                   
-                                    <div class="card-content-small">Wind Gust: ${windGust}</div>
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
+                        <div class="card-content-large card-content-date">${dayDate}</div>
+                        <div class="card-content-small">Humidity: ${humidity}</div>
+                        <div class="card-content-small">Sunrise: ${sunrise}</div>
+                        <div class="card-content-small">Sunset: ${sunset}</div>
+                        <div class="card-content-small">Precipitation: ${rainProb}&#37;</div>
+                        <div class="card-content-small">Wind Gust: ${windGust}mph</div>
                     `)
-
-                    //language=HTML
-                    // $("#day" + [i]).html(`
-                    //     <div>${dayName}</div>
-                    //     <div><img src="http://openweathermap.org/img/w/${icon}.png" alt="Daily weather icon"></div>
-                    //     <div>${description}</div>
-                    //     <div>${parseInt(tempDay)}&#176;</div>
-                    // `)
-
-                    //language=HTML
-                    // $("#day" + [i] + "-flip").html(`
-                    //     <div>${dayDate}</div>
-                    //     <div class="">${humidity}</div>
-                    //     <div class="">${sunrise}</div>
-                    //     <div class="">${sunset}</div>
-                    //     <div class="">${windTemp}</div>
-                    //     <div class="">${windGust}</div>
-                    // `)
                 }
-
             }
-        ) // END FETCH AND RENDER HTML
-}
+        )
+} // END FETCH AND RENDER HTML
 
 
 // BEGIN MAPBOX
@@ -133,7 +108,7 @@ function centerHere(center) {
     });
 
 
-    // GET LON LAT AFTER A SEARCH AND RENDER
+    // AFTER SEARCH RENDERS, GET LON LAT
     map.on('idle', function () {
         idleLoc = map.getCenter();
         let {lng, lat} = map.getCenter();
@@ -141,7 +116,6 @@ function centerHere(center) {
         newLat = idleLoc.lat;
         sendToFetch(newLon, newLat);
     })
-
 
 } // END MAPBOX
 

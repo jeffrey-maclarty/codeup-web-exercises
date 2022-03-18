@@ -37,7 +37,7 @@ body {
 /* DAYS AND CARDS */
 .container-days {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 
     text-align: center;
 }
@@ -88,11 +88,13 @@ body {
 .card-content-large {
     margin-bottom: 10px;
 }
+
 .card-content-small {
     font-size: 1rem;
 }
 .card-content-normal {
     font-size: 1.3rem;
+    margin-top: 5px;s
 }
 
 .card-content-large {
@@ -100,9 +102,13 @@ body {
     margin-top: 5px;
 }
 
-.card-content-large-date {
+.card-content-date {
     border-bottom: 3px solid var(--purple);
     opacity: .7;
+}
+
+.card-content-temp {
+    margin-top: 15px;
 }
 
 .container-map {
@@ -111,13 +117,6 @@ body {
 
     margin-top: 20px;
 }
-
-
-.daily-normal {
-    /*    font-size: 1.3rem;*/
-    /*    margin-bottom: 10px;*/
-}
-
 
 .container-map {
     /*display: flex;*/

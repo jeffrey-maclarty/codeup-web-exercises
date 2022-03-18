@@ -18,20 +18,30 @@ function getWeatherData(lat, lon) {
         // returnreturn - lat lon are not working correctly, have to be reversed
         .then(response => response.json())
         .then(data => {
-            
+
                 for (let i = 0; i <= 5; i++) {
 
+                    // UNIX TIME CONVERSIONS
                     let dayName = new Date(data.daily[i].dt * 1000).toLocaleDateString('en', {weekday: 'long'});
-                    let dayDate = new Date(data.daily[i].dt * 1000).toISOString().split('T')[0];  // from ryan
+                    let dayDate = new Date(data.daily[i].dt * 1000).toISOString().split('T')[0];  // ryan
+                    let sunriseHour = new Date(data.daily[i].sunrise * 1000).getHours();
+                    sunriseHour = ((sunriseHour + 11) % 12 + 1);
+                    let sunriseMinute = new Date(data.daily[i].sunrise * 1000).getMinutes();
+                    let sunsetHour = new Date(data.daily[i].sunset * 1000).getHours();
+                    sunsetHour = ((sunsetHour + 11) % 12 + 1);
+                    let sunsetMinute = new Date(data.daily[i].sunset * 1000).getMinutes();
 
+                    // PRECIPITATION CONVERTER
+                    let rainProb = data.daily[i].pop;
+                    rainProb = rainProb * 100;
+
+                    // SIMPLER VARIABLES
                     let humidity = data.daily[i].humidity;
-                    let sunrise = data.daily[i].sunrise;
-                    let sunset = data.daily[i].sunset;
                     let tempDay = data.daily[i].temp.day;
                     let description = data.daily[i].weather[0].description;
                     let icon = data.daily[i].weather[0].icon;
                     let windGust = data.daily[i].wind_gust;
-                    let rainProb = data.daily[i].pop;
+                    // let rainProb = data.daily[i].pop;
 
                     //language=HTML
                     // FRONT OF CARDS
@@ -49,9 +59,9 @@ function getWeatherData(lat, lon) {
                     $("#card-back-" + [i]).html(`
                         <div class="card-content-large card-content-date">${dayDate}</div>
                         <div class="card-content-small">Humidity: ${humidity}</div>
-                        <div class="card-content-small">Sunrise: ${sunrise}</div>
-                        <div class="card-content-small">Sunset: ${sunset}</div>
-                        <div class="card-content-small">Precipitation: ${rainProb}&#37;</div>
+                        <div class="card-content-small">Sunrise: ${sunriseHour}:${sunriseMinute} AM</div>
+                        <div class="card-content-small">Sunset: ${sunsetHour}:${sunsetMinute}  PM</div>
+                        <div class="card-content-small">Precipitation Chance: ${rainProb}&#37;</div>
                         <div class="card-content-small">Wind Gust: ${windGust}mph</div>
                     `)
                 }

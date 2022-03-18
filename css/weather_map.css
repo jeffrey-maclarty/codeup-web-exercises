@@ -94,7 +94,7 @@ body {
 }
 .card-content-normal {
     font-size: 1.3rem;
-    margin-top: 5px;s
+    margin-top: 5px;
 }
 
 .card-content-large {
@@ -121,8 +121,11 @@ body {
 .container-map {
     /*display: flex;*/
     /*justify-content: center;*/
-
+    /*postion: relative;*/
     /*margin-top: 20px;*/
+    position: relative;
+  text-align: center;
+  color: white;
 }
 
 #map {
@@ -130,6 +133,17 @@ body {
     height: 500px;
     width: 96vw;
 
+}
+
+.location-text {
+    position: absolute;
+    bottom: 8%;
+    right: 3%;
+    color: var(--purple);
+    font-size: 1.5rem;
+    background: var(--teal);
+    border: 3px solid var(--purple);
+    opacity: .2;
 }
 
 

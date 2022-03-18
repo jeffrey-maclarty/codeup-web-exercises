@@ -6,6 +6,12 @@ let newLat;
 let clickLoc;
 let idleLoc;
 
+// REFACTORING
+let geocoder;
+let userLocation;
+let marker;
+let popup;
+
 let tempLon = -70.83;
 let tempLat = 42.93;
 
@@ -58,7 +64,7 @@ function getWeatherData(lat, lon) {
                     // BACK OF CARDS
                     $("#card-back-" + [i]).html(`
                         <div class="card-content-large card-content-date">${dayDate}</div>
-                        <div class="card-content-small">Humidity: ${humidity}</div>
+                        <div class="card-content-small">Humidity: ${humidity}&#37;</div>
                         <div class="card-content-small">Sunrise: ${sunriseHour}:${sunriseMinute} AM</div>
                         <div class="card-content-small">Sunset: ${sunsetHour}:${sunsetMinute}  PM</div>
                         <div class="card-content-small">Precipitation Chance: ${rainProb}&#37;</div>
@@ -119,13 +125,117 @@ function centerHere(center) {
 
 
     // AFTER SEARCH RENDERS, GET LON LAT
-    map.on('idle', function () {
+    map.on('idle', function (result) {
         idleLoc = map.getCenter();
         let {lng, lat} = map.getCenter();
         newLon = idleLoc.lng;
         newLat = idleLoc.lat;
         sendToFetch(newLon, newLat);
     })
+
+
+    // REFACTORING ABOVE CODE FROM CASEY'S EXAMPLES
+init();
+setGeocoderEventListener();
+
+function init() {
+
+    /*Make the mapbox map object, set to map variable declared above*/
+    // map = new mapboxgl.Map({
+    //     container: 'map', // container ID
+    //     style: 'mapbox://styles/mapbox/streets-v11', // style URL
+    //     center: [-96.7969, 32.7763], // starting position [lng, lat]
+    //     zoom: 12 // starting zoom
+    // });
+
+    /*Make the geocoder object, set to the geocoder variable declared above*/
+    geocoder = new MapboxGeocoder({
+        accessToken: MAPBOX_KEY,
+        mapboxgl: mapboxgl,
+        marker: false
+    });
+
+    /*Add the geocoder variable value to the map as a control (form input)*/
+    map.addControl(geocoder);
+}
+
+/**
+ * Utility function to get a new Marker object whenever invoked
+ * param coordinates: number array containing the lng lat of the location
+ * **/
+function getMarker(coordinates) {
+    return new mapboxgl.Marker()
+        .setLngLat(coordinates)
+        .addTo(map);
+}
+
+
+/**
+ * Utility function to get a new Popup object whenever invoked
+ * param description: string represented details of the location
+ * param coordinates: number array containing the lng lat of the location
+ * **/
+function getPopup(description, coordinates) {
+    return new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(`<p>${description}</p>`)
+        .addTo(map);
+}
+
+
+/**
+ * Encapsulates code to listen for the geocoder to return a result and allows us to get new Marker and Popup objects
+ * **/
+function setGeocoderEventListener() {
+    geocoder.on("result", function (e) {
+        /*We need to ensure marker/popup variables hoisted at the top actual *have* a value
+        * Otherwise, calling a remove() method on a non-existent object will result in a runtime error
+        * */
+        if (marker) {
+            marker.remove();
+        }
+        if (popup) {
+            popup.remove();
+        }
+
+        /*Finally, set the hoisted marker/popup variables to new respective objects*/
+        // marker = getMarker(e.result.geometry.coordinates);
+        // popup = getPopup(e.result.place_name, e.result.geometry.coordinates);
+
+        // console.log(`marker: `, marker);
+        // console.log(`popup: `, popup)
+
+        console.log(`e:`, e)
+        console.log(`test location name: `, e.result.place_name)
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // END REFACTORING
 
 } // END MAPBOX
 

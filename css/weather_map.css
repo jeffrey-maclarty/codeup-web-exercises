@@ -34,16 +34,12 @@ body {
 
 }
 
-.nav {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
 .container-days {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
     text-align: center;
+
 }
 
 .day {
@@ -54,11 +50,6 @@ body {
 }
 
 .daily {
-
-}
-
-.daily > img {
-    height: 65px;
 
 }
 

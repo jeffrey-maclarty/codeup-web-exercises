@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">-->
+    <link rel="stylesheet" href="css/weather_map.css">
+<!--    <link rel="stylesheet" href="css/style-dev.css">-->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="js/keys.js"></script>
+    <script defer src="js/weather_map.js"></script>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet'/>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet"
+          href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
+          type="text/css">
+
+    <script src="js/geocoder-utils.js"></script>
+
+    <style>
+        .mapboxgl-ctrl-geocoder--input {
+            background-color: #4FD3C4;
+            border: 3px solid #533E85;
+            color: #533E85;
+        }
+    </style>
+
+    <link rel="shortcut icon" href="#">
+
+    <title></title>
+</head>
+<body>
+
+<!-- BEGIN CONTAINER MAIN -->
+<div class="container-main">
+
+    <div class="nav">TITLE</div>
+
+    <!-- BEGIN CONTAINER DAYS -->
+    <div class="container-days">
+
+        <div class="day" id="day1"></div>
+        <div class="day" id="day2"></div>
+        <div class="day" id="day3"></div>
+        <div class="day" id="day4"></div>
+        <div class="day" id="day5"></div>
+
+    </div>
+    <!-- END CONTAINER DAYS -->
+
+    <!-- BEGIN CONTAINER MAP -->
+    <div class="container-map">
+
+        <div id='map'></div>
+
+    </div>
+    <!-- END CONTAINER MAP-->
+
+    <div class="footer"></div>
+
+</div>
+
+<!-- END CONTAINER MAIN -->
+
+<!-- REMOVEREMOVE -->
+<!--<div class="centered-1">^</div>-->
+<!--<div class="centered-2">^</div>-->
+<!--<div class="centered-3">^</div>-->
+
+</body>
+</html>

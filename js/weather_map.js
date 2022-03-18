@@ -122,7 +122,7 @@ function getWeatherData(lat, lon) {
 
 // END FETCH AND SANITIZE
 
-// BEGINRENDER HTML
+// BEGIN RENDER HTML
 function renderForecasts() {
 
     // UNIX TIME TO DAY OF THE WEEK

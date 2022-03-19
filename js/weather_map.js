@@ -5,16 +5,12 @@ let newLon;
 let newLat;
 let clickLoc;
 let idleLoc;
-let cardBgImage;
-
-// REFACTORING
-let geocoder;
-let userLocation;
-let marker;
-let popup;
+let hoverBgWeatherId;
+let hoverBgClass;
 
 let tempLon = -70.83;
 let tempLat = 42.93;
+
 
 getWeatherData(tempLon, tempLat)
 
@@ -25,10 +21,91 @@ function getWeatherData(lat, lon) {
         // returnreturn - lat lon are not working correctly, have to be reversed
         .then(response => response.json())
         .then(data => {
+
+
+                // TODO:
+                // mapbox
+                //      - remove old pins
+                //      - replace 'idle' event - it is adding an addition fetch call every reload
+                //      - possibly finish 'you are here', but results from data are not consistent and sometimes
+                //        require pruning due to length
                 //
-                // console.log(data);
-                // console.log(data.daily[1].weather[0].id)
-                for (let i = 0; i <= 5; i++) {
+                // css
+                //      - text color contrast for background images
+                //          - https://coolors.co/contrast-checker/ffffff-62788d
+                //      - rewrite - too many classes, too many properties, out of order
+                //      - ? theme change
+                //          - change queryselector to jquery or just use jquery to change colors
+                //              * document.querySelector('#css-default').innerHTML = '<link id="css-darkmode" rel="stylesheet" href="style-darkmode.css">'
+                //
+                // render
+                //      - hover / image change is still buggy
+                //
+                // other
+                //      - ? navbar and footer, finish css select menu from last week
+
+
+                // returnreturn - FETCH IS BEING CALLED TWICE EVERY RELOAD BECAUSE OF MAPBOX IDLE EVENT
+
+
+                // BEGIN HOVER AND CLASS/IMAGE CHANGE
+                $(".hover-bg").hover(function () {
+
+                    // DETERMINE WEATHER FOR HOVERED ELEMENT
+                    if ($(this).hasClass("hover-bg-1")) {
+                        hoverBgWeatherId = data.daily[1].weather[0].id;
+                    } else if ($(this).hasClass("hover-bg-2")) {
+                        hoverBgWeatherId = data.daily[2].weather[0].id;
+                    } else if ($(this).hasClass("hover-bg-3")) {
+                        hoverBgWeatherId = data.daily[3].weather[0].id;
+                    } else if ($(this).hasClass("hover-bg-4")) {
+                        hoverBgWeatherId = data.daily[4].weather[0].id;
+                    } else if ($(this).hasClass("hover-bg-5")) {
+                        hoverBgWeatherId = data.daily[5].weather[0].id;
+                    }
+
+
+                    // DETERMINE APPROPRIATE CLASS TO ADD
+                    switch (true) {
+                        case hoverBgWeatherId >= 801:
+                            hoverBgClass = "hover-bg-clouds";
+                            break;
+                        case hoverBgWeatherId === 800:
+                            hoverBgClass = "hover-bg-clear";
+                            break;
+                        case hoverBgWeatherId >= 701 && choverBgWeatherId <= 781:
+                            hoverBgClass = "hover-bg-warning";
+                            break;
+                        case hoverBgWeatherId >= 600 && hoverBgWeatherId <= 622:
+                            hoverBgClass = "hover-bg-snow";
+                            break;
+                        case hoverBgWeatherId >= 500 && hoverBgWeatherId <= 531:
+                            hoverBgClass = "hover-bg-rain";
+                            break;
+                        case hoverBgWeatherId >= 300 && hoverBgWeatherId <= 321:  // 'drizzle'
+                            hoverBgClass = "hover-bg-rain";
+                            break;
+                        case hoverBgWeatherId >= 200 && hoverBgWeatherId <= 232:
+                            hoverBgClass = "hover-bg-thunderstorm";
+                            break;
+                        default:
+                            hoverBgClass = "hover-bg-kittens";
+                            break;
+                    }
+
+
+                    // ADD CLASS / REMOVE CLASS
+                    $(this).addClass(hoverBgClass);
+                    $(this).next().addClass(hoverBgClass);
+                }, function () {
+                    $(this).removeClass("hover-bg-clouds hover-bg-clear hover-bg-warning hover-bg-snow hover-bg-rain hover-bg-thunderstorm hover-bg-kittens");
+                    $(this).next().removeClass("hover-bg-clouds hover-bg-clear hover-bg-warning hover-bg-snow hover-bg-rain hover-bg-thunderstorm hover-bg-kittens");
+                    // removing only the recently added class wasn't working all the time
+                    // couldn't determine reason
+                }) // END HOVER AND CLASS/IMAGE CHANGE
+
+
+                for (let i = 1; i <= 5; i++) {
 
                     // UNIX TIME CONVERSIONS
                     let dayName = new Date(data.daily[i].dt * 1000).toLocaleDateString('en', {weekday: 'long'});
@@ -40,48 +117,18 @@ function getWeatherData(lat, lon) {
                     sunsetHour = ((sunsetHour + 11) % 12 + 1);
                     let sunsetMinute = new Date(data.daily[i].sunset * 1000).getMinutes();
 
-                    // PRECIPITATION CONVERTER
-                    let rainProb = data.daily[i].pop;
-                    rainProb = rainProb * 100;
 
-                    // SIMPLER VARIABLES
+                    // PRECIPITATION CONVERTER
+                    let rainProb = data.daily[i].pop * 100;
+
+
+                    // SIMPLER VARIABLES FOR HTML RENDER
                     let humidity = data.daily[i].humidity;
                     let tempDay = data.daily[i].temp.day;
                     let description = data.daily[i].weather[0].description;
                     let icon = data.daily[i].weather[0].icon;
                     let windGust = data.daily[i].wind_gust;
-                    // let rainProb = data.daily[i].pop;
 
-                    cardBgImage = parseInt(data.daily[i].weather[0].id)
-
-                    switch (cardBgImage) {
-                        case cardBgImage >= 801:
-                            cardBgImage = "../img/weather-bg-scattered_clouds.png";
-                            break;
-                        case cardBgImage == 800 :
-                            cardBgImage = "../img/weather-bg-clear_sky.png";
-                            break;
-                        case cardBgImage >= 701 && cardBgImage <= 781:
-                            cardBgImage = "../img/weather-bg-warning.png";
-                            break;
-                        case cardBgImage >= 600 && cardBgImage <= 622:
-                            cardBgImage = "../img/weather-bg-snow.png";
-                            break;
-                        case cardBgImage >= 500 && cardBgImage <= 531:
-                            cardBgImage = "../img/weather-bg-snow.png";
-                            break;
-                        case cardBgImage >= 300 && cardBgImage <= 321:
-                            cardBgImage = "../img/weather-bg-rain.png";
-                            break;
-                        case cardBgImage >= 200 && cardBgImage <= 232:
-                            cardBgImage = "../img/weather-bg-thunderstorm.png";
-                            break;
-                        default:
-                            cardBgImage = "../img/weather-bg-cthulhu.png";
-                            break;
-                    }
-                    console.log(typeof cardBgImage)
-                    $(".card-front").css("background-image", "url(${cardBgImage}) ");
 
                     //language=HTML
                     // FRONT OF CARDS
@@ -93,6 +140,7 @@ function getWeatherData(lat, lon) {
                         <div class="card-content-normal">${description}</div>
                         <div class="card-content-large card-content-temp">${parseInt(tempDay)}&#176;</div>
                     `)
+
 
                     //language=HTML
                     // BACK OF CARDS
@@ -120,6 +168,7 @@ function foundLoc(position) {
     centerHere([position.coords.longitude, position.coords.latitude])
 }
 
+
 function errorLoc() {
     centerHere([-70.83, 42.93])
 }
@@ -145,20 +194,18 @@ function centerHere(center) {
     );
 
 
-    // ON USERCLICK, GET LON LAT AND PLACE MARKER
-    map.on('style.load', function () {
-        map.on('click', function (e) {
-            newLon = e.lngLat.lng;
-            newLat = e.lngLat.lat;
-            sendToFetch(newLon, newLat);
-            new mapboxgl.Marker()
-                .setLngLat(e.lngLat)
-                .addTo(map);
-        });
+    // ON USERCLICK, GET LON LAT, PLACE MARKER, CALL SENDTOFETCH()
+    map.on('click', function (e) {
+        newLon = e.lngLat.lng;
+        newLat = e.lngLat.lat;
+        sendToFetch(newLon, newLat);
+        new mapboxgl.Marker()
+            .setLngLat(e.lngLat)
+            .addTo(map);
     });
 
 
-    // AFTER SEARCH RENDERS, GET LON LAT
+    // AFTER SEARCH RENDERS, GET LON LAT, CALL SENDTOFETCH()
     map.on('idle', function (result) {
         idleLoc = map.getCenter();
         let {lng, lat} = map.getCenter();
@@ -167,91 +214,48 @@ function centerHere(center) {
         sendToFetch(newLon, newLat);
     })
 
-    //
-    // // REFACTORING ABOVE CODE FROM CASEY'S EXAMPLES
-    // init();
-    // setGeocoderEventListener();
-    //
-    // function init() {
-    //
-    //     /*Make the mapbox map object, set to map variable declared above*/
-    //     // map = new mapboxgl.Map({
-    //     //     container: 'map', // container ID
-    //     //     style: 'mapbox://styles/mapbox/streets-v11', // style URL
-    //     //     center: [-96.7969, 32.7763], // starting position [lng, lat]
-    //     //     zoom: 12 // starting zoom
-    //     // });
-    //
-    //     /*Make the geocoder object, set to the geocoder variable declared above*/
-    //     geocoder = new MapboxGeocoder({
-    //         accessToken: MAPBOX_KEY,
-    //         mapboxgl: mapboxgl,
-    //         marker: false
-    //     });
-    //
-    //     /*Add the geocoder variable value to the map as a control (form input)*/
-    //     map.addControl(geocoder);
-    // }
-    //
-    // /**
-    //  * Utility function to get a new Marker object whenever invoked
-    //  * param coordinates: number array containing the lng lat of the location
-    //  * **/
-    // function getMarker(coordinates) {
-    //     return new mapboxgl.Marker()
-    //         .setLngLat(coordinates)
-    //         .addTo(map);
-    // }
-    //
-    //
-    // /**
-    //  * Utility function to get a new Popup object whenever invoked
-    //  * param description: string represented details of the location
-    //  * param coordinates: number array containing the lng lat of the location
-    //  * **/
-    // function getPopup(description, coordinates) {
-    //     return new mapboxgl.Popup()
-    //         .setLngLat(coordinates)
-    //         .setHTML(`<p>${description}</p>`)
-    //         .addTo(map);
-    // }
-    //
-    //
-    // /**
-    //  * Encapsulates code to listen for the geocoder to return a result and allows us to get new Marker and Popup objects
-    //  * **/
-    // function setGeocoderEventListener() {
-    //     geocoder.on("result", function (e) {
-    //         /*We need to ensure marker/popup variables hoisted at the top actual *have* a value
-    //         * Otherwise, calling a remove() method on a non-existent object will result in a runtime error
-    //         * */
-    //         if (marker) {
-    //             marker.remove();
-    //         }
-    //         if (popup) {
-    //             popup.remove();
-    //         }
-    //
-    //         /*Finally, set the hoisted marker/popup variables to new respective objects*/
-    //         // marker = getMarker(e.result.geometry.coordinates);
-    //         // popup = getPopup(e.result.place_name, e.result.geometry.coordinates);
-    //
-    //         // console.log(`marker: `, marker);
-    //         // console.log(`popup: `, popup)
-    //
-    //         console.log(`e:`, e)
-    //         console.log(`test location name: `, e.result.place_name)
-    //     });
-    // }
-    //
-
-    // END REFACTORING
 
 } // END MAPBOX
 
 
+// RECEIVE AND FORWARD LON LAT
 function sendToFetch(newLon, newLat) {
     newLon = newLon.toFixed(2);
     newLat = newLat.toFixed(2);
     getWeatherData(newLon, newLat)
 }
+
+
+// KEEP UNTIL FINISHED
+
+// testLoop();
+// function testLoop () {
+//     for (let i = 1; i <= 5; i++) {
+//         console.log(`testLoop: `, i);
+//     }
+// }
+
+// CAN'T RECALL WHY I WRAPPED MAP.ON CLICK IN MAP.ON STYLE.LOAD
+//
+// ON USERCLICK, GET LON LAT AND PLACE MARKER
+// map.on('style.load', function () {
+//     map.on('click', function (e) {
+//         newLon = e.lngLat.lng;
+//         newLat = e.lngLat.lat;
+//         // sendToFetch(newLon, newLat);
+//         new mapboxgl.Marker()
+//             .setLngLat(e.lngLat)
+//             .addTo(map);
+//     });
+// });
+
+// console.log(data)
+// console.log(data.daily[i].weather[0].main)
+// console.log(($(".hover-bg").this()))
+// console.log(Object.values(weatherBgcheck).includes("div#card-back-3.card-back.hover-bg.hover-bg-kittens"))
+// console.log(`hoverBgWeatherId in if`, hoverBgWeatherId);
+// console.log(`description in if`, hoverBgClass = data.daily[5].weather[0].main);
+// console.log(`after if - typeof and value of hoverBgClass: `, typeof hoverBgClass, hoverBgClass)
+// console.log(`hoverBgWeatherId after switch`, hoverBgWeatherId);
+// console.log(`description after switch`, hoverBgClass = data.daily[5].weather[0].main);
+// console.log(`after switch - typeof and value of hoverBgClass: `, typeof hoverBgClass, hoverBgClass)

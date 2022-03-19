@@ -26,7 +26,9 @@ function getWeatherData(lat, lon) {
                 // TODO:
                 // mapbox
                 //      - remove old pins
-                //      - replace 'idle' event - it is adding an addition fetch call every reload
+                //      - replace 'idle' event - it is adding an additional fetch call every reload
+                //          - could wrap fetch in a function, use idle for initial load if low on time
+                //          - or ignore it
                 //      - possibly finish 'you are here', but results from data are not consistent and sometimes
                 //        require pruning due to length
                 //

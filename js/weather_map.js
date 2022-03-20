@@ -14,6 +14,11 @@ let hoverBgClass;
 // let iconToWeather5;
 
 // MAPBOX REFACTOR
+let map;
+let geocoder;
+
+let finalLon;
+let finalLat;
 
 
 let tempLon = -70.83;
@@ -198,9 +203,6 @@ function getWeatherData(lat, lon) {
 
 mapboxgl.accessToken = MAPBOX_KEY;
 
-let map;
-
-let geocoder;
 
 let marker;
 
@@ -216,15 +218,13 @@ function runMapbox() {
     // mapboxgl.accessToken = MAPBOX_KEY;
 
     // BEGIN INITIALIZE MAP
-
-
     map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
         zoom: 11,
         center: [-70.83, 42.93]
+    });
 
-    }); // END INITIALIZE MAP
 
     geocoder = new MapboxGeocoder({
         accessToken: MAPBOX_KEY,
@@ -232,17 +232,89 @@ function runMapbox() {
         marker: false
     });
 
+
     map.addControl(geocoder);
 
-    // ADD SEARCH TO MAP
+
     // map.addControl(
-    // new MapboxGeocoder({
-    //     accessToken: MAPBOX_KEY,
-    //     mapboxgl: mapboxgl,
-    // })
-    // ); // END ADD SEARCH TO MAP
+    //     new MapboxGeocoder({
+    //         accessToken: MAPBOX_KEY,
+    //         mapboxgl: mapboxgl,
+    //     })
+    // );
 
 
+// END INITIALIZE MAP
+}
+
+
+// BEGIN ON PAGE LOAD
+// map.on('sourcedata', function (event) {
+//     console.log(`on load: working: `, event)
+
+    // if (map.loaded()) {
+    //     map.off('sourcedata');
+    // }
+    
+// https://stackoverflow.com/questions/43499053/mapbox-event-when-all-tiles-are-loaded
+// END ON PAGE LOAD
+// })
+
+
+// BEGIN ON SEARCH RENDER, GET LON LAT
+geocoder.on('result', function (event) {
+    // console.log(`on result: working: `, event)
+
+    newLon = event.result.geometry.coordinates[0];
+    newLat = event.result.geometry.coordinates[1];
+    // console.log(`on result - newLon newLat`, newLon, newLat)
+//
+// END ON SEARCH RENDER, GET LON LAT
+})
+
+
+// BEGIN ON SEARCH RENDER, PLACE PIN USING VAR FROM SEARCH RENDER, GET LON LAT
+map.on('result', function (event) {
+    // console.log(event);
+
+    return new mapboxgl.Marker()
+        .setLngLat([newLon, newLat])
+        .addTo(map);
+
+// END BEGIN ON SEARCH RENDER, PLACE PIN USING VAR FROM SEARCH RENDER, GET LON LAT
+})
+
+
+// BEGIN ON USERCLICK, GET LON LAT
+map.on('click', function (event) {
+    // console.log(event);
+
+    newLon = event.lngLat.lng;
+    newLat = event.lngLat.lat;
+    // console.log(`on userclick, newLon newLat: `, newLon, newLat)
+
+// END ON USERCLICK, GET LON LAT
+})
+
+
+// BEGIN ON USERCLICK, PLACE PIN USING VAR FROM USERCLICK, GET LON LAT
+map.on('click', function (event) {
+    console.log(event);
+
+    return new mapboxgl.Marker()
+        .setLngLat([newLon, newLat])
+        .addTo(map);
+
+// END ON USERCLICK, PLACE PIN USING VAR FROM USERCLICK, GET LON LAT
+})
+
+
+// BEGIN RECEIVE, TOFIXED AND FORWARD LON LAT
+function sendToFetch(newLon, newLat) {
+    newLon = newLon.toFixed(2);
+    newLat = newLat.toFixed(2);
+//     getWeatherData(newLon, newLat)
+// BEGIN RECEIVE, TOFIXED AND FORWARD LON LAT
 }
 
 
@@ -256,16 +328,16 @@ function runMapbox() {
 // })
 
 // BEGIN ON USERCLICK, GET LON LAT, PLACE MARKER, CALL SENDTOFETCH()
-map.on('click', function (e) {
-    newLon = e.lngLat.lng;
-    newLat = e.lngLat.lat;
-    console.log(`from userclick, newLon newLat:`, newLon, newLat)
-    // sendToFetch(newLon, newLat);
-    new mapboxgl.Marker()
-        .setLngLat(e.lngLat)
-        .addTo(map);
+// map.on('click', function (e) {
+//     newLon = e.lngLat.lng;
+//     newLat = e.lngLat.lat;
+//     console.log(`from userclick, newLon newLat:`, newLon, newLat)
+// sendToFetch(newLon, newLat);
+// new marker = mapboxgl.Marker()
+//     .setLngLat(e.lngLat)
+//     .addTo(map);
 // END ON USERCLICK, GET LON LAT, PLACE MARKER, CALL SENDTOFETCH()
-});
+// });
 
 
 function getMarker(coordinates) {

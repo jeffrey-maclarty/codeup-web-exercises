@@ -35,7 +35,6 @@ function getWeatherData(lat, lon) {
                 // css
                 //      - text color contrast for background images
                 //          - https://coolors.co/contrast-checker/ffffff-62788d
-                //      - rewrite - too many classes, too many properties, out of order
                 //      - ? theme change
                 //          - change queryselector to jquery or just use jquery to change colors
                 //              * document.querySelector('#css-default').innerHTML = '<link id="css-darkmode" rel="stylesheet" href="style-darkmode.css">'

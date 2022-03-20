@@ -135,24 +135,23 @@ function getWeatherData(lat, lon) {
                     //language=HTML
                     // FRONT OF CARDS
                     $("#card-" + [i]).html(`
-                        <div class="card-content-large card-content-date">${dayName}</div>
-                        <div><img src="http://openweathermap.org/img/w/${icon}.png" alt="Daily weather icon"
-                                  class="card-content-normal">
+                        <div><h3>${dayName}</h3></div>
+                        <div><img src="http://openweathermap.org/img/w/${icon}.png" class="hover-bg" alt="Daily weather icon">
                         </div>
-                        <div class="card-content-normal">${description}</div>
-                        <div class="card-content-large card-content-temp">${parseInt(tempDay)}&#176;</div>
+                        <div><h5>${description}</h5></div>
+                        <div><h4>${parseInt(tempDay)}&#176;</h4></div>
                     `)
 
 
                     //language=HTML
                     // BACK OF CARDS
                     $("#card-back-" + [i]).html(`
-                        <div class="card-content-large card-content-date">${dayDate}</div>
-                        <div class="card-content-small">Humidity: ${humidity}&#37;</div>
-                        <div class="card-content-small">Sunrise: ${sunriseHour}:${sunriseMinute} AM</div>
-                        <div class="card-content-small">Sunset: ${sunsetHour}:${sunsetMinute}  PM</div>
-                        <div class="card-content-small">Precipitation Chance: ${rainProb}&#37;</div>
-                        <div class="card-content-small">Wind Gust: ${windGust}mph</div>
+                        <div><h3>${dayDate}</h3></div>
+                        <div><h5>Humidity: ${humidity}&#37;</h5></div>
+                        <div><h5>Sunrise: ${sunriseHour}:${sunriseMinute} AM</h5></div>
+                        <div><h5>Sunset: ${sunsetHour}:${sunsetMinute}  PM</h5></div>
+                        <div><h5>Precipitation Chance: ${rainProb}&#37;</h5></div>
+                        <div><h5>Wind Gust: ${windGust}mph</h5></div>
                     `)
                 }
             }

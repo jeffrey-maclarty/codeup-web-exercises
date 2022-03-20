@@ -10,9 +10,15 @@
     --green: #C1F8CF;
 
     --bg-snow-violet: #A5C5E9;
+    /*--bg-snow-violet: #A5C5E9;*/
+    /*--bg-snow-violet: #A5C5E9;*/
+    /*--bg-snow-violet: #A5C5E9;*/
+    /*--bg-snow-violet: #A5C5E9;*/
+    /*--bg-snow-violet: #A5C5E9;*/
+    /*--bg-snow-violet: #A5C5E9;*/
 }
 
-/* BEGIN GLOBAL DEFAULTS */
+/* BEGIN GLOBAL */
 *,
 *::before,
 *::after {
@@ -22,200 +28,210 @@
 }
 
 html {
-    font-family: Lato;
+    font-family: Lato, sans-serif;
     font-size: 16px;
 }
+
+/* END GLOBAL */
 
 body {
     background-color: var(--blue);
 }
 
 .container-main {
-    width: 100%;
+    margin: 20px 40px;
 }
 
-/* DAYS AND CARDS */
+.hidden {
+    display: none;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+h2 {
+
+}
+
+h3 {
+    font-size: 1.6rem;
+    border-bottom: solid 2px var(--purple);
+}
+
+h4 {
+    font-size: 1.6rem;
+}
+
+h5 {
+    font-size: 1.1rem;
+}
+
+h6 {
+
+}
+
+h1, h3, h4, h5 {
+    margin: 5px 0;
+    color: var(--purple);
+}
+
+img {
+    margin-top: 7px;
+}
+
+/* BEGIN DAYS AND CARDS */
 .container-days {
     display: flex;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    text-align: center;
+
 }
 
 .container-cards {
-
-
-    background-color: transparent;
     width: 175px;
     height: 250px;
     perspective: 500px;
-}
-
-.card {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 1.5s;
-    transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-}
-
-.card-back {
-    background-color: var(--teal);
-    transform: rotateY(180deg);
-    border: 3px solid var(--purple);
-    color: var(--purple);
 }
 
 .container-cards:hover .card {
     transform: rotateY(180deg);
 }
 
-.card-front, .card-back {
+.card {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
+
+    transition: transform 1.5s;
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.card-front,
+.card-back {
     position: absolute;
+    margin-bottom: 300px;
+    background-color: var(--teal);
+    border: 3px solid var(--purple);
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
 }
 
-.card-front {
-    background-color: var(--teal);
-    border: 3px solid var(--purple);
-    color: var(--purple);
-}
-
 .card-back {
-    color: black;
+    transform: rotateY(180deg);
 }
 
-.card-content-small,
-.card-content-medium,
-.card-content-large {
-    margin-bottom: 10px;
+.hover-bg {
+    background-size: cover;
 }
 
-.card-content-small {
-    font-size: 1rem;
+.hover-bg-clouds {
+    background-image: url('../img/weather_map-bg-clouds.png');
+    /*color: var(--violet);*/
 }
 
-.card-content-normal {
-    font-size: 1.3rem;
-    margin-top: 5px;
+.hover-bg-clear {
+    background-image: url('../img/weather_map-bg-clear.png');
+    /*color: var(--violet);*/
 }
 
-.card-content-large {
-    font-size: 1.6rem;
-    margin-top: 5px;
+.hover-bg-warning {
+    background-image: url('../img/weather_map-bg-warning.png');
+    /*color: var(--violet);*/
 }
 
-.card-content-date {
-    border-bottom: 3px solid var(--purple);
-    opacity: .7;
+.hover-bg-snow {
+    background-image: url('../img/weather_map-bg-snow.png');
+    color: var(--violet);
 }
 
-.card-content-temp {
-    margin-top: 15px;
+.hover-bg-rain {
+    background-image: url('../img/weather_map-bg-rain.png');
+    /*color: var(--violet);*/
+}
+
+.hover-bg-thunderstorm {
+    background-image: url('../img/weather_map-bg-thunderstorm.png');
+    /*color: var(--violet);*/
+}
+
+.hover-bg-kittens {
+    background-image: url('../img/weather_map-bg-kittens.png');
+    /*color: var(--violet);*/
+}
+
+/* END DAYS AND CARDS */
+
+/* BEGIN MAP */
+.days-map-spacer {
+    margin: 5px 0;
+}
+
+.map-sm-screen-message {
+    display: none;
 }
 
 .container-map {
     display: flex;
     justify-content: center;
-
-    margin-top: 20px;
-}
-
-.container-map {
-    width: 100%;
+    flex-wrap: wrap;
 }
 
 #map {
-    border: 3px solid var(--purple);
-    height: 500px;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    height: 450px;
+    width: 90%;
 }
 
 .location-text {
-    position: absolute;
-    bottom: 8%;
-    right: 3%;
-    color: var(--purple);
-    font-size: 1.5rem;
-    background: var(--teal);
-    border: 3px solid var(--purple);
-    opacity: .2;
+    /*position: absolute;*/
+    /*bottom: 8%;*/
+    /*right: 3%;*/
+    /*color: var(--purple);*/
+    /*font-size: 1.5rem;*/
+    /*background: var(--teal);*/
+    /*border: 3px solid var(--purple);*/
+    /*opacity: .2;*/
 }
 
-/* HOVER BACKGROUNDS */
-.hover-bg-clouds {
-    background-image: url('../img/weather_map-bg-clouds.png');
-    background-position: center;
-    color: black;
-}
-
-.hover-bg-clear {
-    background-image: url('../img/weather_map-bg-clear.png');
-    color: black;
-}
-
-.hover-bg-warning {
-    background-image: url('../img/weather_map-bg-warning.png');
-    color: black;
-}
-
-.hover-bg-snow {
-    background-image: url('../img/weather_map-bg-snow.png');
-    background-position: center;
-    color: var(--white);
-}
-
-.hover-bg-rain {
-    background-image: url('../img/weather_map-bg-rain.png');
-    color: var(--white);
-}
-
-.hover-bg-thunderstorm {
-    background-image: url('../img/weather_map-bg-thunderstorm.png');
-    color: black;
-}
-
-.hover-bg-kittens {
-    background-image: url('../img/weather_map-bg-kittens.png');
-    background-position: center;
-    color: black;
-}
+/* END MAP */
 
 
 /* extra small and down - phones */
 @media only screen and (max-width: 600px) {
-    .container-days {
-        display: flex;
-        flex-wrap: wrap;
-        /*width: 80%;*/
 
-    }
-
-    .container-cards {
+    .container-main {
         margin: 5px;
-        /*width: 60%;*/
     }
 
     .container-cards {
-
-
-        background-color: transparent;
-        width: 200px;
-        height: 250px;
-        perspective: 500px;
+        width: 190px;
     }
+
+    .card {
+        height: 95%;
+    }
+
+    .days-map-spacer {
+        display: none;
+    }
+
+    .map-sm-screen-message {
+        display: inline-block;
+        text-align: center;
+    }
+
+
 }
 
 /* small and up - large phones and tablets */
 @media only screen and (min-width: 600px) {
-    .container-days {
-        display: flex;
-        flex-wrap: wrap;
-    }
 
     .container-cards {
         background-color: transparent;
@@ -224,11 +240,18 @@ body {
         perspective: 500px;
         margin: 5px;
     }
+
+    #map {
+        width: 100%
+    }
 }
 
 /* medium and up */
 @media only screen and (min-width: 768px) {
 
+    #map {
+        width: 95%;
+    }
 }
 
 /* large and up */

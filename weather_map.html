@@ -6,7 +6,7 @@
 
     <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">-->
     <link rel="stylesheet" href="css/weather_map.css">
-    <!--    <link rel="stylesheet" href="css/style-dev.css">-->
+    <link rel="stylesheet" href="css/style-dev.css">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -40,64 +40,56 @@
 <!-- BEGIN CONTAINER MAIN -->
 <div class="container-main">
 
-    <div class="nav">TITLE</div>
+    <div class="nav"><h1>TITLE</h1></div>
 
     <!-- BEGIN CONTAINER DAYS -->
     <div class="container-days">
 
         <div class="container-cards">
             <div class="card">
-                <div id="card-1" class="card-front hover-bg hover-bg-1">
-                </div>
-                <div id="card-back-1" class="card-back hover-bg hover-bg-1">
-                </div>
+                <div id="card-1" class="card-front hover-bg hover-bg-1"></div>
+                <div id="card-back-1" class="card-back hover-bg hover-bg-1"></div>
             </div>
         </div>
 
         <div class="container-cards">
             <div class="card">
-                <div id="card-2" class="card-front hover-bg hover-bg-2">
-                </div>
-                <div id="card-back-2" class="card-back hover-bg hover-bg-2">
-                </div>
+                <div id="card-2" class="card-front hover-bg hover-bg-2"></div>
+                <div id="card-back-2" class="card-back hover-bg hover-bg-2"></div>
             </div>
         </div>
 
         <div class="container-cards">
             <div class="card">
-                <div id="card-3" class="card-front hover-bg hover-bg-3">
-                </div>
-                <div id="card-back-3" class="card-back hover-bg hover-bg-3">
-                </div>
+                <div id="card-3" class="card-front hover-bg hover-bg-3"></div>
+                <div id="card-back-3" class="card-back hover-bg hover-bg-3"></div>
+            </div>
+        </div>
+
+        <div class="container-cards">
+            <div class="card bg">
+                <div id="card-4" class="card-front hover-bg hover-bg-4"></div>
+                <div id="card-back-4" class="card-back hover-bg hover-bg-4"></div>
             </div>
         </div>
 
         <div class="container-cards">
             <div class="card">
-                <div id="card-4" class="card-front hover-bg hover-bg-4">
-                </div>
-                <div id="card-back-4" class="card-back hover-bg hover-bg-4">
-                </div>
-            </div>
-        </div>
-
-        <div class="container-cards">
-            <div class="card">
-                <div id="card-5" class="card-front hover-bg hover-bg-5">
-                </div>
-                <div id="card-back-5" class="card-back hover-bg hover-bg-5">
-                </div>
+                <div id="card-5" class="card-front hover-bg hover-bg-5"></div>
+                <div id="card-back-5" class="card-back hover-bg hover-bg-5"></div>
             </div>
         </div>
 
     </div>
     <!-- END CONTAINER DAYS -->
 
+    <div class="days-map-spacer"></div>
+
     <!-- BEGIN CONTAINER MAP -->
     <div class="container-map">
-
+        <div class="map-sm-screen-message">Map functionality may degrade on small screens</div>
         <div id='map'></div>
-        <div class="location-text">YOU ARE LOCATED HERE</div>
+        <div class="hidden">YOU ARE LOCATED HERE</div>
 
     </div>
     <!-- END CONTAINER MAP-->

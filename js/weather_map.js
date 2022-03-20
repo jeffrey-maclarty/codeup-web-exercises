@@ -125,12 +125,12 @@ function getWeatherData(lat, lon) {
                     // END HOVER AND CLASS/IMAGE CHANGE
                 })
 
-            $(".container-cards").mouseleave(function () {
-                console.log(`container-cards mouseleave`)
-                $(".container-cards::after").css("border", "10px solid white")
+                // $(".container-cards").mouseleave(function () {
+                //     console.log(`container-cards mouseleave`)
+                //     $(".container-cards::after").css("border", "10px solid white")
                 // $(".container-cards").css("background-color", "rgba(0, 0, 255, 0)") // hides card background
                 // $(".container-cards::after").css("background-color", "rgba(0, 0, 255, 0)")
-            })
+                // })
 
 
                 // SMALL SCREEN CARD FUNCTIONALITY
@@ -164,7 +164,6 @@ function getWeatherData(lat, lon) {
                     // PRECIPITATION CONVERTER
                     let rainProb = (data.daily[i].pop * 100).toFixed(2);
                     // toFixed() - data once provided a number far beyond hundredths
-
 
 
                     // SIMPLER VARIABLES FOR HTML RENDER
@@ -235,28 +234,24 @@ function runMapbox() {
 }
 
 
-// ON SEARCH RENDER, GET LON LAT, SEND TO PREFETCH
+// ON SEARCH RENDER, GET LON LAT, ADD LON LAT OBJECT TO ACTIVEMARKERS[], SEND TO PREFETCH
 geocoder.on('result', function (event) {
 
-    // console.log(`on result: working: `, event)
+    console.log(`on result: working: `, event)
 
     newLon = event.result.geometry.coordinates[0];
     newLat = event.result.geometry.coordinates[1];
     // console.log(`on result - newLon newLat`, newLon, newLat)
 
-    sendToFetch(newLon, newLat);
+    newMarker = event.result.geometry.coordinates;
 
-})
-
-
-// ON SEARCH RENDER, PLACE PIN USING VAR FROM SEARCH RENDER, GET LON LAT
-map.on('result', function (event) {
-
-    console.log(event);
-
-    new mapboxgl.Marker()
-        .setLngLat([newLon, newLat])
+    setMarker = new mapboxgl.Marker()
+        .setLngLat(newMarker)
         .addTo(map);
+
+    activeMarkers.push(newMarker);
+
+    sendToFetch(newLon, newLat);
 
 })
 

@@ -1,24 +1,18 @@
 "use strict";
 
 // VARIABLES AND DEFAULTS
-let newLon;
-let newLat;
-let clickLoc;
-let idleLoc;
 let hoverBgWeatherId;
 let hoverBgClass;
-// let iconToWeather1;
-// let iconToWeather2;
-// let iconToWeather3;
-// let iconToWeather4;
-// let iconToWeather5;
 
-// MAPBOX REFACTOR
+
 let map;
 let geocoder;
-
-let finalLon;
-let finalLat;
+let newLon;
+let newLat;
+let newMarker;
+let setMarker;
+let activeMarkers = [];
+mapboxgl.accessToken = MAPBOX_KEY;
 
 
 let tempLon = -70.83;
@@ -39,9 +33,6 @@ function getWeatherData(lat, lon) {
                 // TODO:
                 // mapbox
                 //      - remove old pins
-                //      - replace 'idle' event - it is adding an additional fetch call every reload
-                //          - could wrap fetch in a function, use idle for initial load if low on time
-                //          - or ignore it
                 //      - possibly finish 'you are here', but results from data are not consistent and sometimes
                 //        require pruning due to length
                 //
@@ -191,33 +182,13 @@ function getWeatherData(lat, lon) {
 
 // BEGIN MAPBOX
 
-//
-//
-//
-//
-//
-// BEGIN MAPBOX REFACTOR FROM CASEY
-
-// INITIALIZE VARIABLES
-
-
-mapboxgl.accessToken = MAPBOX_KEY;
-
-
-let marker;
-
-let popup;
-
-// let mapboxgl.accessToken = MAPBOX_KEY;
-// let accessToken = MAPBOX_KEY;
 
 runMapbox();
 
+
+// INITIALIZE MAP
 function runMapbox() {
 
-    // mapboxgl.accessToken = MAPBOX_KEY;
-
-    // BEGIN INITIALIZE MAP
     map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
@@ -225,167 +196,110 @@ function runMapbox() {
         center: [-70.83, 42.93]
     });
 
-
-    geocoder = new MapboxGeocoder({
-        accessToken: MAPBOX_KEY,
-        mapboxgl: mapboxgl,
-        marker: false
-    });
-
-
-    map.addControl(geocoder);
-
-
-    // map.addControl(
-    //     new MapboxGeocoder({
-    //         accessToken: MAPBOX_KEY,
-    //         mapboxgl: mapboxgl,
-    //     })
-    // );
-
-
-// END INITIALIZE MAP
+    // ADD SEARCH
+    map.addControl(
+        geocoder = new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl,
+            marker: true,
+        })
+    );
 }
 
 
-// BEGIN ON PAGE LOAD
-// map.on('sourcedata', function (event) {
-//     console.log(`on load: working: `, event)
-
-    // if (map.loaded()) {
-    //     map.off('sourcedata');
-    // }
-    
-// https://stackoverflow.com/questions/43499053/mapbox-event-when-all-tiles-are-loaded
-// END ON PAGE LOAD
-// })
-
-
-// BEGIN ON SEARCH RENDER, GET LON LAT
+// ON SEARCH RENDER, GET LON LAT, SEND TO PREFETCH
 geocoder.on('result', function (event) {
+
     // console.log(`on result: working: `, event)
 
     newLon = event.result.geometry.coordinates[0];
     newLat = event.result.geometry.coordinates[1];
     // console.log(`on result - newLon newLat`, newLon, newLat)
-//
-// END ON SEARCH RENDER, GET LON LAT
+
+    sendToFetch(newLon, newLat);
+
 })
 
 
-// BEGIN ON SEARCH RENDER, PLACE PIN USING VAR FROM SEARCH RENDER, GET LON LAT
+// ON SEARCH RENDER, PLACE PIN USING VAR FROM SEARCH RENDER, GET LON LAT
 map.on('result', function (event) {
-    // console.log(event);
 
-    return new mapboxgl.Marker()
+    console.log(event);
+
+    new mapboxgl.Marker()
         .setLngLat([newLon, newLat])
         .addTo(map);
 
-// END BEGIN ON SEARCH RENDER, PLACE PIN USING VAR FROM SEARCH RENDER, GET LON LAT
 })
 
 
-// BEGIN ON USERCLICK, GET LON LAT
+// ON USERCLICK, GET LON LAT, SEND TO PREFETCH
 map.on('click', function (event) {
+
     // console.log(event);
 
     newLon = event.lngLat.lng;
     newLat = event.lngLat.lat;
     // console.log(`on userclick, newLon newLat: `, newLon, newLat)
 
-// END ON USERCLICK, GET LON LAT
+    sendToFetch(newLon, newLat);
+
 })
 
 
-// BEGIN ON USERCLICK, PLACE PIN USING VAR FROM USERCLICK, GET LON LAT
+// ON USERCLICK, PLACE MARKER, ADD LON LAT OBJECT TO ACTIVEMARKERS[]
 map.on('click', function (event) {
-    console.log(event);
 
-    return new mapboxgl.Marker()
-        .setLngLat([newLon, newLat])
+    // console.log(event);
+
+    newMarker = event.lngLat;
+
+    setMarker = new mapboxgl.Marker()
+        .setLngLat(newMarker)
         .addTo(map);
 
-// END ON USERCLICK, PLACE PIN USING VAR FROM USERCLICK, GET LON LAT
+    activeMarkers.push(newMarker);
+    // console.log(`activeMarkers[] after push: `, activeMarkers)
+
 })
 
-
-// BEGIN RECEIVE, TOFIXED AND FORWARD LON LAT
-function sendToFetch(newLon, newLat) {
-    newLon = newLon.toFixed(2);
-    newLat = newLat.toFixed(2);
-//     getWeatherData(newLon, newLat)
-// BEGIN RECEIVE, TOFIXED AND FORWARD LON LAT
-}
-
-
-// geocoder.on('result', function (e) {
-//     // if (marker) {
-//         marker.remove();
-//     // }
-//     // if (popup) {
-//         popup.remove();
-//     // }
+// ON PAGE LOAD
+// map.on('sourcedata', function (event) {
+//
+//     console.log(`on page load: `, event)
+//
+//     if (map.loaded()) {
+//         map.off('sourcedata');
+//     }
+//
 // })
 
-// BEGIN ON USERCLICK, GET LON LAT, PLACE MARKER, CALL SENDTOFETCH()
-// map.on('click', function (e) {
-//     newLon = e.lngLat.lng;
-//     newLat = e.lngLat.lat;
-//     console.log(`from userclick, newLon newLat:`, newLon, newLat)
-// sendToFetch(newLon, newLat);
-// new marker = mapboxgl.Marker()
-//     .setLngLat(e.lngLat)
-//     .addTo(map);
-// END ON USERCLICK, GET LON LAT, PLACE MARKER, CALL SENDTOFETCH()
-// });
+
+// ON PAGE IDLE
+// map.on('idle', function () {
+//
+//     console.log(`idle event`)
+//
+//     idleLoc = map.getCenter();
+//     let {lng, lat} = map.getCenter();
+//     newLon = idleLoc.lng;
+//     newLat = idleLoc.lat;
+//
+// })
 
 
-function getMarker(coordinates) {
-    return new mapboxgl.Marker()
-        .setLngLat(coordinates)
-        .addTo(map);
+// END MAPBOX
+
+
+// PREFETCH - RECEIVE, TOFIXED AND FORWARD LON LAT
+function sendToFetch(newLon, newLat) {
+
+    newLon = newLon.toFixed(2);
+    newLat = newLat.toFixed(2);
+
+    getWeatherData(newLon, newLat)
+
 }
-
-function getPopup(description, coordinates) {
-    return new mapboxgl.Popup()
-        .setLngLat(coordinates)
-        .setHTML(`<p>${description}</p>`)
-        .addTo(map);
-}
-
-
-function setGeocoderEventListener() {
-    geocoder.on("result", function (e) {
-        /*We need to ensure marker/popup variables hoisted at the top actual *have* a value
-        * Otherwise, calling a remove() method on a non-existent object will result in a runtime error
-        * */
-        if (marker) {
-            marker.remove();
-        }
-        if (popup) {
-            popup.remove();
-        }
-
-        /*Finally, set the hoisted marker/popup variables to new respective objects*/
-        marker = getMarker(e.result.geometry.coordinates);
-        popup = getPopup(e.result.place_name, e.result.geometry.coordinates);
-    });
-}
-
-// END MAPBOX REFACTOR FROM CASEY
-//
-//
-//
-//
-//
-
-
-// RECEIVE AND FORWARD LON LAT
-// function sendToFetch(newLon, newLat) {
-//     newLon = newLon.toFixed(2);
-//     newLat = newLat.toFixed(2);
-//     getWeatherData(newLon, newLat)
-// }
 
 
 // KEEP UNTIL FINISHED
@@ -421,184 +335,3 @@ function setGeocoderEventListener() {
 // console.log(`hoverBgWeatherId after switch`, hoverBgWeatherId);
 // console.log(`description after switch`, hoverBgClass = data.daily[5].weather[0].main);
 // console.log(`after switch - typeof and value of hoverBgClass: `, typeof hoverBgClass, hoverBgClass)
-
-
-//
-//
-//
-//
-//
-// ORGINAL MAPBOX
-//
-// mapboxgl.accessToken = MAPBOX_KEY;
-
-// navigator.geolocation.getCurrentPosition(foundLoc, errorLoc);
-
-// function foundLoc(position) {
-// CENTER HARDCODED DUE TO VPN
-//     centerHere([position.coords.longitude, position.coords.latitude])
-// }
-
-
-// function errorLoc() {
-//     centerHere([-70.83, 42.93])
-// }
-
-
-// INITIALIZE MAPBOX
-// function centerHere(center) {
-//     const map = new mapboxgl.Map({
-//         container: 'map',
-//         style: 'mapbox://styles/mapbox/streets-v11',
-//         center: [-70.83, 42.93],
-//         zoom: 11
-//     });
-
-
-// ADD SEARCH
-// map.addControl(
-//     new MapboxGeocoder({
-//         accessToken: mapboxgl.accessToken,
-//         mapboxgl: mapboxgl,
-//         marker: true,
-//     })
-// );
-
-
-// ON USERCLICK, GET LON LAT, PLACE MARKER, CALL SENDTOFETCH()
-// map.on('click', function (e) {
-//     newLon = e.lngLat.lng;
-//     newLat = e.lngLat.lat;
-//     sendToFetch(newLon, newLat);
-//     new mapboxgl.Marker()
-//         .setLngLat(e.lngLat)
-//         .addTo(map);
-// });
-
-
-// AFTER SEARCH RENDERS, GET LON LAT, CALL SENDTOFETCH()
-// map.on('idle', function (result) {
-//     idleLoc = map.getCenter();
-//     let {lng, lat} = map.getCenter();
-//     newLon = idleLoc.lng;
-//     newLat = idleLoc.lat;
-//     sendToFetch(newLon, newLat);
-// })
-
-
-// } // END MAPBOX
-//
-//
-// END ORIGINAL MAPBOX
-//
-//
-//
-//
-//
-
-
-//
-//
-//
-//
-//
-// BEGIN MAPBOX REFACTOR  FROM CURRICULUM
-// mapboxgl.accessToken = MAPBOX_KEY;
-// var map = new mapboxgl.Map({
-//     container: 'map',
-//     style: 'mapbox://styles/mapbox/streets-v9',
-//     zoom: 10,
-//     center: [-98.4916, 29.4252]
-// });
-
-// var marker = new mapboxgl.Marker()
-//     .setLngLat([-98.4916, 29.4260])
-//     .addTo(map);
-
-// var popup = new mapboxgl.Popup()
-// .setLngLat([-98.489615, 29.426827])
-// .setHTML("<p>Codeup Rocks!</p>")
-// .addTo(map)
-
-
-// let alertVariable = new function () {
-// alert('test');
-// }
-
-// var alamoPopup = new mapboxgl.Popup()
-//     .setHTML("<h3>Remember The Alamo!</h3>")
-//
-// marker.setPopup(alamoPopup)
-
-
-// geocode("600 Navarro St #350, San Antonio, TX 78205", MAPBOX_KEY).then(function (result) {
-//     console.log(result);
-//     map.setCenter(result);
-//     map.setZoom(11);
-// });
-
-// reverse geocode method from mapbox-geocoder-utils.js
-// reverseGeocode({lng: -98.4861, lat: 29.4260}, MAPBOX_KEY).then(function (results) {
-// logs the address for The Alamo
-// console.log(results);
-// });
-
-// var alamoInfo = {
-//     address: "The Alamo",
-//     popupHTML: "<p>Remember the Alamo!</p>"
-// };
-
-// function placeMarkerAndPopup(info, MAPBOX_KEY, map) {
-//     geocode(info.address, MAPBOX_KEY).then(function (coordinates) {
-//         var popup = new mapboxgl.Popup()
-//             .setHTML(info.popupHTML);
-//         var marker = new mapboxgl.Marker()
-//             .setLngLat(coordinates)
-//             .addTo(map)
-//             .setPopup(popup);
-//         popup.addTo(map);
-//     });
-// }
-
-// placeMarkerAndPopup(alamoInfo, MAPBOX_KEY, map);
-
-// ON USERCLICK, GET LON LAT, PLACE MARKER, CALL SENDTOFETCH()
-// map.on('click', function (e) {
-//     newLon = e.lngLat.lng;
-//     newLat = e.lngLat.lat;
-
-// var marker = new mapboxgl.Marker()
-//         .setLngLat([e.lngLat.lng, e.lngLat.lat])
-//         .addTo(map);
-
-// var marker = new mapboxgl.Marker()
-//     .setLngLat([newLon, newLat])
-//     // .setLngLat([newLat, newLon])
-//     .addTo(map);
-
-// new mapboxgl.Marker()
-//     .setLngLat(e.lngLat)
-//     .addTo(map);
-
-// sendToFetch(newLon, newLat);
-
-// console.log(newLon, newLat)
-//
-// reverseGeocode({lat: newLat, lng: newLon}, MAPBOX_KEY).then(function (results) {
-//
-//     console.log(results)
-// });
-// });
-
-
-// REVERSE GEOCODE USING GEOCODER-UTILS
-//     reverseGeocode({lat: newLat, lng: newLon}, MAPBOX_KEY).then(function (results) {
-//         console.log('test')
-//     });
-
-// END MAPBOX REFACTOR FROM CURRICULUM
-//
-//
-//
-//
-//

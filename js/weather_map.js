@@ -195,9 +195,16 @@ function getWeatherData(lat, lon) {
 
 // INITIALIZE VARIABLES
 
-// let map;
+
+mapboxgl.accessToken = MAPBOX_KEY;
+
+let map;
 
 let geocoder;
+
+let marker;
+
+let popup;
 
 // let mapboxgl.accessToken = MAPBOX_KEY;
 // let accessToken = MAPBOX_KEY;
@@ -206,33 +213,92 @@ runMapbox();
 
 function runMapbox() {
 
-    mapboxgl.accessToken = MAPBOX_KEY;
+    // mapboxgl.accessToken = MAPBOX_KEY;
 
-    let map = new mapboxgl.Map({
+    // BEGIN INITIALIZE MAP
+
+
+    map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
         zoom: 11,
         center: [-70.83, 42.93]
 
+    }); // END INITIALIZE MAP
+
+    geocoder = new MapboxGeocoder({
+        accessToken: MAPBOX_KEY,
+        mapboxgl: mapboxgl,
+        marker: false
     });
 
-    // geocoder = new MapboxGeocoder({
+    map.addControl(geocoder);
+
+    // ADD SEARCH TO MAP
+    // map.addControl(
+    // new MapboxGeocoder({
     //     accessToken: MAPBOX_KEY,
     //     mapboxgl: mapboxgl,
-    //     marker: false
-    // });
-    //
-    // map.addControl(geocoder);
+    // })
+    // ); // END ADD SEARCH TO MAP
 
-    map.addControl(
-        new MapboxGeocoder({
-            accessToken: MAPBOX_KEY,
-            mapboxgl: mapboxgl,
-            marker: true
-        })
-    );
+
 }
 
+
+// geocoder.on('result', function (e) {
+//     // if (marker) {
+//         marker.remove();
+//     // }
+//     // if (popup) {
+//         popup.remove();
+//     // }
+// })
+
+// BEGIN ON USERCLICK, GET LON LAT, PLACE MARKER, CALL SENDTOFETCH()
+map.on('click', function (e) {
+    newLon = e.lngLat.lng;
+    newLat = e.lngLat.lat;
+    console.log(`from userclick, newLon newLat:`, newLon, newLat)
+    // sendToFetch(newLon, newLat);
+    new mapboxgl.Marker()
+        .setLngLat(e.lngLat)
+        .addTo(map);
+// END ON USERCLICK, GET LON LAT, PLACE MARKER, CALL SENDTOFETCH()
+});
+
+
+function getMarker(coordinates) {
+    return new mapboxgl.Marker()
+        .setLngLat(coordinates)
+        .addTo(map);
+}
+
+function getPopup(description, coordinates) {
+    return new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(`<p>${description}</p>`)
+        .addTo(map);
+}
+
+
+function setGeocoderEventListener() {
+    geocoder.on("result", function (e) {
+        /*We need to ensure marker/popup variables hoisted at the top actual *have* a value
+        * Otherwise, calling a remove() method on a non-existent object will result in a runtime error
+        * */
+        if (marker) {
+            marker.remove();
+        }
+        if (popup) {
+            popup.remove();
+        }
+
+        /*Finally, set the hoisted marker/popup variables to new respective objects*/
+        marker = getMarker(e.result.geometry.coordinates);
+        popup = getPopup(e.result.place_name, e.result.geometry.coordinates);
+    });
+}
 
 // END MAPBOX REFACTOR FROM CASEY
 //

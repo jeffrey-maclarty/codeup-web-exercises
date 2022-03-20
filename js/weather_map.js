@@ -120,7 +120,32 @@ function getWeatherData(lat, lon) {
                     $(this).next().removeClass("hover-bg-clouds hover-bg-clear hover-bg-warning hover-bg-snow hover-bg-rain hover-bg-thunderstorm hover-bg-kittens");
                     // removing only the recently added class wasn't working all the time
                     // couldn't determine reason
-                }) // END HOVER AND CLASS/IMAGE CHANGE
+
+
+                    // END HOVER AND CLASS/IMAGE CHANGE
+                })
+
+            $(".container-cards").mouseleave(function () {
+                console.log(`container-cards mouseleave`)
+                $(".container-cards::after").css("border", "10px solid white")
+                // $(".container-cards").css("background-color", "rgba(0, 0, 255, 0)") // hides card background
+                // $(".container-cards::after").css("background-color", "rgba(0, 0, 255, 0)")
+            })
+
+
+                // SMALL SCREEN CARD FUNCTIONALITY
+                $('.card-sml').click(function () {
+                    if ($(this).hasClass("card-sml-display")) {
+                        $(this).addClass("card-sml-hidden");
+                        $(this).removeClass("card-sml-display");
+                        $(this).next().addClass("card-sml-display");
+                        $(this).next().removeClass("card-sml-hidden");
+                    }
+                    if ($(this).hasClass("card-sml-last")) {
+                        $(".card-sml-first").addClass("card-sml-display");
+                        $(".card-sml-first").removeClass("card-sml-hidden");
+                    }
+                })
 
 
                 for (let i = 1; i <= 5; i++) {
@@ -137,7 +162,9 @@ function getWeatherData(lat, lon) {
 
 
                     // PRECIPITATION CONVERTER
-                    let rainProb = data.daily[i].pop * 100;
+                    let rainProb = (data.daily[i].pop * 100).toFixed(2);
+                    // toFixed() - data once provided a number far beyond hundredths
+
 
 
                     // SIMPLER VARIABLES FOR HTML RENDER
@@ -173,6 +200,7 @@ function getWeatherData(lat, lon) {
                     `)
 
 
+                    // END OF RENDERING LOOP
                 }
 
             }
@@ -191,7 +219,7 @@ function runMapbox() {
 
     map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v9',
+        style: 'mapbox://styles/mapbox/outdoors-v11',
         zoom: 11,
         center: [-70.83, 42.93]
     });

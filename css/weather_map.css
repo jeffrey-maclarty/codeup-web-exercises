@@ -9,6 +9,21 @@
     --teal: #4FD3C4;
     --green: #C1F8CF;
 
+    --tealblue: #367588;
+    --midnight-green: #004953;
+    --royal-blue: #002366;
+    --dark-midnight-blue: #003366;
+    --slate-blue: #6a5acd;
+    --dark-slate-blue: #483d8b;
+    --midnight-blue: #191970;
+    --cello-gray: #3B4E65;
+
+    --madison-gray: #2F3E51;
+
+
+
+
+
     --bg-snow-violet: #A5C5E9;
     /*--bg-snow-violet: #A5C5E9;*/
     /*--bg-snow-violet: #A5C5E9;*/
@@ -35,11 +50,19 @@ html {
 /* END GLOBAL */
 
 body {
-    background-color: var(--blue);
+    background-color: var(--madison-gray)
+    /*background-image: url("../img/weather_map-bg-body.jpg");*/
+    /*background-image: url("../img/weather_map-bg-body3.jpg");*/
+    /*background-size: cover;*/
 }
 
 .container-main {
-    margin: 20px 40px;
+    /*background-color: var(--midnight-green);*/
+    /*background-image: url("../img/weather_map-bg-body.jpg");*/
+    background-image: url("../img/weather_map-bg-body3.jpg");
+    background-size: cover;
+    margin: 25px 25px;
+    /*border: 1px solid var(--white;*/
 }
 
 .hidden {
@@ -48,7 +71,7 @@ body {
 
 h1, h3, h4, h5 {
     margin: 5px 0;
-    color: var(--purple);
+    color: var(--white);
 }
 
 h1 {
@@ -61,12 +84,13 @@ h2 {
 }
 
 h3 {
-    font-size: 1.6rem;
+    font-size: 1.9rem;
     border-bottom: solid 2px var(--purple);
+    padding-bottom: 8px;
 }
 
 h4 {
-    font-size: 1.6rem;
+    font-size: 1.9rem;
     margin-top: 10px;
 }
 
@@ -77,10 +101,6 @@ h5 {
 
 h6 {
 
-}
-
-img {
-    margin-top: 7px;
 }
 
 /* BEGIN DAYS AND CARDS */
@@ -116,8 +136,10 @@ img {
 .card-back {
     position: absolute;
     margin-bottom: 300px;
-    background-color: var(--teal);
-    border: 3px solid var(--purple);
+    background-color: var(--dark-midnight-blue);
+    border: solid 3px var(--tealblue);
+    opacity: .7;
+    border-radius: 25px;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
@@ -125,6 +147,35 @@ img {
 
 .card-back {
     transform: rotateY(180deg);
+}
+
+.container-cards::before {
+    /*background-color: var(--midnight-green);*/
+}
+
+.container-cards::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+    /*background-color: var(--tealblue);*/
+    opacity: .9;
+    border: solid 3px var(--tealblue);
+    border-radius: 25px;
+    /* returnreturn - cannot hide this on mouseleave and retain explosion effect */
+}
+
+.container-cards:hover::after {
+    transform: scaleX(1.3) scaleY(1.3);
+
+
+    opacity: 0;
 }
 
 .hover-bg {
@@ -170,7 +221,9 @@ img {
 
 /* BEGIN MAP */
 .days-map-spacer {
-    margin: 5px 0;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
 }
 
 .map-sm-screen-message {
@@ -187,25 +240,39 @@ img {
     display: flex;
     justify-content: center;
 
+    opacity: .6;
+    border: solid 3px var(--tealblue);
     height: 450px;
     width: 90%;
+    margin-bottom: 10px;
 }
 
-.location-text {
-    /*position: absolute;*/
-    /*bottom: 8%;*/
-    /*right: 3%;*/
-    /*color: var(--purple);*/
-    /*font-size: 1.5rem;*/
-    /*background: var(--teal);*/
-    /*border: 3px solid var(--purple);*/
-    /*opacity: .2;*/
-}
+/* returnreturn - may not need without a container-main border
+
+
+ */
+/*.location-text {*/
+
+/*position: absolute;*/
+/*bottom: 8%;*/
+/*right: 3%;*/
+/*color: var(--purple);*/
+/*font-size: 1.5rem;*/
+/*background: var(--teal);*/
+/*border: 1px solid var(--white;*/
+/*opacity: .2;*/
+/*}*/
 
 /* END MAP */
 
 
 /* extra small and down - phones */
+
+@media only screen and (max-width: 400px) {
+
+
+}
+
 @media only screen and (max-width: 600px) {
 
     .container-main {
@@ -213,11 +280,16 @@ img {
     }
 
     .container-cards {
-        width: 190px;
+        width: 275px;
     }
 
+
     .card {
-        height: 95%;
+        /*height: 95%;*/
+    }
+
+    .card-sml-hidden {
+        display: none;
     }
 
     .days-map-spacer {
@@ -227,6 +299,10 @@ img {
     .map-sm-screen-message {
         display: inline-block;
         text-align: center;
+        font-size: 1rem;
+        color: var(--green);
+        height: 10px;
+        width: 100px;
     }
 }
 

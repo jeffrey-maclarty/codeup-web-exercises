@@ -7,6 +7,14 @@ let clickLoc;
 let idleLoc;
 let hoverBgWeatherId;
 let hoverBgClass;
+// let iconToWeather1;
+// let iconToWeather2;
+// let iconToWeather3;
+// let iconToWeather4;
+// let iconToWeather5;
+
+// MAPBOX REFACTOR
+
 
 let tempLon = -70.83;
 let tempLat = 42.93;
@@ -46,11 +54,17 @@ function getWeatherData(lat, lon) {
                 //      - ? navbar and footer, finish css select menu from last week
 
 
-                // returnreturn - FETCH IS BEING CALLED TWICE EVERY RELOAD BECAUSE OF MAPBOX IDLE EVENT
+                // console.log(`typeof hoverBgWeatherId`, typeof hoverBgWeatherId)
+                // console.log(`value of hoverBgWeatherId`, hoverBgWeatherId)
 
 
                 // BEGIN HOVER AND CLASS/IMAGE CHANGE
                 $(".hover-bg").hover(function () {
+
+
+                    // console.log(`typeof hoverBgWeatherId`, typeof hoverBgWeatherId)
+                    // console.log(`value of hoverBgWeatherId`, hoverBgWeatherId)
+
 
                     // DETERMINE WEATHER FOR HOVERED ELEMENT
                     if ($(this).hasClass("hover-bg-1")) {
@@ -64,6 +78,10 @@ function getWeatherData(lat, lon) {
                     } else if ($(this).hasClass("hover-bg-5")) {
                         hoverBgWeatherId = data.daily[5].weather[0].id;
                     }
+
+
+                    // console.log(`typeof hoverBgWeatherId`, typeof hoverBgWeatherId)
+                    // console.log(`value of hoverBgWeatherId`, hoverBgWeatherId)
 
 
                     // DETERMINE APPROPRIATE CLASS TO ADD
@@ -83,7 +101,7 @@ function getWeatherData(lat, lon) {
                         case hoverBgWeatherId >= 500 && hoverBgWeatherId <= 531:
                             hoverBgClass = "hover-bg-rain";
                             break;
-                        case hoverBgWeatherId >= 300 && hoverBgWeatherId <= 321:  // 'drizzle'
+                        case hoverBgWeatherId >= 300 && hoverBgWeatherId <= 321:
                             hoverBgClass = "hover-bg-rain";
                             break;
                         case hoverBgWeatherId >= 200 && hoverBgWeatherId <= 232:
@@ -93,6 +111,9 @@ function getWeatherData(lat, lon) {
                             hoverBgClass = "hover-bg-kittens";
                             break;
                     }
+
+                    // console.log(`typeof hoverBgWeatherId`, typeof hoverBgWeatherId)
+                    // console.log(`value of hoverBgWeatherId`, hoverBgWeatherId)
 
 
                     // ADD CLASS / REMOVE CLASS
@@ -130,6 +151,8 @@ function getWeatherData(lat, lon) {
                     let icon = data.daily[i].weather[0].icon;
                     let windGust = data.daily[i].wind_gust;
 
+                    // console.log(data.daily[i].weather[0].icon)
+
 
                     //language=HTML
                     // FRONT OF CARDS
@@ -152,78 +175,79 @@ function getWeatherData(lat, lon) {
                         <div><h5>Precipitation Chance: ${rainProb}&#37;</h5></div>
                         <div><h5>Wind Gust: ${windGust}mph</h5></div>
                     `)
+
+
                 }
+
             }
         )
 } // END FETCH AND RENDER HTML
 
 
 // BEGIN MAPBOX
-mapboxgl.accessToken = MAPBOX_KEY;
 
-navigator.geolocation.getCurrentPosition(foundLoc, errorLoc);
+//
+//
+//
+//
+//
+// BEGIN MAPBOX REFACTOR FROM CASEY
 
-function foundLoc(position) {
-    // CENTER HARDCODED DUE TO VPN
-    centerHere([position.coords.longitude, position.coords.latitude])
-}
+// INITIALIZE VARIABLES
 
+// let map;
 
-function errorLoc() {
-    centerHere([-70.83, 42.93])
-}
+let geocoder;
 
+// let mapboxgl.accessToken = MAPBOX_KEY;
+// let accessToken = MAPBOX_KEY;
 
-// INITIALIZE MAPBOX
-function centerHere(center) {
-    const map = new mapboxgl.Map({
+runMapbox();
+
+function runMapbox() {
+
+    mapboxgl.accessToken = MAPBOX_KEY;
+
+    let map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: [-70.83, 42.93],
-        zoom: 11
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 11,
+        center: [-70.83, 42.93]
+
     });
 
+    // geocoder = new MapboxGeocoder({
+    //     accessToken: MAPBOX_KEY,
+    //     mapboxgl: mapboxgl,
+    //     marker: false
+    // });
+    //
+    // map.addControl(geocoder);
 
-    // ADD SEARCH
     map.addControl(
         new MapboxGeocoder({
-            accessToken: mapboxgl.accessToken,
+            accessToken: MAPBOX_KEY,
             mapboxgl: mapboxgl,
-            marker: true,
+            marker: true
         })
     );
+}
 
 
-    // ON USERCLICK, GET LON LAT, PLACE MARKER, CALL SENDTOFETCH()
-    map.on('click', function (e) {
-        newLon = e.lngLat.lng;
-        newLat = e.lngLat.lat;
-        sendToFetch(newLon, newLat);
-        new mapboxgl.Marker()
-            .setLngLat(e.lngLat)
-            .addTo(map);
-    });
-
-
-    // AFTER SEARCH RENDERS, GET LON LAT, CALL SENDTOFETCH()
-    map.on('idle', function (result) {
-        idleLoc = map.getCenter();
-        let {lng, lat} = map.getCenter();
-        newLon = idleLoc.lng;
-        newLat = idleLoc.lat;
-        sendToFetch(newLon, newLat);
-    })
-
-
-} // END MAPBOX
+// END MAPBOX REFACTOR FROM CASEY
+//
+//
+//
+//
+//
 
 
 // RECEIVE AND FORWARD LON LAT
-function sendToFetch(newLon, newLat) {
-    newLon = newLon.toFixed(2);
-    newLat = newLat.toFixed(2);
-    getWeatherData(newLon, newLat)
-}
+// function sendToFetch(newLon, newLat) {
+//     newLon = newLon.toFixed(2);
+//     newLat = newLat.toFixed(2);
+//     getWeatherData(newLon, newLat)
+// }
 
 
 // KEEP UNTIL FINISHED
@@ -259,3 +283,184 @@ function sendToFetch(newLon, newLat) {
 // console.log(`hoverBgWeatherId after switch`, hoverBgWeatherId);
 // console.log(`description after switch`, hoverBgClass = data.daily[5].weather[0].main);
 // console.log(`after switch - typeof and value of hoverBgClass: `, typeof hoverBgClass, hoverBgClass)
+
+
+//
+//
+//
+//
+//
+// ORGINAL MAPBOX
+//
+// mapboxgl.accessToken = MAPBOX_KEY;
+
+// navigator.geolocation.getCurrentPosition(foundLoc, errorLoc);
+
+// function foundLoc(position) {
+// CENTER HARDCODED DUE TO VPN
+//     centerHere([position.coords.longitude, position.coords.latitude])
+// }
+
+
+// function errorLoc() {
+//     centerHere([-70.83, 42.93])
+// }
+
+
+// INITIALIZE MAPBOX
+// function centerHere(center) {
+//     const map = new mapboxgl.Map({
+//         container: 'map',
+//         style: 'mapbox://styles/mapbox/streets-v11',
+//         center: [-70.83, 42.93],
+//         zoom: 11
+//     });
+
+
+// ADD SEARCH
+// map.addControl(
+//     new MapboxGeocoder({
+//         accessToken: mapboxgl.accessToken,
+//         mapboxgl: mapboxgl,
+//         marker: true,
+//     })
+// );
+
+
+// ON USERCLICK, GET LON LAT, PLACE MARKER, CALL SENDTOFETCH()
+// map.on('click', function (e) {
+//     newLon = e.lngLat.lng;
+//     newLat = e.lngLat.lat;
+//     sendToFetch(newLon, newLat);
+//     new mapboxgl.Marker()
+//         .setLngLat(e.lngLat)
+//         .addTo(map);
+// });
+
+
+// AFTER SEARCH RENDERS, GET LON LAT, CALL SENDTOFETCH()
+// map.on('idle', function (result) {
+//     idleLoc = map.getCenter();
+//     let {lng, lat} = map.getCenter();
+//     newLon = idleLoc.lng;
+//     newLat = idleLoc.lat;
+//     sendToFetch(newLon, newLat);
+// })
+
+
+// } // END MAPBOX
+//
+//
+// END ORIGINAL MAPBOX
+//
+//
+//
+//
+//
+
+
+//
+//
+//
+//
+//
+// BEGIN MAPBOX REFACTOR  FROM CURRICULUM
+// mapboxgl.accessToken = MAPBOX_KEY;
+// var map = new mapboxgl.Map({
+//     container: 'map',
+//     style: 'mapbox://styles/mapbox/streets-v9',
+//     zoom: 10,
+//     center: [-98.4916, 29.4252]
+// });
+
+// var marker = new mapboxgl.Marker()
+//     .setLngLat([-98.4916, 29.4260])
+//     .addTo(map);
+
+// var popup = new mapboxgl.Popup()
+// .setLngLat([-98.489615, 29.426827])
+// .setHTML("<p>Codeup Rocks!</p>")
+// .addTo(map)
+
+
+// let alertVariable = new function () {
+// alert('test');
+// }
+
+// var alamoPopup = new mapboxgl.Popup()
+//     .setHTML("<h3>Remember The Alamo!</h3>")
+//
+// marker.setPopup(alamoPopup)
+
+
+// geocode("600 Navarro St #350, San Antonio, TX 78205", MAPBOX_KEY).then(function (result) {
+//     console.log(result);
+//     map.setCenter(result);
+//     map.setZoom(11);
+// });
+
+// reverse geocode method from mapbox-geocoder-utils.js
+// reverseGeocode({lng: -98.4861, lat: 29.4260}, MAPBOX_KEY).then(function (results) {
+// logs the address for The Alamo
+// console.log(results);
+// });
+
+// var alamoInfo = {
+//     address: "The Alamo",
+//     popupHTML: "<p>Remember the Alamo!</p>"
+// };
+
+// function placeMarkerAndPopup(info, MAPBOX_KEY, map) {
+//     geocode(info.address, MAPBOX_KEY).then(function (coordinates) {
+//         var popup = new mapboxgl.Popup()
+//             .setHTML(info.popupHTML);
+//         var marker = new mapboxgl.Marker()
+//             .setLngLat(coordinates)
+//             .addTo(map)
+//             .setPopup(popup);
+//         popup.addTo(map);
+//     });
+// }
+
+// placeMarkerAndPopup(alamoInfo, MAPBOX_KEY, map);
+
+// ON USERCLICK, GET LON LAT, PLACE MARKER, CALL SENDTOFETCH()
+// map.on('click', function (e) {
+//     newLon = e.lngLat.lng;
+//     newLat = e.lngLat.lat;
+
+// var marker = new mapboxgl.Marker()
+//         .setLngLat([e.lngLat.lng, e.lngLat.lat])
+//         .addTo(map);
+
+// var marker = new mapboxgl.Marker()
+//     .setLngLat([newLon, newLat])
+//     // .setLngLat([newLat, newLon])
+//     .addTo(map);
+
+// new mapboxgl.Marker()
+//     .setLngLat(e.lngLat)
+//     .addTo(map);
+
+// sendToFetch(newLon, newLat);
+
+// console.log(newLon, newLat)
+//
+// reverseGeocode({lat: newLat, lng: newLon}, MAPBOX_KEY).then(function (results) {
+//
+//     console.log(results)
+// });
+// });
+
+
+// REVERSE GEOCODE USING GEOCODER-UTILS
+//     reverseGeocode({lat: newLat, lng: newLon}, MAPBOX_KEY).then(function (results) {
+//         console.log('test')
+//     });
+
+// END MAPBOX REFACTOR FROM CURRICULUM
+//
+//
+//
+//
+//

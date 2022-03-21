@@ -62,7 +62,9 @@ html {
 }
 
 body {
-    background-color: var(--tealblue)
+    /*background-color: var(--tealblue);*/
+    background-image: url("../img/weather_map-bg-body3.jpg");
+    background-size: cover;
 }
 
 .container-main {
@@ -184,16 +186,21 @@ h6 {
 
 /* BEGIN DAYS AND CARDS */
 .container-days {
+    position: relative;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+/*display: grid;*/
+/*grid-template-columns: repeat(auto-fill,minmax(160px, 1fr));*/
 
 }
 
 .container-cards {
+    flex: 1 0 25%;
     width: 175px;
     height: 250px;
     perspective: 500px;
+    max-width: 400px;
 }
 
 .container-cards:hover .card {
@@ -315,7 +322,7 @@ h6 {
     opacity: .6;
     border: solid 3px var(--tealblue);
     height: 450px;
-    width: 90%;
+    width: 100%;
     margin-bottom: 10px;
 }
 
@@ -349,7 +356,8 @@ h6 {
     }
 
     .container-cards {
-        width: 275px;
+        max-width: 325px;
+        flex-basis: min-content;
     }
 
     .card-sml-hidden {
@@ -374,6 +382,7 @@ h6 {
 @media only screen and (min-width: 600px) {
 
     .container-cards {
+
         background-color: transparent;
         width: 175px;
         height: 250px;

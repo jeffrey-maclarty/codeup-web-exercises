@@ -33,25 +33,18 @@ function getWeatherData(lat, lon) {
         .then(data => {
 
 
-                // TODO:
+
                 // mapbox
                 //      - remove old pins
-                //      - possibly finish 'you are here', but results from data are not consistent and sometimes
-                //        require pruning due to length
                 //
                 // css
                 //      - text color contrast for background images
                 //          - https://coolors.co/contrast-checker/ffffff-62788d
-                //      - ? theme change
-                //          - change queryselector to jquery or just use jquery to change colors
-                //              * document.querySelector('#css-default').innerHTML = '<link id="css-darkmode" rel="stylesheet" href="style-darkmode.css">'
                 //      - convert all to rem
                 //
                 // render
                 //      - hover / image change is still buggy
                 //
-                // other
-                //      - ? navbar and footer, finish css select menu from last week
 
 
                 // console.log(`typeof hoverBgWeatherId`, typeof hoverBgWeatherId)
@@ -371,7 +364,7 @@ function sendToFetch(newLon, newLat) {
 
 
 // USER LOCATIONS AND LOCALSTORAGE PREP
-//
+
 /*
 
 formatForUserLocs = [
@@ -417,48 +410,7 @@ function navUserLocs() {
 
 // STYLE SHEET SWITCH PREP
 //
-// CONSIDER SWITCH STYLE SHEETS IN FAVOR OF THIS MESS
-// document.querySelector('#css-default').innerHTML = '<link id="css-ALTERNATE" rel="stylesheet" href="style-ALTERNATE.css">'
-function themeChanger() {
-    if (userTheme === 'coral') {
-        $(".nav-li-link:hover").css("color", "#000000");
-        $(".nav-li a").css("color", "#000000");
-
-        $(".nav-modal").css("color", "#FFFFFF");
-        $("h1, h3, h4, h5").css("color", "#FFFFFF");
-
-        $("body").css("background-color", "coral");
-        $(".nav-ul").css("background-color", "coral");
-        $(".nav-modal").css("background-color", "coral");
-        $(".card-back").css("background-color", "coral");
-        $("h3").css("border-bottom", "coral");
-        $(".card-front, .card-back").css("border", "solid 3px coral")
-        $(".container-cards::after").css("border", "solid 3px coral");
-        $("#map").css("border", "solid 3px coral");
-        $(".mapboxgl-ctrl-geocoder--input").css("background-color", "coral");
-        $(".mapboxgl-ctrl-geocoder--input").css("border", "none");
-    } else if (userTheme === 'gray') {
-        $(".nav-li-link:hover").css("color", "#000000");
-        $(".nav-li a").css("color", "#000000");
-
-        $(".nav-modal").css("color", "#FFFFFF");
-        $("h1, h3, h4, h5").css("color", "#FFFFFF");
-
-        $("body").css("background-color", "darkgray");
-        $(".nav-ul").css("background-color", "darkgray");
-        $(".nav-modal").css("background-color", "darkgray");
-        $(".card-back").css("background-color", "darkgray");
-        $("h3").css("border-bottom", "darkgray");
-        $(".card-front, .card-back").css("border", "solid 3px darkgray")
-        $(".container-cards::after").css("border", "solid 3px darkgray");
-        $("#map").css("border", "solid 3px darkgray");
-        $(".mapboxgl-ctrl-geocoder--input").css("background-color", "darkgray");
-        $(".mapboxgl-ctrl-geocoder--input").css("border", "none");
-    } else {
-
-    }
-}
-
+// ADD SUPPLEMENT STYLE SHEET WITH REQUIRED COLOR CHANGE _AFTER_ THE DEFAULT CSS FILE
 
 
 

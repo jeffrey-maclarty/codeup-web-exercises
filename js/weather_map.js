@@ -354,10 +354,10 @@ map.on('click', function (event) {
 // PREFETCH - RECEIVE, TOFIXED AND FORWARD LON LAT
 function sendToFetch(newLon, newLat) {
 
-    // newLon = newLon.toFixed(2);
-    // newLat = newLat.toFixed(2);
-    //
-    // getWeatherData(newLon, newLat)
+    newLon = newLon.toFixed(2);
+    newLat = newLat.toFixed(2);
+
+    getWeatherData(newLon, newLat)
 
 }
 

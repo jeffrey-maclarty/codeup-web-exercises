@@ -124,10 +124,41 @@ h6 {
 
 }
 
+.nav-li-logo:hover {
+    outline: 2px solid var(--white); /* returnreturn - work on this */
+}
+
 .nav-li-link:hover {
     background-color: var(--green);
     border-radius: 10px;
 
+}
+
+.nav-modals {
+    /*display: flex;*/
+    /*justify-content: center;*/
+
+    /*background-color: var(--tealblue);*/
+
+}
+
+.nav-modal {
+    position: absolute;
+    right: 10px;
+    top: 63px;
+    z-index: 1;
+
+    opacity: .9;
+    background-color: var(--tealblue);
+    width: 12rem;
+    height: 6rem;
+}
+
+.nav-modal-close {
+    cursor: pointer;
+    float: right;
+    padding-right: 15px;
+    margin-top: 5px;
 }
 
 /* END NAV */

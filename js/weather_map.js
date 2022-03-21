@@ -55,6 +55,49 @@ function getWeatherData(lat, lon) {
                 // console.log(`value of hoverBgWeatherId`, hoverBgWeatherId)
 
 
+                // BEGIN NAV
+                // this hidden allows modals to display on page load
+                // using class in html
+                $(document).ready(function () {
+                    $(".nav-modal").addClass("hidden");
+                    // $(".nav-modal").hide();
+                })
+
+                $("#nav-modal-1-link").click(function () {
+                    console.log(`clicked`);
+                    $("#nav-modal-1-container").removeClass("hidden");
+                    $("#nav-modal-2-container").addClass("hidden");
+                    $("#nav-modal-3-container").addClass("hidden");
+                    // $("#nav-modal-1-container").show();
+                    // $("#nav-modal-2-container").hide();
+                    // $("#nav-modal-3-container").hide();
+
+                })
+                $("#nav-modal-2-link").click(function () {
+                    console.log(`clicked`);
+                    $("#nav-modal-2-container").removeClass("hidden");
+                    $("#nav-modal-1-container").addClass("hidden");
+                    $("#nav-modal-3-container").addClass("hidden");
+                    // $("#nav-modal-2-container").show();
+                    // $("#nav-modal-1-container").hide();
+                    // $("#nav-modal-3-container").hide();
+                })
+                $("#nav-modal-3-link").click(function () {
+                    console.log(`clicked`);
+                    $("#nav-modal-3-container").removeClass("hidden");
+                    $("#nav-modal-1-container").addClass("hidden");
+                    $("#nav-modal-2-container").addClass("hidden");
+                    // $("#nav-modal-3-container").show();
+                    // $("#nav-modal-1-container").hide();
+                    // $("#nav-modal-2-container").hide();
+                })
+
+                $(".nav-modal-close").click(function () {
+                    console.log(`clicked`);
+                    $(".nav-modal").addClass("hidden");
+                })
+
+
                 // BEGIN HOVER AND CLASS/IMAGE CHANGE
                 $(".hover-bg").hover(function () {
 

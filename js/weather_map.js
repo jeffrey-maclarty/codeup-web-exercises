@@ -14,6 +14,7 @@ let setMarker;
 let activeMarkers = [];
 mapboxgl.accessToken = MAPBOX_KEY;
 
+let testArray = [];
 
 let tempLon = -70.83;
 let tempLat = 42.93;
@@ -264,13 +265,36 @@ function runMapbox() {
             marker: true,
         })
     );
+
+    // geocoder.on('click', function (event) {
+    //
+    //     console.log(event);
+    //
+    //     // newMarker = event.lngLat;
+    //
+    //     let testLon = event.lngLat[0];
+    //     let testLat = event.lngLat[1];
+    //
+    //     let testArray = testArray.push(testLon, testLat);
+    //     console.log(`testArray: `, testArray);
+    //
+    //     let testMarker = new mapboxgl.Marker()
+    //         .setLngLat(event.lngLat)
+    //         .addTo(map);
+    //
+    //     console.log(`click: `, event.lngLat)
+    //
+    //
+    //
+    //     // activeMarkers.push(newMarker);
+    // })
 }
 
 
 // ON SEARCH RENDER, GET LON LAT, ADD LON LAT OBJECT TO ACTIVEMARKERS[], SEND TO PREFETCH
 geocoder.on('result', function (event) {
 
-    console.log(`on result: working: `, event)
+    // console.log(`on result: working: `, event)
 
     newLon = event.result.geometry.coordinates[0];
     newLat = event.result.geometry.coordinates[1];
@@ -286,38 +310,64 @@ geocoder.on('result', function (event) {
 
     sendToFetch(newLon, newLat);
 
+    console.log(`result: `, event.result.geometry.coordinates)
+
 })
 
 
 // ON USERCLICK, GET LON LAT, SEND TO PREFETCH
+// map.on('click', function (event) {
+//
+//     // console.log(event);
+//
+//     newLon = event.lngLat.lng;
+//     newLat = event.lngLat.lat;
+//     // console.log(`on userclick, newLon newLat: `, newLon, newLat)
+//
+//     sendToFetch(newLon, newLat);
+//
+// })
+
 map.on('click', function (event) {
 
-    // console.log(event);
+// console.log(event);
 
-    newLon = event.lngLat.lng;
-    newLat = event.lngLat.lat;
-    // console.log(`on userclick, newLon newLat: `, newLon, newLat)
+// newMarker = event.lngLat;
 
-    sendToFetch(newLon, newLat);
+    let testLon = event.lngLat.lng;
+    let testLat = event.lngLat.lat;
 
-})
+    console.log(`testLon testLast: `, testLon, testLat)
 
+    testArray = [];
+    testArray.push(testLon, testLat);
+    console.log(`testArray: `, testArray);
 
-// ON USERCLICK, PLACE MARKER, ADD LON LAT OBJECT TO ACTIVEMARKERS[]
-map.on('click', function (event) {
-
-    // console.log(event);
-
-    newMarker = event.lngLat;
-
-    setMarker = new mapboxgl.Marker()
-        .setLngLat(newMarker)
+    let testMarker = new mapboxgl.Marker()
+        .setLngLat(testArray)
         .addTo(map);
 
-    activeMarkers.push(newMarker);
-    // console.log(`activeMarkers[] after push: `, activeMarkers)
+// console.log(`click: `, event.lngLat)
 
+
+// activeMarkers.push(newMarker);
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ON PAGE LOAD
 // map.on('sourcedata', function (event) {

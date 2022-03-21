@@ -21,9 +21,6 @@
     --madison-gray: #2F3E51;
 
 
-
-
-
     --bg-snow-violet: #A5C5E9;
     /*--bg-snow-violet: #A5C5E9;*/
     /*--bg-snow-violet: #A5C5E9;*/
@@ -50,19 +47,13 @@ html {
 /* END GLOBAL */
 
 body {
-    background-color: var(--madison-gray)
-    /*background-image: url("../img/weather_map-bg-body.jpg");*/
-    /*background-image: url("../img/weather_map-bg-body3.jpg");*/
-    /*background-size: cover;*/
+    background-color: var(--tealblue)
 }
 
 .container-main {
-    /*background-color: var(--midnight-green);*/
-    /*background-image: url("../img/weather_map-bg-body.jpg");*/
     background-image: url("../img/weather_map-bg-body3.jpg");
     background-size: cover;
-    margin: 25px 25px;
-    /*border: 1px solid var(--white;*/
+    margin: 10px 10px;
 }
 
 .hidden {
@@ -85,18 +76,18 @@ h2 {
 
 h3 {
     font-size: 1.9rem;
-    border-bottom: solid 2px var(--purple);
+    border-bottom: solid 2px var(--tealblue);
     padding-bottom: 8px;
 }
 
 h4 {
-    font-size: 1.9rem;
+    font-size: 2.5rem;
     margin-top: 10px;
 }
 
 
 h5 {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
 }
 
 h6 {
@@ -129,7 +120,7 @@ h6 {
 
     transition: transform 1.5s;
     transform-style: preserve-3d;
-    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.5);
+    /*box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.5);*/
 }
 
 .card-front,
@@ -149,10 +140,6 @@ h6 {
     transform: rotateY(180deg);
 }
 
-.container-cards::before {
-    /*background-color: var(--midnight-green);*/
-}
-
 .container-cards::after {
     content: "";
     display: inline-block;
@@ -165,16 +152,16 @@ h6 {
     z-index: -1;
     transition: all .4s;
     /*background-color: var(--tealblue);*/
+    /* returnreturn - cannot hide the ::after background on mouseleave and retain explosion effect */
+    /* using border only */
     opacity: .9;
     border: solid 3px var(--tealblue);
     border-radius: 25px;
-    /* returnreturn - cannot hide this on mouseleave and retain explosion effect */
+
 }
 
 .container-cards:hover::after {
     transform: scaleX(1.3) scaleY(1.3);
-
-
     opacity: 0;
 }
 
@@ -247,16 +234,12 @@ h6 {
     margin-bottom: 10px;
 }
 
-/* returnreturn - may not need without a container-main border
-
-
- */
 /*.location-text {*/
 
 /*position: absolute;*/
 /*bottom: 8%;*/
 /*right: 3%;*/
-/*color: var(--purple);*/
+/*color: var(--white);*/
 /*font-size: 1.5rem;*/
 /*background: var(--teal);*/
 /*border: 1px solid var(--white;*/
@@ -268,10 +251,6 @@ h6 {
 
 /* extra small and down - phones */
 
-@media only screen and (max-width: 400px) {
-
-
-}
 
 @media only screen and (max-width: 600px) {
 
@@ -283,11 +262,6 @@ h6 {
         width: 275px;
     }
 
-
-    .card {
-        /*height: 95%;*/
-    }
-
     .card-sml-hidden {
         display: none;
     }
@@ -297,12 +271,12 @@ h6 {
     }
 
     .map-sm-screen-message {
-        display: inline-block;
-        text-align: center;
-        font-size: 1rem;
-        color: var(--green);
-        height: 10px;
-        width: 100px;
+        /*display: inline-block;*/
+        /*text-align: center;*/
+        /*font-size: 1rem;*/
+        /*color: var(--green);*/
+        /*height: 10px;*/
+        /*width: 100px;*/
     }
 }
 

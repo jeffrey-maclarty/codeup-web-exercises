@@ -196,8 +196,7 @@ function getWeatherData(lat, lon) {
 
 
                     // PRECIPITATION CONVERTER
-                    let rainProb = (data.daily[i].pop * 100).toFixed(2);
-                    // toFixed() - data once provided a number far beyond hundredths
+                    let rainProb = (data.daily[i].pop * 100).toFixed(0);
 
 
                     // SIMPLER VARIABLES FOR HTML RENDER

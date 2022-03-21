@@ -85,7 +85,7 @@ h4 {
 
 
 h5 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
 }
 
 h6 {
@@ -101,13 +101,14 @@ h6 {
     align-items: center;
 
     background-color: var(--tealblue);
-    margin: 0;
+    margin-bottom: 20px;
 }
 
 .nav-li {
     list-style: none;
     margin-right: 1.5rem;
     padding: .3rem;
+    font-weight: bold;
 }
 
 .nav-li a {
@@ -268,8 +269,8 @@ h6 {
 /* BEGIN MAP */
 .days-map-spacer {
     display: inline-block;
-    height: 10px;
-    width: 10px;
+    height: 15px;
+    width: 15px;
 }
 
 .map-sm-screen-message {
@@ -317,6 +318,11 @@ h6 {
         margin: 5px;
     }
 
+    .nav-modal {
+    right: 5px;
+    top: 58px;
+}
+
     .container-cards {
         width: 275px;
     }
@@ -326,7 +332,7 @@ h6 {
     }
 
     .days-map-spacer {
-        display: none;
+        /*display: none;*/
     }
 
     .map-sm-screen-message {

@@ -4,24 +4,41 @@
     --white: #FFFFFF;
     --black: #000000;
 
-    --purple: #533E85;
-    --blue: #488FB1;
-    --teal: #4FD3C4;
-    --green: #C1F8CF;
-
+    /* default theme */
     --tealblue: #367588;
-    --midnight-green: #004953;
-    --royal-blue: #002366;
+    --green: #C1F8CF;
     --dark-midnight-blue: #003366;
-    --slate-blue: #6a5acd;
-    --dark-slate-blue: #483d8b;
-    --midnight-blue: #191970;
-    --cello-gray: #3B4E65;
 
-    --madison-gray: #2F3E51;
+    /* neon blue theme */
+    --neon-navy: #0E185F;
+    --neon-light-blue: #2FA4FF;
+    ---neon-green: #00FFDD;
+    --neon-yellow: #E8FFC2;
+
+    /* orangey and green theme */
+    --oag-orange: #BB6464;
+    --oag-light-brown: #CDB699;
+    --oag-greenish: #C3DBD9;
+    --oag-light-green: #C8F2EF;
 
 
-    --bg-snow-violet: #A5C5E9;
+    /*--purple: #533E85;*/
+    /*--blue: #488FB1;*/
+    /*--teal: #4FD3C4;*/
+
+
+    /*--midnight-green: #004953;*/
+    /*--royal-blue: #002366;*/
+
+    /*--slate-blue: #6a5acd;*/
+    /*--dark-slate-blue: #483d8b;*/
+    /*--midnight-blue: #191970;*/
+    /*--cello-gray: #3B4E65;*/
+
+    /*--madison-gray: #2F3E51;*/
+
+
+    /*--bg-snow-violet: #A5C5E9;*/
     /*--bg-snow-violet: #A5C5E9;*/
     /*--bg-snow-violet: #A5C5E9;*/
     /*--bg-snow-violet: #A5C5E9;*/
@@ -89,7 +106,8 @@ h5 {
 }
 
 h6 {
-
+    font-size: 1.2rem;
+    color: black;
 }
 
 
@@ -111,6 +129,9 @@ h6 {
     font-weight: bold;
 }
 
+.button-sml {
+    margin-bottom: 10px;
+}
 .nav-li a {
     text-decoration: none;
     color: black;
@@ -138,10 +159,13 @@ h6 {
     top: 63px;
     z-index: 1;
 
-    opacity: .9;
+
     background-color: var(--tealblue);
-    width: 12rem;
-    height: 6rem;
+    width: 20rem;
+    height: 20rem;
+    color: black;
+    border-left: 3px solid var(--black);
+    border-bottom: 3px solid var(--black);
 }
 
 .nav-modal-close {
@@ -149,6 +173,10 @@ h6 {
     float: right;
     padding-right: 15px;
     margin-top: 5px;
+}
+
+.remove-user-location {
+    float: right;
 }
 
 /* END NAV */
@@ -316,9 +344,9 @@ h6 {
     }
 
     .nav-modal {
-    right: 5px;
-    top: 58px;
-}
+        right: 5px;
+        top: 58px;
+    }
 
     .container-cards {
         width: 275px;

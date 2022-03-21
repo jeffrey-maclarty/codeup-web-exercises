@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">-->
-    <link rel="stylesheet" href="css/weather_map.css">
+    <link rel="stylesheet" id="css" href="css/weather_map.css">
+    <!--    <link rel="stylesheet" href="css/weather_map-neon_blue.css">-->
+    <!--    <link rel="stylesheet" href="css/weather_map.css">-->
+
     <link rel="stylesheet" href="css/style-dev.css">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -25,7 +28,7 @@
 
     <style>
         .mapboxgl-ctrl-geocoder--input {
-            background-color: #488FB1;
+            background-color: #00FFDD;
             border: 2px solid #004953;
         }
     </style>
@@ -55,7 +58,35 @@
                 <div class="nav-modal-close">close 1</div>
             </div>
             <div class="nav-modal-content">
+                <h6>Your Locations (up to 3):</h6>
+                <br>
+                <ul>
+                    <li>
+                        <span id="userloc-1-display">location 1</span><span id="userloc-1-rm">X</span>
+                        <br>
+                        <button id="userloc-1-submit" type="submit" class="button-sml">Go!</button>
+                    </li>
+                    <li>
+                        <span id="user-loc2-display">location 2</span><span id="userloc-2-rm">X</span>
+                        <br>
+                        <button id="userloc-2-submit" type="submit" class="button-sml">Go!</button>
 
+                    </li>
+                    <li>
+                        <span id="userloc-3-display">location 3</span><span id="userloc-3-rm">X</span>
+                        <br>
+                        <button id="userloc-3-submit" type="submit" class="button-sml">Go!</button>
+                    </li>
+
+                </ul>
+
+                <form>
+                    <h6>Add a location:</h6>
+                    <input id="userloc-add-name" type="text" placeholder="Name your currently centered loc">
+                    <br>
+                    <button id="userloc-add-submit" type="submit" class="button-lrg">Submit</button>
+
+                </form>
             </div>
         </div>
         <div id="nav-modal-2-container" class="nav-modal hide">

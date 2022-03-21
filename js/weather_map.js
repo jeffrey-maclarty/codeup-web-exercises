@@ -4,6 +4,8 @@
 let hoverBgWeatherId;
 let hoverBgClass;
 
+let userTheme;
+let userLocs;
 
 let map;
 let geocoder;
@@ -86,7 +88,29 @@ function getWeatherData(lat, lon) {
                 $(".nav-modal-close").click(function () {
                     console.log(`clicked`);
                     $(".nav-modal").addClass("hidden");
-                })
+                }) // END NAV
+
+
+                // function themeChanger() {
+                //     // if (userTheme === 'neon') {
+                //     $("body").css("background-color", "#0E185F");
+                //     $("h1, h3, h4, h5").css("color", "#FFFFFF");
+                //     $("h3").css("border-bottom", "#00FFDD");
+                //     $(".nav-ul").css("background-color", "#0E185F");
+                //     $(".nav-li a").css("color", "#FFFFFF");
+                //     $(".nav-li-logo:hover").css("color", "#FFFFFF");
+                //
+                //     $(".nav-li-link:hover").css("color", "#000000");
+                //     $(".nav-modal").css("background-color", "#0E185F");
+                //     $(".nav-modal").css("color", "#FFFFFF");
+                //
+                //     $(".card-back").css("background-color", "#0E185F");
+                //     $(".card-back").css("border", "solid 3px #00FFDD")
+                //     $(".container-cards::after").css("border", "solid 3px #00FFDD");
+                //     $("#map").css("border", "solid 3px #00FFDD");
+                //
+                //     // }
+                // }
 
 
                 // BEGIN HOVER AND CLASS/IMAGE CHANGE
@@ -337,12 +361,126 @@ map.on('click', function (event) {
 // PREFETCH - RECEIVE, TOFIXED AND FORWARD LON LAT
 function sendToFetch(newLon, newLat) {
 
-    newLon = newLon.toFixed(2);
-    newLat = newLat.toFixed(2);
-
-    getWeatherData(newLon, newLat)
+    // newLon = newLon.toFixed(2);
+    // newLat = newLat.toFixed(2);
+    //
+    // getWeatherData(newLon, newLat)
 
 }
+
+
+
+// USER LOCATIONS AND LOCALSTORAGE PREP
+//
+/*
+
+formatForUserLocs = [
+        {
+            id: 1,
+            name: "Hampton",
+            userlocArray: [longitude, latitude],
+        },
+    ]
+
+let userLocArray;
+- variable to render and manipulate
+
+let userLocStringified
+- variable to send to localStorage
+
+userLocsInLocal
+- localStorage variable
+
+userloc-1-display
+userloc-1-submit
+userloc-1-rm
+
+userloc-add-name
+userloc-add-submit
+
+*/
+
+function navUserLocs() {
+
+    // get from localStorage
+    let userLocsArray = JSON.parse(localStorage.getItem('userLocs')) || [];
+    // console.log(`userLocsArray out of localStorage: `, userLocsArray);
+
+    // send to localStorage
+    let userLocsStringified = JSON.stringify(userLocsArray);
+    localStorage.setItem("userLocsInLocal", userLocsStringified);
+    // console.log(`userLocsInLocal in localStorage: `, userLocsInLocal);
+
+
+}
+
+
+// STYLE SHEET SWITCH PREP
+//
+// CONSIDER SWITCH STYLE SHEETS IN FAVOR OF THIS MESS
+// document.querySelector('#css-default').innerHTML = '<link id="css-ALTERNATE" rel="stylesheet" href="style-ALTERNATE.css">'
+function themeChanger() {
+    if (userTheme === 'coral') {
+        $(".nav-li-link:hover").css("color", "#000000");
+        $(".nav-li a").css("color", "#000000");
+
+        $(".nav-modal").css("color", "#FFFFFF");
+        $("h1, h3, h4, h5").css("color", "#FFFFFF");
+
+        $("body").css("background-color", "coral");
+        $(".nav-ul").css("background-color", "coral");
+        $(".nav-modal").css("background-color", "coral");
+        $(".card-back").css("background-color", "coral");
+        $("h3").css("border-bottom", "coral");
+        $(".card-front, .card-back").css("border", "solid 3px coral")
+        $(".container-cards::after").css("border", "solid 3px coral");
+        $("#map").css("border", "solid 3px coral");
+        $(".mapboxgl-ctrl-geocoder--input").css("background-color", "coral");
+        $(".mapboxgl-ctrl-geocoder--input").css("border", "none");
+    } else if (userTheme === 'gray') {
+        $(".nav-li-link:hover").css("color", "#000000");
+        $(".nav-li a").css("color", "#000000");
+
+        $(".nav-modal").css("color", "#FFFFFF");
+        $("h1, h3, h4, h5").css("color", "#FFFFFF");
+
+        $("body").css("background-color", "darkgray");
+        $(".nav-ul").css("background-color", "darkgray");
+        $(".nav-modal").css("background-color", "darkgray");
+        $(".card-back").css("background-color", "darkgray");
+        $("h3").css("border-bottom", "darkgray");
+        $(".card-front, .card-back").css("border", "solid 3px darkgray")
+        $(".container-cards::after").css("border", "solid 3px darkgray");
+        $("#map").css("border", "solid 3px darkgray");
+        $(".mapboxgl-ctrl-geocoder--input").css("background-color", "darkgray");
+        $(".mapboxgl-ctrl-geocoder--input").css("border", "none");
+    } else {
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // KEEP UNTIL FINISHED

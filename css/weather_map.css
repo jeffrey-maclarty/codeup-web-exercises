@@ -102,8 +102,6 @@ h6 {
 
     background-color: var(--tealblue);
     margin: 0;
-
-
 }
 
 .nav-li {
@@ -116,7 +114,6 @@ h6 {
     text-decoration: none;
     color: black;
 }
-
 
 .nav-li-logo {
     margin-right: auto;
@@ -131,14 +128,6 @@ h6 {
 .nav-li-link:hover {
     background-color: var(--green);
     border-radius: 10px;
-
-}
-
-.nav-modals {
-    /*display: flex;*/
-    /*justify-content: center;*/
-
-    /*background-color: var(--tealblue);*/
 
 }
 

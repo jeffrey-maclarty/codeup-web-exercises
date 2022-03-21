@@ -30,7 +30,7 @@
     /*--bg-snow-violet: #A5C5E9;*/
 }
 
-/* BEGIN GLOBAL */
+
 *,
 *::before,
 *::after {
@@ -43,8 +43,6 @@ html {
     font-family: Lato, sans-serif;
     font-size: 16px;
 }
-
-/* END GLOBAL */
 
 body {
     background-color: var(--tealblue)
@@ -93,6 +91,47 @@ h5 {
 h6 {
 
 }
+
+
+/* BEGIN NAV */
+
+.nav-ul {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    background-color: var(--tealblue);
+    margin: 0;
+
+
+}
+
+.nav-li {
+    list-style: none;
+    margin-right: 1.5rem;
+    padding: .3rem;
+}
+
+.nav-li a {
+    text-decoration: none;
+    color: black;
+}
+
+
+.nav-li-logo {
+    margin-right: auto;
+    margin-left: 1.5rem;
+
+}
+
+.nav-li-link:hover {
+    background-color: var(--green);
+    border-radius: 10px;
+
+}
+
+/* END NAV */
+
 
 /* BEGIN DAYS AND CARDS */
 .container-days {

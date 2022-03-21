@@ -42,6 +42,7 @@ function getWeatherData(lat, lon) {
                 //      - ? theme change
                 //          - change queryselector to jquery or just use jquery to change colors
                 //              * document.querySelector('#css-default').innerHTML = '<link id="css-darkmode" rel="stylesheet" href="style-darkmode.css">'
+                //      - convert all to rem
                 //
                 // render
                 //      - hover / image change is still buggy

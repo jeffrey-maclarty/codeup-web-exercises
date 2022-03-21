@@ -265,29 +265,6 @@ function runMapbox() {
             marker: true,
         })
     );
-
-    // geocoder.on('click', function (event) {
-    //
-    //     console.log(event);
-    //
-    //     // newMarker = event.lngLat;
-    //
-    //     let testLon = event.lngLat[0];
-    //     let testLat = event.lngLat[1];
-    //
-    //     let testArray = testArray.push(testLon, testLat);
-    //     console.log(`testArray: `, testArray);
-    //
-    //     let testMarker = new mapboxgl.Marker()
-    //         .setLngLat(event.lngLat)
-    //         .addTo(map);
-    //
-    //     console.log(`click: `, event.lngLat)
-    //
-    //
-    //
-    //     // activeMarkers.push(newMarker);
-    // })
 }
 
 
@@ -310,23 +287,23 @@ geocoder.on('result', function (event) {
 
     sendToFetch(newLon, newLat);
 
-    console.log(`result: `, event.result.geometry.coordinates)
+    // console.log(`result: `, event.result.geometry.coordinates)
 
 })
 
 
 // ON USERCLICK, GET LON LAT, SEND TO PREFETCH
-// map.on('click', function (event) {
-//
-//     // console.log(event);
-//
-//     newLon = event.lngLat.lng;
-//     newLat = event.lngLat.lat;
-//     // console.log(`on userclick, newLon newLat: `, newLon, newLat)
-//
-//     sendToFetch(newLon, newLat);
-//
-// })
+map.on('click', function (event) {
+
+    // console.log(event);
+
+    newLon = event.lngLat.lng;
+    newLat = event.lngLat.lat;
+    // console.log(`on userclick, newLon newLat: `, newLon, newLat)
+
+    sendToFetch(newLon, newLat);
+
+})
 
 map.on('click', function (event) {
 
@@ -337,11 +314,11 @@ map.on('click', function (event) {
     let testLon = event.lngLat.lng;
     let testLat = event.lngLat.lat;
 
-    console.log(`testLon testLast: `, testLon, testLat)
+    // console.log(`testLon testLast: `, testLon, testLat)
 
     testArray = [];
     testArray.push(testLon, testLat);
-    console.log(`testArray: `, testArray);
+    // console.log(`testArray: `, testArray);
 
     let testMarker = new mapboxgl.Marker()
         .setLngLat(testArray)
@@ -349,25 +326,26 @@ map.on('click', function (event) {
 
 // console.log(`click: `, event.lngLat)
 
+    activeMarkers.push(newMarker);
 
-// activeMarkers.push(newMarker);
 })
 
 
+// END MAPBOX
 
 
+// PREFETCH - RECEIVE, TOFIXED AND FORWARD LON LAT
+function sendToFetch(newLon, newLat) {
+
+    newLon = newLon.toFixed(2);
+    newLat = newLat.toFixed(2);
+
+    getWeatherData(newLon, newLat)
+
+}
 
 
-
-
-
-
-
-
-
-
-
-
+// KEEP UNTIL FINISHED
 
 // ON PAGE LOAD
 // map.on('sourcedata', function (event) {
@@ -392,23 +370,6 @@ map.on('click', function (event) {
 //     newLat = idleLoc.lat;
 //
 // })
-
-
-// END MAPBOX
-
-
-// PREFETCH - RECEIVE, TOFIXED AND FORWARD LON LAT
-function sendToFetch(newLon, newLat) {
-
-    newLon = newLon.toFixed(2);
-    newLat = newLat.toFixed(2);
-
-    getWeatherData(newLon, newLat)
-
-}
-
-
-// KEEP UNTIL FINISHED
 
 // testLoop();
 // function testLoop () {

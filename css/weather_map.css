@@ -284,9 +284,6 @@ h6 {
 }
 
 #map {
-    display: flex;
-    justify-content: center;
-
     opacity: .6;
     border: solid 3px var(--tealblue);
     height: 450px;

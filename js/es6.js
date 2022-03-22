@@ -71,6 +71,8 @@ users.forEach(function(user) {
   return emails.push(user.email);
 });
 
+users.forEach => (user)
+
 
 users.forEach(function(user) {
   return names.push(user.name);
@@ -100,3 +102,22 @@ developers.forEach(function (developer) {
   list += '<li>' + developer + '</li>';
 });
 list += '</ul>';
+
+
+// ARROW FUNCTIONS
+function sum(a, b) {
+  function sum(a: any), b: any)
+  any
+
+  function isPositive(number) {
+  return number >= 0
+  }
+
+  function randomNumber() {
+  return Math.random
+  }
+
+  document.addEventListener('click', function() {
+    console.log('Click')
+  })
+}

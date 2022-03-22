@@ -140,7 +140,8 @@ function getWeatherData(lat, lon) {
                 $(".hover-bg").hover(function () {
                     // console.log(`typeof hoverBgWeatherId`, typeof hoverBgWeatherId)
                     // console.log(`value of hoverBgWeatherId`, hoverBgWeatherId)
-
+                    $(this).removeClass("hover-bg-clouds hover-bg-clear hover-bg-warning hover-bg-snow hover-bg-rain hover-bg-thunderstorm hover-bg-kittens");
+                    // $(this).next().removeClass("hover-bg-clouds hover-bg-clear hover-bg-warning hover-bg-snow hover-bg-rain hover-bg-thunderstorm hover-bg-kittens");
 
                     // DETERMINE WEATHER FOR HOVERED ELEMENT
                     if ($(this).hasClass("hover-bg-1")) {

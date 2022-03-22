@@ -166,7 +166,7 @@ function getWeatherData(lat, lon) {
                         case hoverBgWeatherId === 800:
                             hoverBgClass = "hover-bg-clear";
                             break;
-                        case hoverBgWeatherId >= 701 && choverBgWeatherId <= 781:
+                        case hoverBgWeatherId >= 701 && hoverBgWeatherId <= 781:
                             hoverBgClass = "hover-bg-warning";
                             break;
                         case hoverBgWeatherId >= 600 && hoverBgWeatherId <= 622:

@@ -329,8 +329,10 @@ li {
     }
 
     .nav-modal {
-        right: 5px;
-        top: 58px;
+        /*right: 5px;*/
+        /*top: 58px;*/
+        right: 3rem;
+        top: 3.6rem;
     }
 
     .container-cards {

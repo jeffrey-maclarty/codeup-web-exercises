@@ -1,5 +1,19 @@
 "use strict";
 
+/*
+ToDo
+
+1 - fix card background images
+2 - finish basic userLocs
+3 - finish nav modals
+
+4 - find missing mapbox functions in old commits
+5 - finish theme properties
+6 - userLocs error checking and limits
+
+ */
+
+
 // VARIABLES AND DEFAULTS
 let hoverBgWeatherId;
 let hoverBgClass;
@@ -29,7 +43,6 @@ $(document).ready(function () {
     navModals();
     // userLocs();
 });
-
 
 
 function mapBoxFunctions() {
@@ -122,8 +135,6 @@ function getWeatherData(lat, lon) {
         .then(response => response.json())
         .then(data => {
 
-                // console.log(`typeof hoverBgWeatherId`, typeof hoverBgWeatherId)
-                // console.log(`value of hoverBgWeatherId`, hoverBgWeatherId)
 
                 // BEGIN HOVER AND CLASS/IMAGE CHANGE
                 $(".hover-bg").hover(function () {
@@ -283,6 +294,7 @@ function runMapbox() {
     );
 }
 
+
 function mapBoxResult() {
 // ON SEARCH RENDER, GET LON LAT, ADD LON LAT OBJECT TO ACTIVEMARKERS[], SEND TO PREFETCH
     geocoder.on('result', function (event) {
@@ -303,6 +315,7 @@ function mapBoxResult() {
     })
 }
 
+
 function mapBoxClick1() {
 // ON USERCLICK, GET LON LAT, SEND TO PREFETCH
     map.on('click', function (event) {
@@ -315,6 +328,7 @@ function mapBoxClick1() {
 
     })
 }
+
 
 function mapBoxClick2() {
     map.on('click', function (event) {

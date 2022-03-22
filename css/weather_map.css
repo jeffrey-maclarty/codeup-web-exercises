@@ -110,13 +110,14 @@ li {
 }
 
 .nav-li-logo:hover {
-    outline: .2rem solid var(--tealblue); /* returnreturn - work on this */
+    outline: .2rem solid var(--black); /* returnreturn - work on this */
     border-radius: 2rem;
 }
 
 .nav-li-link:hover, .nav-li-link.hover-effect {
-    background-color: var(--green);
+    /*background-color: var(--green);*/
     border-radius: .6rem;
+    outline: .2rem solid var(--black);
 
 }
 

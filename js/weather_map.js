@@ -140,6 +140,7 @@ function getWeatherData(lat, lon) {
                 $(".hover-bg").hover(function () {
 
                     $(this).removeClass("hover-bg-clouds hover-bg-clear hover-bg-warning hover-bg-snow hover-bg-rain hover-bg-thunderstorm hover-bg-kittens");
+                    $(this).next().removeClass("hover-bg-clouds hover-bg-clear hover-bg-warning hover-bg-snow hover-bg-rain hover-bg-thunderstorm hover-bg-kittens");
 
 
                     // console.log(`typeof hoverBgWeatherId`, typeof hoverBgWeatherId)
@@ -199,8 +200,7 @@ function getWeatherData(lat, lon) {
                 }, function () {
                     $(this).removeClass("hover-bg-clouds hover-bg-clear hover-bg-warning hover-bg-snow hover-bg-rain hover-bg-thunderstorm hover-bg-kittens");
                     $(this).next().removeClass("hover-bg-clouds hover-bg-clear hover-bg-warning hover-bg-snow hover-bg-rain hover-bg-thunderstorm hover-bg-kittens");
-                    // removing only the recently added class wasn't working all the time
-                    // couldn't determine reason
+
 
                 }) // END HOVER AND CLASS/IMAGE CHANGE
 

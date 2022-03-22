@@ -6,7 +6,7 @@
 
     <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">-->
     <link rel="stylesheet" id="css" href="css/weather_map.css">
-<!--    <link rel="stylesheet" href="css/weather_map-light.css">-->
+    <!--    <link rel="stylesheet" href="css/weather_map-light.css">-->
     <!--    <link rel="stylesheet" href="css/weather_map.css">-->
 
     <link rel="stylesheet" href="css/style-dev.css">
@@ -42,9 +42,10 @@
 <!-- BEGIN CONTAINER MAIN -->
 <div class="container-main">
 
-    <div>
+    <div class="nav">
         <ul class="nav-ul">
-            <li class="nav-li nav-li-logo"><a href="https://www.codeup.com"><img src="img/codeup-chevron-w-duck.png"
+            <li class="nav-li nav-li-logo"><a href="https://www.codeup.com"><img id="duck"
+                                                                                 src="img/codeup-chevron-w-duck-teal-blue.png"
                                                                                  alt="" height="40"></a></li>
             <li id="nav-modal-1-link" class="nav-li nav-li-link"><a href="#">Locations</a></li>
             <li id="nav-modal-2-link" class="nav-li nav-li-link"><a href="#">Themes</a></li>
@@ -62,18 +63,21 @@
                 <br>
                 <ul>
                     <li>
-                        <span id="userloc-1-display">location 1</span><span id="userloc-1-rm" class="userloc-rm">X</span>
+                        <span id="userloc-1-display">location 1</span><span id="userloc-1-rm"
+                                                                            class="userloc-rm">X</span>
                         <br>
                         <button id="userloc-1-submit" type="submit" class="button-sml">Go!</button>
                     </li>
                     <li>
-                        <span id="user-loc2-display">location 2</span><span id="userloc-2-rm" class="userloc-rm">X</span>
+                        <span id="user-loc2-display">location 2</span><span id="userloc-2-rm"
+                                                                            class="userloc-rm">X</span>
                         <br>
                         <button id="userloc-2-submit" type="submit" class="button-sml">Go!</button>
 
                     </li>
                     <li>
-                        <span id="userloc-3-display">location 3</span><span id="userloc-3-rm" class="userloc-rm">X</span>
+                        <span id="userloc-3-display">location 3</span><span id="userloc-3-rm"
+                                                                            class="userloc-rm">X</span>
                         <br>
                         <button id="userloc-3-submit" type="submit" class="button-sml">Go!</button>
                     </li>
@@ -95,7 +99,11 @@
                 <div class="nav-modal-close">close 2</div>
             </div>
             <div class="nav-modal-content">
-
+                <ul id="themes">
+                    <li id="theme-default">Default</li>
+                    <li id="theme-coral">Coral</li>
+                    <li id="theme-neon-green">Neon Green</li>
+                </ul>
             </div>
         </div>
         <div id="nav-modal-3-container" class="nav-modal hide">

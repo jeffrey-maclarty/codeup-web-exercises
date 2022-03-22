@@ -3,7 +3,6 @@
 // VARIABLES AND DEFAULTS
 let hoverBgWeatherId;
 let hoverBgClass;
-
 let userTheme;
 let userLocs;
 
@@ -14,15 +13,106 @@ let newLat;
 let newMarker;
 let setMarker;
 let activeMarkers = [];
-mapboxgl.accessToken = MAPBOX_KEY;
 
-let testArray = [];
+mapboxgl.accessToken = MAPBOX_KEY;
 
 let tempLon = -70.83;
 let tempLat = 42.93;
 
 
-getWeatherData(tempLon, tempLat)
+$(document).ready(function () {
+    getWeatherData(tempLon, tempLat);
+    runMapbox();
+    mapBoxFunctions();
+    themeChangerCheck();
+    themeChanger()
+    navModals();
+    // userLocs();
+});
+
+
+
+function mapBoxFunctions() {
+    mapBoxResult();
+    mapBoxClick1();
+    mapBoxClick2()
+}
+
+
+// BEGIN NAVMODALS
+function navModals() {
+    $(".nav-modal").addClass("hidden");
+
+    $("#nav-modal-1-link").click(function () {
+        console.log(`clicked`);
+        $("#nav-modal-1-container").removeClass("hidden");
+        $("#nav-modal-2-container").addClass("hidden");
+        $("#nav-modal-3-container").addClass("hidden");
+
+    })
+    $("#nav-modal-2-link").click(function () {
+        console.log(`clicked`);
+        $("#nav-modal-2-container").removeClass("hidden");
+        $("#nav-modal-1-container").addClass("hidden");
+        $("#nav-modal-3-container").addClass("hidden");
+    })
+    $("#nav-modal-3-link").click(function () {
+        console.log(`clicked`);
+        $("#nav-modal-3-container").removeClass("hidden");
+        $("#nav-modal-1-container").addClass("hidden");
+        $("#nav-modal-2-container").addClass("hidden");
+    })
+
+    $(".nav-modal-close").click(function () {
+        console.log(`clicked`);
+        $(".nav-modal").addClass("hidden");
+    })
+} // END NAVMODALS
+
+
+// BEGIN USER THEMES
+function themeChangerCheck() {
+    let checkThemeExists = localStorage.getItem("loc-stor-user-theme");
+
+    if (checkThemeExists) {
+        userTheme = localStorage.getItem("loc-stor-user-theme");
+    } else {
+        userTheme = "default";
+    }
+    themeChangerSet();
+}
+
+
+function themeChangerSet() {
+    $("#theme-default").click(function () {
+        userTheme = "default";
+        localStorage.setItem("loc-stor-user-theme", "default");
+        themeChanger();
+    })
+    $("#theme-coral").click(function () {
+        userTheme = "coral";
+        localStorage.setItem("loc-stor-user-theme", "coral");
+        themeChanger();
+    })
+    $("#theme-neon-green").click(function () {
+        userTheme = "neon-green";
+        localStorage.setItem("loc-stor-user-theme", "neon-green");
+        themeChanger();
+    })
+}
+
+function themeChanger() {
+    if (userTheme === 'coral') {
+        $(".nav-ul").css("background-color", "#BB6464");
+        $("#duck").attr("src", "img/codeup-chevron-w-duck-coral.png")
+    } else if (userTheme === 'neon-green') {
+        $(".nav-ul").css("background-color", "#00FFDD");
+        $("#duck").attr("src", "img/codeup-chevron-w-duck-neon-green.png")
+    } else {
+        $(".nav-ul").css("background-color", "#367588");
+        $("#duck").attr("src", "img/codeup-chevron-w-duck-teal-blue.png")
+    }
+} // END USERTHEMES
 
 
 // BEGIN FETCH AND RENDER HTML
@@ -32,84 +122,11 @@ function getWeatherData(lat, lon) {
         .then(response => response.json())
         .then(data => {
 
-
-
-                // mapbox
-                //      - remove old pins
-                //
-                // css
-                //      - text color contrast for background images
-                //          - https://coolors.co/contrast-checker/ffffff-62788d
-                //      - convert all to rem
-                //
-                // render
-                //      - hover / image change is still buggy
-                //
-
-
                 // console.log(`typeof hoverBgWeatherId`, typeof hoverBgWeatherId)
                 // console.log(`value of hoverBgWeatherId`, hoverBgWeatherId)
 
-
-                // BEGIN NAV
-                // this hidden allows modals to display on page load
-                // using class in html
-                $(document).ready(function () {
-                    $(".nav-modal").addClass("hidden");
-                })
-
-                $("#nav-modal-1-link").click(function () {
-                    console.log(`clicked`);
-                    $("#nav-modal-1-container").removeClass("hidden");
-                    $("#nav-modal-2-container").addClass("hidden");
-                    $("#nav-modal-3-container").addClass("hidden");
-
-                })
-                $("#nav-modal-2-link").click(function () {
-                    console.log(`clicked`);
-                    $("#nav-modal-2-container").removeClass("hidden");
-                    $("#nav-modal-1-container").addClass("hidden");
-                    $("#nav-modal-3-container").addClass("hidden");
-                })
-                $("#nav-modal-3-link").click(function () {
-                    console.log(`clicked`);
-                    $("#nav-modal-3-container").removeClass("hidden");
-                    $("#nav-modal-1-container").addClass("hidden");
-                    $("#nav-modal-2-container").addClass("hidden");
-                })
-
-                $(".nav-modal-close").click(function () {
-                    console.log(`clicked`);
-                    $(".nav-modal").addClass("hidden");
-                }) // END NAV
-
-
-                // function themeChanger() {
-                //     // if (userTheme === 'neon') {
-                //     $("body").css("background-color", "#0E185F");
-                //     $("h1, h3, h4, h5").css("color", "#FFFFFF");
-                //     $("h3").css("border-bottom", "#00FFDD");
-                //     $(".nav-ul").css("background-color", "#0E185F");
-                //     $(".nav-li a").css("color", "#FFFFFF");
-                //     $(".nav-li-logo:hover").css("color", "#FFFFFF");
-                //
-                //     $(".nav-li-link:hover").css("color", "#000000");
-                //     $(".nav-modal").css("background-color", "#0E185F");
-                //     $(".nav-modal").css("color", "#FFFFFF");
-                //
-                //     $(".card-back").css("background-color", "#0E185F");
-                //     $(".card-back").css("border", "solid 3px #00FFDD")
-                //     $(".container-cards::after").css("border", "solid 3px #00FFDD");
-                //     $("#map").css("border", "solid 3px #00FFDD");
-                //
-                //     // }
-                // }
-
-
                 // BEGIN HOVER AND CLASS/IMAGE CHANGE
                 $(".hover-bg").hover(function () {
-
-
                     // console.log(`typeof hoverBgWeatherId`, typeof hoverBgWeatherId)
                     // console.log(`value of hoverBgWeatherId`, hoverBgWeatherId)
 
@@ -126,8 +143,6 @@ function getWeatherData(lat, lon) {
                     } else if ($(this).hasClass("hover-bg-5")) {
                         hoverBgWeatherId = data.daily[5].weather[0].id;
                     }
-
-
                     // console.log(`typeof hoverBgWeatherId`, typeof hoverBgWeatherId)
                     // console.log(`value of hoverBgWeatherId`, hoverBgWeatherId)
 
@@ -159,7 +174,6 @@ function getWeatherData(lat, lon) {
                             hoverBgClass = "hover-bg-kittens";
                             break;
                     }
-
                     // console.log(`typeof hoverBgWeatherId`, typeof hoverBgWeatherId)
                     // console.log(`value of hoverBgWeatherId`, hoverBgWeatherId)
 
@@ -173,16 +187,7 @@ function getWeatherData(lat, lon) {
                     // removing only the recently added class wasn't working all the time
                     // couldn't determine reason
 
-
-                    // END HOVER AND CLASS/IMAGE CHANGE
-                })
-
-                // $(".container-cards").mouseleave(function () {
-                //     console.log(`container-cards mouseleave`)
-                //     $(".container-cards::after").css("border", "10px solid white")
-                // $(".container-cards").css("background-color", "rgba(0, 0, 255, 0)") // hides card background
-                // $(".container-cards::after").css("background-color", "rgba(0, 0, 255, 0)")
-                // })
+                }) // END HOVER AND CLASS/IMAGE CHANGE
 
 
                 // SMALL SCREEN CARD FUNCTIONALITY
@@ -250,8 +255,7 @@ function getWeatherData(lat, lon) {
                     `)
 
 
-                    // END OF RENDERING LOOP
-                }
+                } // END OF RENDERING LOOP
 
             }
         )
@@ -259,11 +263,6 @@ function getWeatherData(lat, lon) {
 
 
 // BEGIN MAPBOX
-
-
-runMapbox();
-
-
 // INITIALIZE MAP
 function runMapbox() {
 
@@ -284,71 +283,56 @@ function runMapbox() {
     );
 }
 
-
+function mapBoxResult() {
 // ON SEARCH RENDER, GET LON LAT, ADD LON LAT OBJECT TO ACTIVEMARKERS[], SEND TO PREFETCH
-geocoder.on('result', function (event) {
+    geocoder.on('result', function (event) {
 
-    // console.log(`on result: working: `, event)
+        newLon = event.result.geometry.coordinates[0];
+        newLat = event.result.geometry.coordinates[1];
 
-    newLon = event.result.geometry.coordinates[0];
-    newLat = event.result.geometry.coordinates[1];
-    // console.log(`on result - newLon newLat`, newLon, newLat)
+        newMarker = event.result.geometry.coordinates;
 
-    newMarker = event.result.geometry.coordinates;
+        setMarker = new mapboxgl.Marker()
+            .setLngLat(newMarker)
+            .addTo(map);
 
-    setMarker = new mapboxgl.Marker()
-        .setLngLat(newMarker)
-        .addTo(map);
+        activeMarkers.push(newMarker);
 
-    activeMarkers.push(newMarker);
+        sendToFetch(newLon, newLat);
 
-    sendToFetch(newLon, newLat);
+    })
+}
 
-    // console.log(`result: `, event.result.geometry.coordinates)
-
-})
-
-
+function mapBoxClick1() {
 // ON USERCLICK, GET LON LAT, SEND TO PREFETCH
-map.on('click', function (event) {
+    map.on('click', function (event) {
 
-    // console.log(event);
+        newLon = event.lngLat.lng;
+        newLat = event.lngLat.lat;
+        // console.log(`on userclick, newLon newLat: `, newLon, newLat)
 
-    newLon = event.lngLat.lng;
-    newLat = event.lngLat.lat;
-    // console.log(`on userclick, newLon newLat: `, newLon, newLat)
+        sendToFetch(newLon, newLat);
 
-    sendToFetch(newLon, newLat);
+    })
+}
 
-})
+function mapBoxClick2() {
+    map.on('click', function (event) {
 
-map.on('click', function (event) {
+        let testLon = event.lngLat.lng;
+        let testLat = event.lngLat.lat;
 
-// console.log(event);
+        let testArray = [];
+        testArray.push(testLon, testLat);
 
-// newMarker = event.lngLat;
+        let testMarker = new mapboxgl.Marker()
+            .setLngLat(testArray)
+            .addTo(map);
 
-    let testLon = event.lngLat.lng;
-    let testLat = event.lngLat.lat;
+        activeMarkers.push(newMarker);
 
-    // console.log(`testLon testLast: `, testLon, testLat)
-
-    testArray = [];
-    testArray.push(testLon, testLat);
-    // console.log(`testArray: `, testArray);
-
-    let testMarker = new mapboxgl.Marker()
-        .setLngLat(testArray)
-        .addTo(map);
-
-// console.log(`click: `, event.lngLat)
-
-    activeMarkers.push(newMarker);
-
-})
-
-
-// END MAPBOX
+    })
+} // END MAPBOX
 
 
 // PREFETCH - RECEIVE, TOFIXED AND FORWARD LON LAT
@@ -360,7 +344,6 @@ function sendToFetch(newLon, newLat) {
     getWeatherData(newLon, newLat)
 
 }
-
 
 
 // USER LOCATIONS AND LOCALSTORAGE PREP
@@ -393,7 +376,7 @@ userloc-add-submit
 
 */
 
-function navUserLocs() {
+function UserLocs() {
 
     // get from localStorage
     let userLocsArray = JSON.parse(localStorage.getItem('userLocs')) || [];
@@ -406,33 +389,6 @@ function navUserLocs() {
 
 
 }
-
-
-// STYLE SHEET SWITCH PREP
-//
-// ADD SUPPLEMENT STYLE SHEET WITH REQUIRED COLOR CHANGE _AFTER_ THE DEFAULT CSS FILE
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // KEEP UNTIL FINISHED

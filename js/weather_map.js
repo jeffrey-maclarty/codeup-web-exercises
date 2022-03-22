@@ -117,13 +117,13 @@ function themeChangerSet() {
 function themeChanger() {
     if (userTheme === 'coral') {
         $(".nav-ul").css("background-color", "#BB6464");
-        $("#duck").attr("src", "img/codeup-chevron-w-duck-coral.png")
+        // $("#duck").attr("src", "img/codeup-chevron-w-duck-transparent.png")
     } else if (userTheme === 'neon-green') {
         $(".nav-ul").css("background-color", "#00FFDD");
-        $("#duck").attr("src", "img/codeup-chevron-w-duck-neon-green.png")
+        // $("#duck").attr("src", "img/codeup-chevron-w-duck-transparent.png")
     } else {
         $(".nav-ul").css("background-color", "#367588");
-        $("#duck").attr("src", "img/codeup-chevron-w-duck-teal-blue.png")
+        // $("#duck").attr("src", "img/codeup-chevron-w-duck-transparent.png")
     }
 } // END USERTHEMES
 

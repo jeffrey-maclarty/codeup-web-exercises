@@ -138,6 +138,10 @@ function getWeatherData(lat, lon) {
 
                 // BEGIN HOVER AND CLASS/IMAGE CHANGE
                 $(".hover-bg").hover(function () {
+
+                    $(this).removeClass("hover-bg-clouds hover-bg-clear hover-bg-warning hover-bg-snow hover-bg-rain hover-bg-thunderstorm hover-bg-kittens");
+
+
                     // console.log(`typeof hoverBgWeatherId`, typeof hoverBgWeatherId)
                     // console.log(`value of hoverBgWeatherId`, hoverBgWeatherId)
 

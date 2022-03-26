@@ -1,5 +1,6 @@
 /.idea/
 *.iml
-DStore
 secret.txt
-js/keys.js
+secrets.txt
+js/keys
+js/keys.txt
